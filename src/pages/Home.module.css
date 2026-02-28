@@ -1,0 +1,89 @@
+.home {
+  width: 100%;
+}
+
+.viewAll {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.infoCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.infoCard h3 {
+  font-size: 1.25rem;
+  color: #1b6b4f;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.infoCard p {
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cta {
+  text-align: center;
+  padding: 64px 0;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  color: #1b6b4f;
+  margin-bottom: 16px;
+}
+
+.cta p {
+  font-size: 1.25rem;
+  color: #666666;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .viewAll {
+    margin-top: 32px;
+  }
+
+  .infoCard {
+    padding: 24px;
+  }
+
+  .icon {
+    font-size: 2.5rem;
+  }
+
+  .infoCard h3 {
+    font-size: 1.1rem;
+  }
+
+  .cta {
+    padding: 48px 0;
+  }
+
+  .cta h2 {
+    font-size: 2rem;
+  }
+
+  .cta p {
+    font-size: 1.1rem;
+  }
+}

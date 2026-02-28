@@ -74,7 +74,7 @@ npm run build
 
 The following environment variables are pre-configured in `.env`:
 - `VITE_SUPABASE_URL`: Supabase project URL
-- `VITE_SUPABASE_ANON_KEY` (or `VITE_SUPABASE_SUPABASE_ANON_KEY`): Supabase anonymous key
+- `VITE_SUPABASE_SUPABASE_ANON_KEY`: Supabase anonymous key
 
 ## Color Scheme
 

@@ -1,0 +1,210 @@
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import Hero from '../components/sections/Hero'
+import DestinationCard from '../components/common/DestinationCard'
+import PackageCard from '../components/common/PackageCard'
+import ActivityCard from '../components/common/ActivityCard'
+import TestimonialCard from '../components/common/TestimonialCard'
+import { destinationService } from '../services/destinationService'
+import { packageService } from '../services/packageService'
+import { testimonialService } from '../services/testimonialService'
+import styles from './Home.module.css'
+
+const Home = () => {
+  const [destinations, setDestinations] = useState([])
+  const [packages, setPackages] = useState([])
+  const [testimonials, setTestimonials] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [destData, pkgData, testData] = await Promise.all([
+          destinationService.getFeatured(),
+          packageService.getFeatured(),
+          testimonialService.getFeatured()
+        ])
+        setDestinations(destData || [])
+        setPackages(pkgData || [])
+        setTestimonials(testData || [])
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  const activities = [
+    {
+      title: 'Wildlife Safaris',
+      description: 'Experience thrilling encounters with elephants, leopards, and exotic birds',
+      image: 'https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      title: 'Beach Holidays',
+      description: 'Relax on pristine beaches with crystal clear waters and golden sands',
+      image: 'https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      title: 'Cultural Tours',
+      description: 'Explore ancient temples, UNESCO sites, and rich Sri Lankan heritage',
+      image: 'https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      title: 'Adventure Sports',
+      description: 'Trek mountains, surf waves, and discover thrilling outdoor activities',
+      image: 'https://images.pexels.com/photos/163185/old-plane-aircraft-airplane-biplane-163185.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      title: 'Wellness Retreats',
+      description: 'Rejuvenate with Ayurveda treatments and yoga in peaceful settings',
+      image: 'https://images.pexels.com/photos/3822621/pexels-photo-3822621.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      title: 'Surfing',
+      description: 'Ride world-class waves at famous surf spots along the coast',
+      image: 'https://images.pexels.com/photos/390051/surfer-wave-sunset-the-indian-ocean-390051.jpeg?auto=compress&cs=tinysrgb&w=800'
+    }
+  ]
+
+  const travelInfo = [
+    {
+      title: 'Visa Information',
+      description: 'Easy online ETA application. Most nationalities can get visa on arrival.',
+      icon: '📋'
+    },
+    {
+      title: 'Currency',
+      description: 'Sri Lankan Rupee (LKR). USD and major currencies widely accepted.',
+      icon: '💰'
+    },
+    {
+      title: 'Best Time to Visit',
+      description: 'Year-round destination. December to March ideal for beaches.',
+      icon: '🌞'
+    },
+    {
+      title: 'Transport',
+      description: 'Tuk-tuks, trains, and private transfers available throughout.',
+      icon: '🚗'
+    }
+  ]
+
+  return (
+    <div className={styles.home}>
+      <Hero />
+
+      {destinations.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <h2 className="section-title">Featured Destinations</h2>
+            <p className="section-subtitle">
+              Explore the most breathtaking locations across Sri Lanka
+            </p>
+            <div className="grid grid-3">
+              {destinations.slice(0, 6).map((destination) => (
+                <DestinationCard key={destination.id} destination={destination} />
+              ))}
+            </div>
+            <div className={styles.viewAll}>
+              <Link to="/destinations" className="btn btn-secondary">
+                View All Destinations
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="section section-alt">
+        <div className="container">
+          <h2 className="section-title">Popular Activities</h2>
+          <p className="section-subtitle">
+            Discover exciting adventures and experiences waiting for you
+          </p>
+          <div className="grid grid-3">
+            {activities.map((activity, index) => (
+              <ActivityCard key={index} activity={activity} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {packages.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <h2 className="section-title">Featured Tour Packages</h2>
+            <p className="section-subtitle">
+              Handpicked tours designed to give you the best of Sri Lanka
+            </p>
+            <div className="grid grid-3">
+              {packages.slice(0, 3).map((pkg) => (
+                <PackageCard key={pkg.id} package={pkg} />
+              ))}
+            </div>
+            <div className={styles.viewAll}>
+              <Link to="/packages" className="btn btn-secondary">
+                View All Packages
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="section section-alt">
+        <div className="container">
+          <h2 className="section-title">Travel Information</h2>
+          <p className="section-subtitle">
+            Everything you need to know before visiting Sri Lanka
+          </p>
+          <div className="grid grid-4">
+            {travelInfo.map((info, index) => (
+              <div key={index} className={styles.infoCard}>
+                <div className={styles.icon}>{info.icon}</div>
+                <h3>{info.title}</h3>
+                <p>{info.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className={styles.viewAll}>
+            <Link to="/travel-guide" className="btn btn-outline">
+              Complete Travel Guide
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {testimonials.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <h2 className="section-title">What Our Travelers Say</h2>
+            <p className="section-subtitle">
+              Real experiences from people who explored Sri Lanka with us
+            </p>
+            <div className="grid grid-3">
+              {testimonials.slice(0, 3).map((testimonial) => (
+                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="section section-alt">
+        <div className="container">
+          <div className={styles.cta}>
+            <h2>Ready to Start Your Adventure?</h2>
+            <p>Contact us today to plan your perfect Sri Lankan vacation</p>
+            <Link to="/contact" className="btn btn-primary">
+              Get in Touch
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default Home
