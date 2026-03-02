@@ -27,9 +27,21 @@
 
 .logo {
   display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logoImage {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoContent {
+  display: flex;
   flex-direction: column;
   gap: 2px;
-  text-decoration: none;
 }
 
 .logoText {
@@ -127,8 +139,12 @@
     height: 70px;
   }
 
+  .logoImage {
+    height: 40px;
+  }
+
   .logoText {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 
   .logoTagline {

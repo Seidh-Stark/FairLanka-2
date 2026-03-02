@@ -31,8 +31,11 @@ const Header = () => {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <Link to="/" className={styles.logo} onClick={closeMobileMenu}>
-          <span className={styles.logoText}>FAIR LANKA</span>
-          <span className={styles.logoTagline}>We Make Vacations Magical</span>
+          <img src="/logo2.png" alt="Fair Lanka Logo" className={styles.logoImage} />
+          <div className={styles.logoContent}>
+            <span className={styles.logoText}>FAIR LANKA TRAVELS</span>
+            <span className={styles.logoTagline}>We Make Vacations Magical</span>
+          </div>
         </Link>
 
         <nav className={`${styles.nav} ${mobileMenuOpen ? styles.navOpen : ''}`}>
