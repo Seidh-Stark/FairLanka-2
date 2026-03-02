@@ -4,7 +4,7 @@
 
 .hero {
   background-image: linear-gradient(rgba(27, 107, 79, 0.7), rgba(27, 107, 79, 0.7)),
-    url('https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920');
+    url('https://images.pexels.com/photos/261681/pexels-photo-261681.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
   background-size: cover;
   background-position: center;
   padding: 120px 24px 80px;
@@ -26,17 +26,31 @@
 .blogCard {
   display: block;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
   text-decoration: none;
   color: inherit;
+  animation: fadeInUp 0.6s ease-out;
+  border: 1px solid rgba(27, 107, 79, 0.05);
 }
 
 .blogCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(27, 107, 79, 0.15), 0 4px 12px rgba(141, 198, 63, 0.1);
+  border-color: rgba(141, 198, 63, 0.3);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .imageWrapper {
@@ -49,11 +63,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  filter: brightness(0.95);
 }
 
 .blogCard:hover .imageWrapper img {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(2deg);
+  filter: brightness(1.1);
 }
 
 .content {
@@ -77,8 +93,13 @@
   font-size: 1.35rem;
   color: #1b6b4f;
   margin-bottom: 12px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.3;
+  transition: color 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.blogCard:hover .content h3 {
+  color: #8dc63f;
 }
 
 .content p {
@@ -94,9 +115,25 @@
 
 .readMore {
   color: #1b6b4f;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.readMore::after {
+  content: '→';
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.blogCard:hover .readMore {
+  color: #8dc63f;
+}
+
+.blogCard:hover .readMore::after {
+  transform: translateX(4px);
 }
 
 .blogCard:hover .readMore {

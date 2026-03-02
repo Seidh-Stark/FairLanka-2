@@ -4,7 +4,7 @@
 
 .hero {
   background-image: linear-gradient(rgba(27, 107, 79, 0.7), rgba(27, 107, 79, 0.7)),
-    url('https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920');
+    url('https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
   background-size: cover;
   background-position: center;
   padding: 120px 24px 80px;
@@ -34,24 +34,28 @@
 .filterBtn {
   padding: 12px 32px;
   border: 2px solid #1b6b4f;
-  background: transparent;
+  background: rgba(27, 107, 79, 0.05);
   color: #1b6b4f;
   font-size: 1rem;
-  font-weight: 500;
-  border-radius: 8px;
+  font-weight: 600;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  backdrop-filter: blur(4px);
 }
 
 .filterBtn:hover {
-  background: #1b6b4f;
-  color: #ffffff;
+  background: rgba(27, 107, 79, 0.1);
+  color: #1b6b4f;
+  border-color: #8dc63f;
+  transform: translateY(-3px);
 }
 
 .filterBtn.active {
-  background: #8dc63f;
+  background: linear-gradient(135deg, #8dc63f 0%, #73a933 100%);
   border-color: #8dc63f;
   color: #ffffff;
+  box-shadow: 0 6px 20px rgba(141, 198, 63, 0.3);
 }
 
 .loading,

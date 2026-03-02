@@ -1,0 +1,115 @@
+.infoCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  border: 1px solid rgba(27, 107, 79, 0.05);
+}
+
+.infoCard:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 32px rgba(27, 107, 79, 0.15);
+  border-color: rgba(141, 198, 63, 0.2);
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #1b6b4f 0%, #0d4a38 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(27, 107, 79, 0.2);
+}
+
+.icon svg {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.infoCard:hover .icon {
+  background: linear-gradient(135deg, #8dc63f 0%, #73a933 100%);
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(141, 198, 63, 0.3);
+}
+
+.infoCard:hover .icon svg {
+  transform: scale(1.2);
+}
+
+.infoCard h3 {
+  font-size: 1.25rem;
+  color: #1b6b4f;
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.infoCard p {
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.infoCard:hover p {
+  color: #555555;
+}
+
+@media (max-width: 768px) {
+  .infoCard {
+    padding: 24px 16px;
+  }
+
+  .icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .infoCard h3 {
+    font-size: 1.1rem;
+  }
+
+  .infoCard p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoCard {
+    padding: 20px 12px;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .infoCard h3 {
+    font-size: 1rem;
+  }
+}

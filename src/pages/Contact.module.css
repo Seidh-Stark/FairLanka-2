@@ -4,7 +4,7 @@
 
 .hero {
   background-image: linear-gradient(rgba(27, 107, 79, 0.7), rgba(27, 107, 79, 0.7)),
-    url('https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920');
+    url('https://images.pexels.com/photos/995649/pexels-photo-995649.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
   background-size: cover;
   background-position: center;
   padding: 120px 24px 80px;
@@ -32,7 +32,10 @@
 
 .info h2 {
   font-size: 2.5rem;
-  color: #1b6b4f;
+  background: linear-gradient(135deg, #1b6b4f 0%, #8dc63f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 16px;
 }
 
@@ -63,16 +66,48 @@
 }
 
 .formWrapper {
-  background: #f5f0e8;
-  border-radius: 12px;
+  background: rgba(141, 198, 63, 0.05);
+  border-radius: 20px;
   padding: 48px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(27, 107, 79, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(141, 198, 63, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.formWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(141, 198, 63, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form h2 {
   font-size: 2rem;
-  color: #1b6b4f;
+  background: linear-gradient(135deg, #1b6b4f 0%, #8dc63f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
 }
 
 .formGroup {

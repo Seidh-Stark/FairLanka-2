@@ -3,7 +3,12 @@ import styles from './About.module.css'
 const TravelGuide = () => {
   return (
     <div className={styles.page}>
-      <div className={styles.hero}>
+      <div
+        className={styles.hero}
+        style={{
+          backgroundImage: "linear-gradient(rgba(27, 107, 79, 0.7), rgba(27, 107, 79, 0.7)), url('https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')"
+        }}
+      >
         <div className={styles.heroContent}>
           <h1>Travel Guide</h1>
           <p>Everything you need to know before visiting Sri Lanka</p>

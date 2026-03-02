@@ -13,6 +13,7 @@ import TravelGuide from './pages/TravelGuide'
 import Blog from './pages/Blog'
 import BlogDetail from './pages/BlogDetail'
 import Contact from './pages/Contact'
+import Services from './pages/Services'
 import './styles/global.css'
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/services" element={<Services />} />
             </Routes>
           </Layout>
         </Router>

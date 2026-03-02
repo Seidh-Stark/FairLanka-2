@@ -5,6 +5,8 @@ import DestinationCard from '../components/common/DestinationCard'
 import PackageCard from '../components/common/PackageCard'
 import ActivityCard from '../components/common/ActivityCard'
 import TestimonialCard from '../components/common/TestimonialCard'
+import TravelInfoCard from '../components/common/TravelInfoCard'
+import ServiceCard from '../components/common/ServiceCard'
 import { destinationService } from '../services/destinationService'
 import { packageService } from '../services/packageService'
 import { testimonialService } from '../services/testimonialService'
@@ -73,29 +75,68 @@ const Home = () => {
   const travelInfo = [
     {
       title: 'Visa Information',
-      description: 'Easy online ETA application. Most nationalities can get visa on arrival.',
-      icon: '📋'
+      description: 'Easy online ETA application. Most nationalities can get visa on arrival.'
     },
     {
       title: 'Currency',
-      description: 'Sri Lankan Rupee (LKR). USD and major currencies widely accepted.',
-      icon: '💰'
+      description: 'Sri Lankan Rupee (LKR). USD and major currencies widely accepted.'
     },
     {
       title: 'Best Time to Visit',
-      description: 'Year-round destination. December to March ideal for beaches.',
-      icon: '🌞'
+      description: 'Year-round destination. December to March ideal for beaches.'
     },
     {
       title: 'Transport',
-      description: 'Tuk-tuks, trains, and private transfers available throughout.',
-      icon: '🚗'
+      description: 'Tuk-tuks, trains, and private transfers available throughout.'
+    }
+  ]
+
+  const servicesPreview = [
+    {
+      title: 'Flight Booking',
+      description: 'Book international and domestic flights at competitive prices with trusted airline partners.',
+      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l20-6v12z" fill="#0d4a38"/></svg>'
+    },
+    {
+      title: 'Hotel Booking',
+      description: 'Luxury resorts, boutique hotels, and budget stays across Sri Lanka.',
+      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="13" rx="2" fill="#0d4a38"/></svg>'
+    },
+    {
+      title: 'Visa Assistance',
+      description: 'Professional support for tourist visa processing and travel documentation.',
+      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l4 7h-8l4-7z" fill="#0d4a38"/></svg>'
+    },
+    {
+      title: 'Airport Pickup',
+      description: 'Comfortable and safe airport transfers with professional drivers.',
+      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#0d4a38"/></svg>'
+    },
+    {
+      title: 'Travel Insurance',
+      description: 'Secure travel insurance coverage for a worry-free journey.',
+      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l9 4v6c0 5-4 9-9 9s-9-4-9-9V7l9-4z" fill="#0d4a38"/></svg>'
     }
   ]
 
   return (
     <div className={styles.home}>
       <Hero />
+
+      <section className="section section-alt">
+        <div className="container">
+          <h2 className="section-title">Our Premium Travel Services</h2>
+          <p className="section-subtitle">We provide complete travel solutions for a smooth and unforgettable Sri Lanka experience.</p>
+          <div className="grid grid-5">
+            {servicesPreview.map((s, i) => (
+              <ServiceCard key={i} title={s.title} description={s.description} icon={s.icon} />
+            ))}
+          </div>
+          <div className={styles.viewAll} style={{marginTop:24}}>
+            <Link to="/services" className="btn btn-secondary">View All Services</Link>
+          </div>
+        </div>
+      </section>
 
       {destinations.length > 0 && (
         <section className="section">
@@ -161,11 +202,7 @@ const Home = () => {
           </p>
           <div className="grid grid-4">
             {travelInfo.map((info, index) => (
-              <div key={index} className={styles.infoCard}>
-                <div className={styles.icon}>{info.icon}</div>
-                <h3>{info.title}</h3>
-                <p>{info.description}</p>
-              </div>
+              <TravelInfoCard key={index} info={info} />
             ))}
           </div>
           <div className={styles.viewAll}>

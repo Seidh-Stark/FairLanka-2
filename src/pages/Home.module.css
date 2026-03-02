@@ -8,54 +8,58 @@
   margin-top: 48px;
 }
 
-.infoCard {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 32px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.infoCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.icon {
-  font-size: 3rem;
-  margin-bottom: 16px;
-}
-
-.infoCard h3 {
-  font-size: 1.25rem;
-  color: #1b6b4f;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.infoCard p {
-  color: #666666;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
 .cta {
   text-align: center;
-  padding: 64px 0;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, rgba(27, 107, 79, 0.05) 0%, rgba(141, 198, 63, 0.05) 100%);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(141, 198, 63, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(141, 198, 63, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .cta h2 {
   font-size: 2.5rem;
-  color: #1b6b4f;
+  background: linear-gradient(135deg, #1b6b4f 0%, #8dc63f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 16px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
 }
 
 .cta p {
   font-size: 1.25rem;
   color: #666666;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {

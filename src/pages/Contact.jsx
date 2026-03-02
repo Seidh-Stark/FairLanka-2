@@ -44,9 +44,9 @@ const Contact = () => {
     }
   }
 
-  const whatsappNumber = '+94771234567'
+  const whatsappNumber = '+94769132482'
   const whatsappMessage = 'Hello! I would like to inquire about your tour packages.'
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace('+','')}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
     <div className={styles.page}>
@@ -74,11 +74,11 @@ const Contact = () => {
                 </div>
                 <div className={styles.detail}>
                   <h3>Phone</h3>
-                  <p>+94 77 123 4567</p>
+                  <p>+94 76 913 2482</p>
                 </div>
                 <div className={styles.detail}>
                   <h3>WhatsApp</h3>
-                  <p>+94 77 123 4567</p>
+                  <p>+94 76 913 2482</p>
                   <a
                     href={whatsappLink}
                     target="_blank"
@@ -88,6 +88,23 @@ const Contact = () => {
                   >
                     Message on WhatsApp
                   </a>
+                </div>
+                <div className={styles.detail}>
+                  <h3>Find Us</h3>
+                  <p>
+                    <a href="https://maps.google.com?q=Fair%20Lanka%20Travels,%20No.18/1%20Muhudu%20Mawatha,%20Weligama%2081700&ftid=0xd0cfe818e651a37:0x7b6f3d3c35705649&entry=gps&shh=CAE&lucs=,94297699,94284463,94231188,94280568,47071704,94218641,94282134,94286869&g_st=ic" target="_blank" rel="noopener noreferrer">
+                      Google Maps
+                    </a><br />
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g612380-d33497525-Reviews-Fair_Lanka_Travels-Weligama_Matara_Southern_Province.html" target="_blank" rel="noopener noreferrer">
+                      Trip Advisor
+                    </a><br />
+                    <a href="https://www.facebook.com/share/1HFFgBN7x8/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                      Facebook
+                    </a><br />
+                    <a href="https://www.instagram.com/fairlankatravels?igsh=NHh4ZWQzdG8yY2s2" target="_blank" rel="noopener noreferrer">
+                      Instagram
+                    </a>
+                  </p>
                 </div>
                 <div className={styles.detail}>
                   <h3>Office</h3>

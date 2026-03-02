@@ -1,0 +1,30 @@
+.page { width: 100%; }
+
+.hero {
+  background-image: linear-gradient(rgba(3,37,65,0.5), rgba(3,37,65,0.5)), url('https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 24px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.heroContent h1 { font-size: 2.8rem; margin-bottom: 12px; }
+.heroContent p { font-size: 1.1rem; margin-bottom: 18px; opacity: 0.95 }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center }
+
+.serviceSection { padding: 48px 0; background: #ffffff; }
+.serviceSection.alt { background: #f7faf8; }
+.left { }
+.right { padding: 24px }
+.image { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 12px 30px rgba(3,37,65,0.08) }
+.lead { font-weight: 600; color: #134443 }
+.benefits { list-style: none; padding: 0; margin: 16px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 8px }
+.benefits li { background: rgba(13,74,56,0.06); padding: 10px 12px; border-radius: 8px }
+.text { margin-bottom: 18px }
+
+@media (max-width: 900px) {
+  .container { grid-template-columns: 1fr; }
+  .hero { padding: 80px 16px }
+}

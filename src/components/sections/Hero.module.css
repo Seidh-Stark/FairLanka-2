@@ -2,13 +2,37 @@
   position: relative;
   height: 100vh;
   min-height: 600px;
-  background-image: url('https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/355601/pexels-photo-355601.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  background-size: cover;
+  background-position: center;
+  /* fallback poster for devices where video is hidden */
+  background-image: url('https://images.pexels.com/photos/355601/pexels-photo-355601.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(141, 198, 63, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(27, 107, 79, 0.15) 0%, transparent 50%);
+  z-index: 1;
+  animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0%, 100% {
+    opacity: 0.7;
+    opacity: 1;
+  }
 }
 
 .overlay {
@@ -17,38 +41,82 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(27, 107, 79, 0.6),
-    rgba(27, 107, 79, 0.4)
-  );
+  /* slight dark overlay for readability over video */
+  background: rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .content {
   max-width: 900px;
   text-align: center;
   padding: 0 24px;
-  animation: fadeInUp 1s ease-out;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.320, 1) 0.3s both;
+  z-index: 3;
+  position: relative;
 }
 
+/* Video element styles */
+.bgVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* sound toggle */
+.soundToggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.45);
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.soundToggle:hover { transform: translateY(-3px) scale(1.03); background: rgba(0,0,0,0.6); }
+
+/* If viewport is small, hide video and fall back to background-image poster */
+@media (max-width: 768px) {
+  .bgVideo { display: none; }
+  .hero { background-image: url('https://images.pexels.com/photos/355601/pexels-photo-355601.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'); }
+}
 .title {
   font-size: 4rem;
   color: #ffffff;
   margin-bottom: 24px;
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
   line-height: 1.2;
+  animation: slideInDown 1s ease-out;
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
   font-size: 1.5rem;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 40px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   line-height: 1.6;
+  animation: fadeInUp 1.2s ease-out 0.2s both;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 .buttons {
@@ -56,6 +124,16 @@
   gap: 24px;
   justify-content: center;
   flex-wrap: wrap;
+  animation: fadeInUp 1.4s ease-out 0.4s both;
+}
+
+.buttons .btn {
+  min-width: 180px;
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.buttons .btn:nth-child(2) {
+  animation-delay: 0.1s;
 }
 
 @keyframes fadeInUp {
@@ -66,6 +144,28 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 

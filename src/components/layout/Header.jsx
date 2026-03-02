@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp } from '../../context/AppContext'
 import styles from './Header.module.css'
+import logo from '../../assets/logo2.png'
+import ServicesDropdown from '../../components/common/ServicesDropdown'
 
 const Header = () => {
   const { mobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useApp()
@@ -31,7 +33,7 @@ const Header = () => {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <Link to="/" className={styles.logo} onClick={closeMobileMenu}>
-          <img src="/logo2.png" alt="Fair Lanka Logo" className={styles.logoImage} />
+          <img src={logo} alt="Fair Lanka Logo" className={styles.logoImage} />
           <div className={styles.logoContent}>
             <span className={styles.logoText}>FAIR LANKA TRAVELS</span>
             <span className={styles.logoTagline}>We Make Vacations Magical</span>
@@ -51,6 +53,9 @@ const Header = () => {
                 </Link>
               </li>
             ))}
+            <li className={styles.navItem}>
+              <ServicesDropdown />
+            </li>
           </ul>
         </nav>
 
