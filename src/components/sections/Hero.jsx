@@ -27,7 +27,7 @@ const Hero = () => {
         muted
         playsInline
         preload="metadata"
-        poster="https://images.pexels.com/photos/355601/pexels-photo-355601.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+        /* no poster/image fallback – video file should be placed in public/ */
       >
         <source src="/video1.mp4" type="video/mp4" />
       </video>

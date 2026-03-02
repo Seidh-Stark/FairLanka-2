@@ -2,31 +2,18 @@
   position: relative;
   height: 100vh;
   min-height: 600px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/355601/pexels-photo-355601.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  /* no static image any more – we rely solely on the video */
+  background-color: #000; /* dark fallback while video is loading */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
-  background-size: cover;
-  background-position: center;
-  /* fallback poster for devices where video is hidden */
-  background-image: url('https://images.pexels.com/photos/355601/pexels-photo-355601.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(141, 198, 63, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(27, 107, 79, 0.15) 0%, transparent 50%);
-  z-index: 1;
-  animation: gradientFlow 15s ease infinite;
-}
+/* previously the ::before pseudo‑element provided a poster/fallback
+   but we're now showing only video, so it's no longer needed */
+
+/* you can keep a separate overlay if desired, the .overlay class handles that */
 
 @keyframes gradientFlow {
   0%, 100% {
@@ -92,10 +79,14 @@
 
 .soundToggle:hover { transform: translateY(-3px) scale(1.03); background: rgba(0,0,0,0.6); }
 
-/* If viewport is small, hide video and fall back to background-image poster */
+/* video remains visible on all screen sizes; mobile autoplay is handled by the
+   browser since the video is muted and playsInline */
 @media (max-width: 768px) {
-  .bgVideo { display: none; }
-  .hero { background-image: url('https://images.pexels.com/photos/355601/pexels-photo-355601.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop'); }
+  .hero {
+    height: 80vh;
+    min-height: 500px;
+    background-attachment: scroll;
+  }
 }
 .title {
   font-size: 4rem;
