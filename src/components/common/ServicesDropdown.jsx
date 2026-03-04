@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import styles from './ServicesDropdown.module.css'
 
 const services = [
-  { path: '/services#flight', label: 'Flight Booking', icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l20-6v12z" fill="#0d4a38"/></svg>' },
-  { path: '/services#hotel', label: 'Hotel Booking', icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="13" rx="2" fill="#0d4a38"/></svg>' },
-  { path: '/services#visa', label: 'Visa Assistance', icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l4 7h-8l4-7z" fill="#0d4a38"/></svg>' },
-  { path: '/services#pickup', label: 'Airport Pickup', icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#0d4a38"/></svg>' },
-  { path: '/services#insurance', label: 'Travel Insurance', icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l9 4v6c0 5-4 9-9 9s-9-4-9-9V7l9-4z" fill="#0d4a38"/></svg>' }
+  { path: '/services#pickup', label: 'Airport Pickup', icon: '<img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Pickup"/>' },
+  { path: '/services#flight', label: 'Flight Booking', icon: '<img src="https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Flight"/>' },
+  { path: '/services#hotel', label: 'Hotel Booking', icon: '<img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Hotel"/>' },
+  { path: '/services#visa', label: 'Visa Assistance', icon: '<img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Visa"/>' },
+  { path: '/services#tours', label: 'Round tours, Day tours, Safaris', icon: '<img src="https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=200" alt="Tours"/>' }
 ]
 
 const ServicesDropdown = () => {

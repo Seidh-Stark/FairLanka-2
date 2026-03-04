@@ -49,6 +49,7 @@
 .item:hover { background: rgba(13,74,56,0.04); transform: translateX(4px); }
 
 .itemIcon svg { width: 20px; height: 20px; }
+.itemIcon img { width: 36px; height: 28px; object-fit: cover; border-radius: 6px; }
 .itemLabel { font-weight: 600; }
 
 @media (max-width: 768px) {

@@ -93,29 +93,34 @@ const Home = () => {
 
   const servicesPreview = [
     {
-      title: 'Flight Booking',
-      description: 'Book international and domestic flights at competitive prices with trusted airline partners.',
-      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l20-6v12z" fill="#0d4a38"/></svg>'
-    },
-    {
-      title: 'Hotel Booking',
-      description: 'Luxury resorts, boutique hotels, and budget stays across Sri Lanka.',
-      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="13" rx="2" fill="#0d4a38"/></svg>'
-    },
-    {
-      title: 'Visa Assistance',
-      description: 'Professional support for tourist visa processing and travel documentation.',
-      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l4 7h-8l4-7z" fill="#0d4a38"/></svg>'
-    },
-    {
+      id: 'pickup',
       title: 'Airport Pickup',
       description: 'Comfortable and safe airport transfers with professional drivers.',
-      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#0d4a38"/></svg>'
+      icon: '<img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Airport pickup" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
     },
     {
-      title: 'Travel Insurance',
-      description: 'Secure travel insurance coverage for a worry-free journey.',
-      icon: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l9 4v6c0 5-4 9-9 9s-9-4-9-9V7l9-4z" fill="#0d4a38"/></svg>'
+      id: 'flight',
+      title: 'Flight Booking',
+      description: 'Book international and domestic flights at competitive prices with trusted airline partners.',
+      icon: '<img src="https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Flight booking" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+    },
+    {
+      id: 'hotel',
+      title: 'Hotel Booking',
+      description: 'Luxury resorts, boutique hotels, and budget stays across Sri Lanka.',
+      icon: '<img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Hotel booking" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+    },
+    {
+      id: 'visa',
+      title: 'Visa Assistance',
+      description: 'Professional support for tourist visa processing and travel documentation.',
+      icon: '<img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Visa assistance" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+    },
+    {
+      id: 'tours',
+      title: 'Round tours, Day tours, Safaris',
+      description: 'Tailored round tours, day tours and wildlife safaris to explore the best of Sri Lanka.',
+      icon: '<img src="https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=200" alt="Tours and safaris" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
     }
   ]
 
@@ -129,7 +134,7 @@ const Home = () => {
           <p className="section-subtitle">We provide complete travel solutions for a smooth and unforgettable Sri Lanka experience.</p>
           <div className="grid grid-5">
             {servicesPreview.map((s, i) => (
-              <ServiceCard key={i} title={s.title} description={s.description} icon={s.icon} />
+              <ServiceCard key={i} title={s.title} description={s.description} icon={s.icon} ctaText="Book Now" ctaTo={`/services#${s.id}`} />
             ))}
           </div>
           <div className={styles.viewAll} style={{marginTop:24}}>

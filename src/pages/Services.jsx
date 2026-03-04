@@ -32,11 +32,11 @@ const services = [
     image: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600'
   },
   {
-    id: 'insurance',
-    title: 'Travel Insurance',
-    description: 'Secure travel insurance coverage for a worry-free journey.',
-    benefits: ['Medical coverage', 'Trip cancellation', '24/7 assistance'],
-    image: 'https://images.pexels.com/photos/1008157/pexels-photo-1008157.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    id: 'tours',
+    title: 'Round tours, Day tours, Safaris',
+    description: 'Tailored round tours, day tours and wildlife safaris to explore the best of Sri Lanka.',
+    benefits: ['Custom itineraries', 'Local guides', 'Wildlife spotting'],
+    image: 'https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=1600'
   }
 ]
 
@@ -65,7 +65,7 @@ const Services = () => {
                   {s.benefits.map((b) => (<li key={b}>{b}</li>))}
                 </ul>
                 <p className={styles.text}>We tailor this service to your needs and make sure every detail is handled professionally.</p>
-                <Link to="/contact" className="btn btn-primary">Request This Service</Link>
+                <Link to="/contact" className="btn btn-primary">Book Now</Link>
               </div>
             </div>
           </section>
