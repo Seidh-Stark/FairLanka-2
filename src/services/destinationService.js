@@ -145,7 +145,7 @@ const staticDestinations = [
     category: 'Cultural',
     short_description: 'Famous for the historic Dutch-built Galle Fort and charming cobblestone streets.',
     description: 'Galle is famous for the historic Dutch-built Galle Fort, charming cobblestone streets, colonial architecture, boutique cafés, and spectacular sunset views along the southern coast.',
-    highlights: [
+    attractions: [
       'Galle Fort visit',
       'Galle Lighthouse',
       'Dutch colonial streets',
@@ -161,7 +161,7 @@ const staticDestinations = [
     category: 'Beach',
     short_description: 'Peaceful beach town ideal for beginner surfing and relaxing seaside stays.',
     description: 'Weligama is a peaceful beach town ideal for beginner surfing, relaxing seaside stays, stilt fisherman photography, and visiting the beautiful Taprobane Island.',
-    highlights: [
+    attractions: [
       'Beginner Surfing',
       'Weligama Beach relaxation',
       'Taprobane Island visit',
@@ -177,7 +177,7 @@ const staticDestinations = [
     category: 'Wildlife',
     short_description: 'Best known for its national park with large elephant populations and exciting jeep safaris.',
     description: 'Udawalawe is best known for its national park with large elephant populations, exciting jeep safaris, Elephant Transit Home visits, and comfortable stays including Villa Safari experiences.',
-    highlights: [
+    attractions: [
       'Udawalawe National Park Safari',
       'Elephant Transit Home visit',
       'Elephant spotting (high chance)',
@@ -193,7 +193,7 @@ const staticDestinations = [
     category: 'Cultural',
     short_description: 'Ancient sacred city filled with massive stupas, historic ruins, and the revered Sri Maha Bodhi tree.',
     description: 'Anuradhapura is an ancient sacred city filled with massive stupas, historic ruins, and the revered Sri Maha Bodhi tree, offering deep cultural and spiritual experiences.',
-    highlights: [
+    attractions: [
       'Sri Maha Bodhi visit',
       'Ruwanwelisaya Stupa',
       'Ancient ruins & dagobas'
@@ -208,7 +208,7 @@ const staticDestinations = [
     category: 'Cultural',
     short_description: 'Showcases impressive ancient ruins, well-preserved temples, and royal palaces.',
     description: 'Polonnaruwa showcases impressive ancient ruins, well-preserved temples, royal palaces, and the magnificent Gal Vihara Buddha statues within a peaceful heritage setting.',
-    highlights: [
+    attractions: [
       'Gal Vihara visit',
       'Ancient city ruins',
       'Cycling tours'
@@ -223,7 +223,7 @@ const staticDestinations = [
     category: 'Beach',
     short_description: 'Offers pristine beaches, snorkeling, and the historic Koneswaram Temple.',
     description: 'Trincomalee offers pristine beaches like Nilaveli, snorkeling at Pigeon Island, whale watching opportunities, and the historic Koneswaram Temple overlooking the ocean.',
-    highlights: [
+    attractions: [
       'Nilaveli Beach',
       'Pigeon Island snorkeling',
       'Koneswaram Temple',

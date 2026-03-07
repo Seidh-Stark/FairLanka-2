@@ -44,6 +44,17 @@ const DestinationDetail = () => {
               <h2>About {destination.name}</h2>
               <p className={styles.description}>{destination.description}</p>
 
+              {destination.images && destination.images.length > 0 && (
+                <div className={styles.gallery}>
+                  <h3>Gallery</h3>
+                  <div className={styles.images}>
+                    {destination.images.map((img, index) => (
+                      <img key={index} src={img} alt={`${destination.name} ${index + 1}`} className={styles.galleryImage} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {destination.attractions && destination.attractions.length > 0 && (
                 <>
                   <h3>Popular Attractions</h3>
