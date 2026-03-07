@@ -5,7 +5,7 @@ const DestinationCard = ({ destination }) => {
   return (
     <Link to={`/destinations/${destination.slug}`} className={styles.card}>
       <div className={styles.imageWrapper}>
-        <img src={destination.image_url} alt={destination.name} className={styles.image} />
+        <img src={encodeURI(destination.image_url)} alt={destination.name} className={styles.image} />
         <div className={styles.overlay}>
           <span className={styles.category}>{destination.category}</span>
         </div>

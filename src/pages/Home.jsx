@@ -13,7 +13,7 @@ import { testimonialService } from '../services/testimonialService'
 import styles from './Home.module.css'
 
 const Home = () => {
-  const [destinations, setDestinations] = useState([])
+  const [topDestinations, setTopDestinations] = useState([])
   const [packages, setPackages] = useState([])
   const [testimonials, setTestimonials] = useState([])
   const [loading, setLoading] = useState(true)
@@ -21,12 +21,14 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [destData, pkgData, testData] = await Promise.all([
-          destinationService.getFeatured(),
+        const [allDestData, pkgData, testData] = await Promise.all([
+          destinationService.getAll(),
           packageService.getFeatured(),
           testimonialService.getFeatured()
         ])
-        setDestinations(destData || [])
+        setTopDestinations(allDestData || [])
+        console.log('topDestinations loaded', allDestData)
+        console.log('topDestinations length', allDestData.length)
         setPackages(pkgData || [])
         setTestimonials(testData || [])
       } catch (error) {
@@ -142,23 +144,18 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {destinations.length > 0 && (
+      {topDestinations.length > 0 && (
         <section className="section">
           <div className="container">
             <h2 className="section-title">Top 15 Tourist Destinations</h2>
-            <p className="section-subtitle">
-              Discover the top 15 tourist destinations in Sri Lanka, from coastal paradises to ancient wonders.
-            </p>
-            <div className="grid grid-3">
-              {destinations.slice(0, 6).map((destination) => (
+            <p className="section-subtitle">Discover some of our most popular destinations across Sri Lanka.</p>
+            <div className="grid grid-4">
+              {topDestinations.slice(0, 4).map((destination) => (
                 <DestinationCard key={destination.id} destination={destination} />
               ))}
             </div>
-            <div className={styles.viewAll}>
-              <Link to="/destinations" className="btn btn-secondary">
-                View All Destinations
-              </Link>
+            <div className={styles.viewAll} style={{marginTop:24}}>
+              <Link to="/destinations" className="btn btn-secondary">View All Destinations</Link>
             </div>
           </div>
         </section>

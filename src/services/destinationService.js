@@ -15,8 +15,8 @@ const staticDestinations = [
       'Water Sports (Jet ski, Banana boat, Tube rides)',
       'Turtle Hatchery visit'
     ],
-    image_url: '/destination/bentota-beach.jpg',
-    images: ['/destination/bentota-beach.jpg']
+    image_url: '/assets/destination/bentota-beach.jpg',
+    images: ['/assets/destination/bentota-beach.jpg']
   },
   {
     id: 2,
@@ -30,8 +30,8 @@ const staticDestinations = [
       'Elephant feeding',
       'River bathing experience'
     ],
-    image_url: '/destination/Pinnawala-Day-Tour.jpeg',
-    images: ['/destination/Pinnawala-Day-Tour.jpeg', '/destination/pinnawala-Hotel Elephan bay.jpg']
+    image_url: '/assets/destination/Pinnawala-Day-Tour.jpeg',
+    images: ['/assets/destination/Pinnawala-Day-Tour.jpeg', '/assets/destination/pinnawala-Hotel Elephan bay.jpg']
   },
   {
     id: 3,
@@ -46,8 +46,8 @@ const staticDestinations = [
       'Lion’s Paw Entrance',
       'Pidurangala Rock hike'
     ],
-    image_url: '/destination/Lion’s Paw Entrance.jpg',
-    images: ['/destination/Lion’s Paw Entrance.jpg']
+    image_url: '/assets/destination/Lion’s Paw Entrance.jpg',
+    images: ['/assets/destination/Lion’s Paw Entrance.jpg']
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const staticDestinations = [
     short_description: 'Sri Lanka’s cultural capital, home to the sacred Temple of the Tooth Relic and scenic Kandy Lake.',
     description: 'Kandy is Sri Lanka’s cultural capital, home to the sacred Temple of the Tooth Relic, scenic Kandy Lake, traditional dance performances, and beautiful botanical gardens.',
     highlights: [],
-    image_url: '/src/assets/destination/Nuwara Eliya.jpg', // Placeholder, as no specific Kandy image
+    image_url: '/assets/destination/Nuwara Eliya.jpg', // Placeholder, as no specific Kandy image
     images: []
   },
   {
@@ -73,8 +73,8 @@ const staticDestinations = [
       'Ella Rock hike',
       'Scenic train ride'
     ],
-    image_url: '/destination/Places-To-Stay-in-Ella.jpg',
-    images: ['/destination/Places-To-Stay-in-Ella.jpg']
+    image_url: '/assets/destination/Places-To-Stay-in-Ella.jpg',
+    images: ['/assets/destination/Places-To-Stay-in-Ella.jpg']
   },
   {
     id: 6,
@@ -88,8 +88,8 @@ const staticDestinations = [
       'Leopard spotting',
       'Elephants & wildlife'
     ],
-    image_url: '/destination/Yala-National-Park-1.jpg',
-    images: ['/destination/Yala-National-Park-1.jpg']
+    image_url: '/assets/destination/Yala-National-Park-1.jpg',
+    images: ['/assets/destination/Yala-National-Park-1.jpg']
   },
   {
     id: 7,
@@ -104,8 +104,8 @@ const staticDestinations = [
       'Beach relaxation',
       'Sunset views'
     ],
-    image_url: '/destination/Mirissa beach.webp',
-    images: ['/destination/Mirissa beach.webp', '/destination/Mirissa.jpg']
+    image_url: '/assets/destination/Mirissa beach.webp',
+    images: ['/assets/destination/Mirissa beach.webp', '/assets/destination/Mirissa.jpg']
   },
   {
     id: 8,
@@ -119,8 +119,8 @@ const staticDestinations = [
       'Beach relaxing',
       'Lagoon Safari'
     ],
-    image_url: '/destination/Arugam Bay city.jpg',
-    images: ['/destination/Arugam Bay city.jpg', '/destination/Arugam Bay city.webp']
+    image_url: '/assets/destination/Arugam Bay city.jpg',
+    images: ['/assets/destination/Arugam Bay city.jpg', '/assets/destination/Arugam Bay city.webp']
   },
   {
     id: 9,
@@ -135,8 +135,8 @@ const staticDestinations = [
       'Hakgala Botanical Garden',
       'Ramboda Waterfall'
     ],
-    image_url: '/destination/Nuwara Eliya city tour Srilanka.jpg',
-    images: ['/destination/Nuwara Eliya city tour Srilanka.jpg', '/destination/Nuwara Eliya-postoffice.jpg', '/destination/Nuwara Eliya.jpg', '/destination/Tea-Plantations-Nuwara-Eliya-Sri-Lanka.jpg']
+    image_url: '/assets/destination/Nuwara Eliya city tour Srilanka.jpg',
+    images: ['/assets/destination/Nuwara Eliya city tour Srilanka.jpg', '/assets/destination/Nuwara Eliya-postoffice.jpg', '/assets/destination/Nuwara Eliya.jpg', '/assets/destination/Tea-Plantations-Nuwara-Eliya-Sri-Lanka.jpg']
   },
   {
     id: 10,
@@ -151,8 +151,8 @@ const staticDestinations = [
       'Dutch colonial streets',
       'Café & sunset views'
     ],
-    image_url: '/destination/galle-fort-sri-lanka-.jpg',
-    images: ['/destination/galle-fort-sri-lanka-.jpg']
+    image_url: '/assets/destination/galle-fort-sri-lanka-.jpg',
+    images: ['/assets/destination/galle-fort-sri-lanka-.jpg']
   },
   {
     id: 11,
@@ -167,8 +167,8 @@ const staticDestinations = [
       'Taprobane Island visit',
       'Stilt Fishermen viewing'
     ],
-    image_url: '/destination/Weligama beach.jpg',
-    images: ['/destination/Weligama beach.jpg', '/destination/weligama-beach2.jpg']
+    image_url: '/assets/destination/Weligama beach.jpg',
+    images: ['/assets/destination/Weligama beach.jpg', '/assets/destination/weligama-beach2.jpg']
   },
   {
     id: 12,
@@ -183,8 +183,8 @@ const staticDestinations = [
       'Elephant spotting (high chance)',
       'Villa Safari experience'
     ],
-    image_url: '/destination/Udawalawe-National-Park.jpg',
-    images: ['/destination/Udawalawe-National-Park.jpg', '/destination/Udawalawe.jpg']
+    image_url: '/assets/destination/Udawalawe-National-Park.jpg',
+    images: ['/assets/destination/Udawalawe-National-Park.jpg', '/assets/destination/Udawalawe.jpg']
   },
   {
     id: 13,
@@ -198,8 +198,8 @@ const staticDestinations = [
       'Ruwanwelisaya Stupa',
       'Ancient ruins & dagobas'
     ],
-    image_url: '/destination/anuradhapura-polonnaruwa-srilanka-.jpg',
-    images: ['/destination/anuradhapura-polonnaruwa-srilanka-.jpg', '/destination/Anuradhapura.jpg', '/destination/Anuradhapura2.jpg']
+    image_url: '/assets/destination/anuradhapura-polonnaruwa-srilanka-.jpg',
+    images: ['/assets/destination/anuradhapura-polonnaruwa-srilanka-.jpg', '/assets/destination/Anuradhapura.jpg', '/assets/destination/Anuradhapura2.jpg']
   },
   {
     id: 14,
@@ -213,8 +213,8 @@ const staticDestinations = [
       'Ancient city ruins',
       'Cycling tours'
     ],
-    image_url: '/destination/around-polonnaruwa.jpg',
-    images: ['/destination/around-polonnaruwa.jpg', '/destination/polonnaruwa.webp']
+    image_url: '/assets/destination/around-polonnaruwa.jpg',
+    images: ['/assets/destination/around-polonnaruwa.jpg', '/assets/destination/polonnaruwa.webp']
   },
   {
     id: 15,
@@ -229,8 +229,8 @@ const staticDestinations = [
       'Koneswaram Temple',
       'Seasonal whale watching'
     ],
-    image_url: '/destination/Koneswaram_temple-Trincomalee.jpg',
-    images: ['/destination/Koneswaram_temple-Trincomalee.jpg', '/destination/Trincomalee- beach.jpg', '/destination/Trincomalee-kovil.jpg']
+    image_url: '/assets/destination/Koneswaram_temple-Trincomalee.jpg',
+    images: ['/assets/destination/Koneswaram_temple-Trincomalee.jpg', '/assets/destination/Trincomalee- beach.jpg', '/assets/destination/Trincomalee-kovil.jpg']
   }
 ]
 
