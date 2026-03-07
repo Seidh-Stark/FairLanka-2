@@ -148,17 +148,17 @@ const Home = () => {
           <div className="container">
             <h2 className="section-title">Featured Destinations</h2>
             <p className="section-subtitle">
-              Explore the most breathtaking locations across Sri Lanka
+              Discover the top 15 tourist destinations in Sri Lanka, from coastal paradises to ancient wonders.
             </p>
-            <div className="grid grid-3">
-              {destinations.slice(0, 6).map((destination) => (
-                <DestinationCard key={destination.id} destination={destination} />
-              ))}
-            </div>
             <div className={styles.viewAll}>
               <Link to="/destinations" className="btn btn-secondary">
                 View All Destinations
               </Link>
+            </div>
+            <div className="grid grid-3">
+              {destinations.slice(0, 6).map((destination) => (
+                <DestinationCard key={destination.id} destination={destination} />
+              ))}
             </div>
           </div>
         </section>
