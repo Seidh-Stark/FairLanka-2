@@ -44,7 +44,7 @@ const Contact = () => {
     }
   }
 
-  const whatsappNumber = '+94769132482'
+  const whatsappNumber = '+94764374114'
   const whatsappMessage = 'Hello! I would like to inquire about your tour packages.'
   const whatsappLink = `https://wa.me/${whatsappNumber.replace('+','')}?text=${encodeURIComponent(whatsappMessage)}`
 
@@ -74,11 +74,11 @@ const Contact = () => {
                 </div>
                 <div className={styles.detail}>
                   <h3>Phone</h3>
-                  <p>+94 76 913 2482</p>
+                  <p>+94 76 437 4114</p>
                 </div>
                 <div className={styles.detail}>
                   <h3>WhatsApp</h3>
-                  <p>+94 76 913 2482</p>
+                  <p>+94 76 437 4114</p>
                   <a
                     href={whatsappLink}
                     target="_blank"

@@ -43,8 +43,8 @@ const Footer = () => {
             <h4 className={styles.heading}>Contact Us</h4>
             <ul className={styles.contact}>
               <li>Email: info@fairlanka.com</li>
-              <li>Phone: +94 76 913 2482</li>
-              <li>WhatsApp: +94 76 913 2482</li>
+              <li>Phone: +94 76 437 4114</li>
+              <li>WhatsApp: +94 76 437 4114</li>
               <li>Address: No.18/1 Muhudu Mawatha, Weligama 81700</li>
               <li>
                 <a href="https://maps.google.com?q=Fair%20Lanka%20Travels,%20No.18/1%20Muhudu%20Mawatha,%20Weligama%2081700&ftid=0xd0cfe818e651a37:0x7b6f3d3c35705649&entry=gps&shh=CAE&lucs=,94297699,94284463,94231188,94280568,47071704,94218641,94282134,94286869&g_st=ic" target="_blank" rel="noopener noreferrer">

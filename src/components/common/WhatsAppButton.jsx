@@ -1,6 +1,6 @@
 import styles from './WhatsAppButton.module.css'
 
-const whatsappNumber = '94769132482' // without + for wa.me
+const whatsappNumber = '94764374114' // without + for wa.me
 const whatsappText = 'Hello%20I%20would%20like%20to%20chat%20about%20tours' // encoded message
 
 const WhatsAppButton = () => {
