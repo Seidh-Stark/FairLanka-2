@@ -1,0 +1,339 @@
+/* Packages.module.css */
+
+.page {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Introduction Section */
+.intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro h2 {
+  color: #2c5530;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* Section Titles */
+.sectionTitle {
+  text-align: center;
+  color: #2c5530;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+/* Package Cards */
+.packageCard {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.packageCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cardImage {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardContent h3 {
+  color: #2c5530;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.meta span {
+  display: block;
+}
+
+/* Itinerary Section */
+.itinerary {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.itinerary h2 {
+  color: #2c5530;
+  margin-bottom: 1rem;
+}
+
+.itinerary h3 {
+  color: #2c5530;
+  margin: 2rem 0 1rem;
+  font-size: 1.8rem;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #2c5530;
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+.timelineMarker {
+  position: absolute;
+  left: -35px;
+  top: 0;
+  background: #2c5530;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.timelineContent h4 {
+  color: #2c5530;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.timelineContent p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.highlights {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.highlights li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.highlights li:before {
+  content: "✓";
+  color: #2c5530;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Tour Highlights */
+.highlight {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.highlight:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.highlight h4 {
+  color: #2c5530;
+  margin: 0;
+}
+
+/* Testimonial */
+.testimonial {
+  text-align: center;
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.testimonial blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.testimonial blockquote:before {
+  content: '"';
+  font-size: 4rem;
+  color: #2c5530;
+  position: absolute;
+  left: -20px;
+  top: -10px;
+}
+
+.testimonial blockquote:after {
+  content: '"';
+  font-size: 4rem;
+  color: #2c5530;
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.testimonial cite {
+  color: #666;
+  font-weight: bold;
+}
+
+/* CTA Section */
+.cta {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.cta h2 {
+  color: #2c5530;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .intro h2 {
+    font-size: 2rem;
+  }
+
+  .timeline {
+    padding-left: 1rem;
+  }
+
+  .timelineItem {
+    padding-left: 1rem;
+  }
+
+  .timelineMarker {
+    left: -25px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
