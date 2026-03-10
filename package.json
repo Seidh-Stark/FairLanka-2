@@ -14,6 +14,7 @@
     "react-router-dom": "^6.26.2",
     "axios": "^1.7.7",
     "@supabase/supabase-js": "^2.47.10"
+    ,"@emailjs/browser": "^3.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",

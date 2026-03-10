@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { inquiryService } from '../services/inquiryService'
+import emailjs from '@emailjs/browser'
 import styles from './Contact.module.css'
 
 const Contact = () => {
@@ -27,7 +28,27 @@ const Contact = () => {
     setError(null)
 
     try {
+      // Save inquiry to Supabase
       await inquiryService.create(formData)
+
+      // Send email via EmailJS (configure the Vite env vars or replace the placeholders below)
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
+      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+
+      const templateParams = {
+        from_name: formData.name || 'Website User',
+        from_email: formData.email || 'no-reply@example.com',
+        phone: formData.phone || '',
+        country: formData.country || '',
+        message: formData.message || ''
+      }
+
+      try {
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      } catch (emailErr) {
+        console.error('EmailJS send error:', emailErr)
+      }
       setSubmitted(true)
       setFormData({
         name: '',
