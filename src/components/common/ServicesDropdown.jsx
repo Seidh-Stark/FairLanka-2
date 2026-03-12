@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import styles from './ServicesDropdown.module.css'
 
 const services = [
-  { path: '/services#pickup', label: 'Airport Pickup', icon: '<img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Pickup"/>' },
-  { path: '/services#flight', label: 'Flight Booking', icon: '<img src="https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Flight"/>' },
-  { path: '/services#hotel', label: 'Hotel Booking', icon: '<img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Hotel"/>' },
-  { path: '/services#visa', label: 'Visa Assistance', icon: '<img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Visa"/>' },
-  { path: '/services#tours', label: 'Round tours, Day tours, Safaris', icon: '<img src="https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=200" alt="Tours"/>' }
+  { path: '/services#airport-transfer', label: 'Airport Transfer', icon: '✈️' },
+  { path: '/packages', label: 'Tour Packages', icon: '📦' },
+  { path: '/day-tours', label: 'Day Tours', icon: '🎯' },
+  { path: '/services#intercity-transfers', label: 'Intercity Transfers', icon: '🚗' },
+  { path: '/destinations?category=wildlife', label: 'Safaris In Sri Lanka', icon: '🦁' },
+  { path: '/hotel-bookings', label: 'Hotel Bookings', icon: '🏨' },
+  { path: '/flight-bookings', label: 'Flight Bookings', icon: '✈️' }
 ]
 
 const ServicesDropdown = () => {
@@ -38,7 +40,7 @@ const ServicesDropdown = () => {
       <div className={`${styles.menu} ${open ? styles.open : ''}`} role="menu">
         {services.map((s) => (
           <Link key={s.path} to={s.path} className={styles.item} role="menuitem">
-            <span className={styles.itemIcon} dangerouslySetInnerHTML={{ __html: s.icon }} />
+            <span className={styles.itemIcon}>{s.icon}</span>
             <span className={styles.itemLabel}>{s.label}</span>
           </Link>
         ))}

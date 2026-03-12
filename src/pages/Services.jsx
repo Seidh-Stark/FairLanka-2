@@ -1,98 +1,133 @@
 import { Link } from 'react-router-dom'
 import styles from './Services.module.css'
-import ServiceCard from '../components/common/ServiceCard'
-
-const whatsappNumber = '94764374114'
-
-const services = [
-  {
-    id: 'airport-transfer',
-    title: 'Airport Transfer',
-    description: 'Comfortable and safe airport transfers with professional drivers.',
-    benefits: ['Meet & greet', 'Modern vehicles', 'Flight tracking'],
-    image: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    message: 'Hello%2C%20I%20would%20like%20to%20book%20an%20Airport%20Transfer.%20Please%20provide%20more%20details.'
-  },
-  {
-    id: 'tour-packages',
-    title: 'Tour Packages',
-    description: 'Tailored round tours to explore the best of Sri Lanka.',
-    benefits: ['Custom itineraries', 'Local guides', 'Memorable experiences'],
-    image: 'https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=1600',
-    message: 'Hello%2C%20I%27m%20interested%20in%20your%20Tour%20Packages.%20Can%20you%20share%20more%20information%3F'
-  },
-  {
-    id: 'day-tour',
-    title: 'Day Tour',
-    description: 'Exciting day tours to discover Sri Lanka\'s hidden gems.',
-    benefits: ['Flexible schedules', 'Expert guides', 'Cultural insights'],
-    image: 'https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    message: 'Hello%2C%20I%20would%20like%20to%20book%20a%20Day%20Tour%20in%20Sri%20Lanka.'
-  },
-  {
-    id: 'intercity-transfers',
-    title: 'Intercity Transfers',
-    description: 'Reliable intercity transfers across Sri Lanka.',
-    benefits: ['Comfortable rides', 'Punctual service', 'Safe travel'],
-    image: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    message: 'Hello%2C%20I%20need%20an%20Intercity%20Transfer%20in%20Sri%20Lanka.%20Please%20assist.'
-  },
-  {
-    id: 'safaris',
-    title: 'Safaris in Sri Lanka',
-    description: 'Thrilling wildlife safaris to see Sri Lanka\'s amazing animals.',
-    benefits: ['Wildlife spotting', 'Experienced guides', 'Adventure'],
-    image: 'https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=1600',
-    message: 'Hello%2C%20I%27m%20interested%20in%20booking%20a%20Safari%20in%20Sri%20Lanka.'
-  },
-  {
-    id: 'hotel-bookings',
-    title: 'Hotel Bookings',
-    description: 'Luxury resorts, boutique hotels, and budget stays across Sri Lanka.',
-    benefits: ['Curated properties', 'Exclusive rates', 'Personalized stays'],
-    image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    message: 'Hello%2C%20I%20need%20help%20with%20Hotel%20Bookings%20in%20Sri%20Lanka.'
-  },
-  {
-    id: 'flight-bookings',
-    title: 'Flight Bookings',
-    description: 'Book international and domestic flights at competitive prices.',
-    benefits: ['Best fare matching', '24/7 support', 'Flexible cancellations'],
-    image: 'https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    message: 'Hello%2C%20I%20would%20like%20assistance%20with%20Flight%20Bookings.'
-  }
-]
 
 const Services = () => {
+  const whatsappNumber = '94764374114'
+
+  const handleWhatsApp = (serviceTitle, message) => {
+    const fullMessage = `${message}`
+    const encodedMessage = encodeURIComponent(fullMessage)
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank')
+  }
+
+  const services = [
+    {
+      id: 1,
+      title: 'Airport Transfer',
+      description: 'Comfortable and reliable airport transfers with professional drivers. Safe, timely, and hassle-free transportation from airport to your hotel or destination.',
+      image: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      type: 'whatsapp',
+      message: 'Hello, I would like to book an Airport Transfer. Please provide more details',
+      buttonText: '📱 Book Now'
+    },
+    {
+      id: 2,
+      title: 'Tour Packages',
+      description: 'Handpicked round-trip tour packages to explore the best of Sri Lanka. From cultural heritage tours to adventure packages, we have something for everyone.',
+      image: 'https://images.pexels.com/photos/707915/pexels-photo-707915.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      type: 'link',
+      link: '/packages',
+      buttonText: '→ View All'
+    },
+    {
+      id: 3,
+      title: 'Day Tours',
+      description: 'Exciting day tours to Sri Lanka\'s most popular destinations. Visit Sigiriya, Kandy, Galle, Yala Safari, Ella, and more in expertly guided day trips.',
+      image: 'https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=1600',
+      type: 'link',
+      link: '/day-tours',
+      buttonText: '→ View All'
+    },
+    {
+      id: 4,
+      title: 'Intercity Transfers',
+      description: 'Convenient transfers between major cities and towns. Travel between Colombo, Kandy, Galle, Mirissa, Ella, and other destinations with comfort and ease.',
+      image: 'https://images.pexels.com/photos/3595925/pexels-photo-3595925.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      type: 'whatsapp',
+      message: 'Hello, I need information about Intercity Transfers',
+      buttonText: '📱 Book Now'
+    },
+    {
+      id: 5,
+      title: 'Safaris In Sri Lanka',
+      description: 'Thrilling wildlife safaris in Yala, Udawalawe, and other national parks. Spot leopards, elephants, crocodiles, and exotic birds in their natural habitat.',
+      image: 'https://images.pexels.com/photos/3407817/pexels-photo-3407817.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      type: 'link',
+      link: '/destinations?category=wildlife',
+      buttonText: '→ View All'
+    },
+    {
+      id: 6,
+      title: 'Hotel Bookings',
+      description: 'Book luxury resorts, boutique hotels, and budget accommodations across Sri Lanka. Find the perfect place to stay for your budget and preferences.',
+      image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      type: 'link',
+      link: '/hotel-bookings',
+      buttonText: '→ View Options'
+    },
+    {
+      id: 7,
+      title: 'Flight Bookings',
+      description: 'Book international and domestic flights at competitive prices with trusted airline partners. Find best fares for flights to and from Sri Lanka.',
+      image: 'https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      type: 'link',
+      link: '/flight-bookings',
+      buttonText: '→ View Options'
+    }
+  ]
+
   return (
     <div className={styles.page}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Complete Travel Services in Sri Lanka</h1>
-          <p>End-to-end travel solutions — from flights and hotels to visas and transfers.</p>
-          <Link to="/contact" className="btn btn-primary">Contact Us</Link>
+          <h1 className={styles.heroTitle}>Our Premium Travel Services</h1>
+          <p className={styles.heroSubtitle}>Complete travel solutions for a smooth and unforgettable Sri Lanka experience</p>
         </div>
       </div>
 
-      <main>
-        {services.map((s, idx) => (
-          <section key={s.id} className={`${styles.serviceSection} ${idx % 2 === 0 ? '' : styles.alt}`}>
-            <div className={`${styles.container} ${styles.card}`} style={{ animationDelay: `${idx * 0.2}s` }}>
-              <div className={styles.left}>
-                <img src={s.image} alt={s.title} className={styles.image} />
-              </div>
-              <div className={styles.right}>
-                <h2>{s.title}</h2>
-                <p className={styles.lead}>{s.description}</p>
-                <ul className={styles.benefits}>
-                  {s.benefits.map((b) => (<li key={b}>{b}</li>))}
-                </ul>
-                <p className={styles.text}>We tailor this service to your needs and make sure every detail is handled professionally.</p>
-                <a href={`https://wa.me/${whatsappNumber}?text=${s.message}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book</a>
-              </div>
+      <main className={styles.main}>
+        <section className={styles.servicesSection}>
+          <div className={styles.container}>
+            <h2 className={styles.sectionTitle}>7 Essential Travel Services</h2>
+            <p className={styles.sectionSubtitle}>Choose the services you need for your perfect Sri Lankan adventure</p>
+
+            <div className={styles.servicesGrid}>
+              {services.map((service, index) => (
+                <div key={service.id} className={styles.serviceCard} style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className={styles.serviceImage}>
+                    <img src={service.image} alt={service.title} />
+                  </div>
+                  <div className={styles.serviceContent}>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <div className={styles.serviceFooter}>
+                      {service.type === 'whatsapp' ? (
+                        <button
+                          className={styles.whatsappBtn}
+                          onClick={() => handleWhatsApp(service.title, service.message)}
+                        >
+                          {service.buttonText}
+                        </button>
+                      ) : (
+                        <Link to={service.link} className={styles.viewBtn}>
+                          {service.buttonText}
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          </section>
-        ))}
+          </div>
+        </section>
+
+        <section className={styles.ctaSection}>
+          <div className={styles.container}>
+            <h2>Need Help Choosing a Service?</h2>
+            <p>Our travel experts are here to help you plan the perfect Sri Lankan experience</p>
+            <Link to="/contact" className="btn btn-primary">Contact Us Today</Link>
+          </div>
+        </section>
       </main>
     </div>
   )

@@ -95,34 +95,46 @@ const Home = () => {
 
   const servicesPreview = [
     {
-      id: 'pickup',
-      title: 'Airport Pickup',
+      id: 'airport-transfer',
+      title: 'Airport Transfer',
       description: 'Comfortable and safe airport transfers with professional drivers.',
-      icon: '<img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Airport pickup" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      icon: '<img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Airport transfer" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
     },
     {
-      id: 'flight',
-      title: 'Flight Booking',
-      description: 'Book international and domestic flights at competitive prices with trusted airline partners.',
-      icon: '<img src="https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Flight booking" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      id: 'tour-packages',
+      title: 'Tour Packages',
+      description: 'Handpicked round-trip tour packages to explore the best of Sri Lanka.',
+      icon: '<img src="https://images.pexels.com/photos/707915/pexels-photo-707915.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Tour packages" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
     },
     {
-      id: 'hotel',
-      title: 'Hotel Booking',
+      id: 'day-tour',
+      title: 'Day Tours',
+      description: 'Exciting day tours to Sri Lanka\'s most popular destinations.',
+      icon: '<img src="https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=200" alt="Day tours" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+    },
+    {
+      id: 'intercity-transfers',
+      title: 'Intercity Transfers',
+      description: 'Convenient transfers between major cities and towns.',
+      icon: '<img src="https://images.pexels.com/photos/3595925/pexels-photo-3595925.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Intercity transfers" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+    },
+    {
+      id: 'safaris',
+      title: 'Safaris In Sri Lanka',
+      description: 'Thrilling wildlife safaris in Yala, Udawalawe, and national parks.',
+      icon: '<img src="https://images.pexels.com/photos/3407817/pexels-photo-3407817.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Safaris" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+    },
+    {
+      id: 'hotel-bookings',
+      title: 'Hotel Bookings',
       description: 'Luxury resorts, boutique hotels, and budget stays across Sri Lanka.',
-      icon: '<img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Hotel booking" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      icon: '<img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Hotel bookings" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
     },
     {
-      id: 'visa',
-      title: 'Visa Assistance',
-      description: 'Professional support for tourist visa processing and travel documentation.',
-      icon: '<img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Visa assistance" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
-    },
-    {
-      id: 'tours',
-      title: 'Round tours, Day tours, Safaris',
-      description: 'Tailored round tours, day tours and wildlife safaris to explore the best of Sri Lanka.',
-      icon: '<img src="https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=200" alt="Tours and safaris" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      id: 'flight-bookings',
+      title: 'Flight Bookings',
+      description: 'Book international and domestic flights at competitive prices.',
+      icon: '<img src="https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Flight bookings" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
     }
   ]
 
@@ -134,9 +146,9 @@ const Home = () => {
         <div className="container">
           <h2 className="section-title">Our Premium Travel Services</h2>
           <p className="section-subtitle">We provide complete travel solutions for a smooth and unforgettable Sri Lanka experience.</p>
-          <div className="grid grid-5">
+          <div className="grid grid-4">
             {servicesPreview.map((s, i) => (
-              <ServiceCard key={i} title={s.title} description={s.description} icon={s.icon} ctaText="Book Now" ctaTo={`/services#${s.id}`} />
+              <ServiceCard key={i} title={s.title} description={s.description} icon={s.icon} ctaText="View Service" ctaTo={`/services#${s.id}`} />
             ))}
           </div>
           <div className={styles.viewAll} style={{marginTop:24}}>

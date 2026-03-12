@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import { AppProvider } from './context/AppContext'
+import ScrollToTop from './components/ScrollToTop'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
 import Destinations from './pages/Destinations'
@@ -14,6 +15,9 @@ import Blog from './pages/Blog'
 import BlogDetail from './pages/BlogDetail'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
+import DayTours from './pages/DayTours'
+import HotelBookings from './pages/HotelBookings'
+import FlightBookings from './pages/FlightBookings'
 import './styles/global.css'
 
 function App() {
@@ -21,6 +25,7 @@ function App() {
     <AuthProvider>
       <AppProvider>
         <Router>
+          <ScrollToTop />
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -35,6 +40,9 @@ function App() {
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/day-tours" element={<DayTours />} />
+              <Route path="/hotel-bookings" element={<HotelBookings />} />
+              <Route path="/flight-bookings" element={<FlightBookings />} />
             </Routes>
           </Layout>
         </Router>

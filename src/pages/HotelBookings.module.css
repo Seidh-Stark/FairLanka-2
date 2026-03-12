@@ -1,0 +1,519 @@
+.page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.8s ease-out 0.2s backwards;
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  animation: slideDown 0.8s ease-out 0.4s backwards;
+}
+
+/* Main Content */
+.main {
+  padding: 60px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInScale 0.8s ease-out 0.2s backwards;
+}
+
+/* Categories Section */
+.categoriesSection {
+  margin-bottom: 80px;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.categoryCard {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+  border-left: 4px solid #f5576c;
+}
+
+.categoryCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.categoryCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.categoryCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.categoryCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.categoryCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-left-color: #f093fb;
+}
+
+.categoryCard.active {
+  background: linear-gradient(135deg, #f093fb15 0%, #f5576c15 100%);
+  border-left-color: #f093fb;
+}
+
+.categoryCard h3 {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.featuresList {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #f0f0f0;
+  animation: slideDown 0.4s ease-out;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+  font-size: 0.9rem;
+  padding: 6px 0;
+}
+
+.checkmark {
+  color: #f5576c;
+  font-weight: bold;
+}
+
+/* Destinations Section */
+.destinationsSection {
+  background: white;
+  padding: 60px 20px;
+  margin: 0 -20px 80px -20px;
+}
+
+.destinationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.destinationCard {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.destinationCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.destinationCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.destinationCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.destinationCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.destinationCard:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.destinationCard:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.destinationCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.destImage {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.destImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.destinationCard:hover .destImage img {
+  transform: scale(1.1);
+}
+
+.destContent {
+  padding: 20px;
+}
+
+.destContent h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.destContent p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* How It Works Section */
+.howItWorksSection {
+  margin-bottom: 80px;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.stepCard {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.stepCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.stepCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.stepCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.stepCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  animation: bounce 0.6s ease-out;
+}
+
+.stepCard h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.stepCard p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Features Section */
+.featuresSection {
+  background: white;
+  padding: 60px 20px;
+  margin: 0 -20px 80px -20px;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.featureCard {
+  padding: 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f093fb08 0%, #f5576c08 100%);
+  border: 2px solid #f0f0f0;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.featureCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.featureCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.featureCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.featureCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.featureCard:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.featureCard:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.featureCard:hover {
+  border-color: #f5576c;
+  box-shadow: 0 8px 20px rgba(245, 87, 108, 0.1);
+  transform: translateY(-8px);
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  animation: bounce 0.6s ease-out;
+}
+
+.featureCard h3 {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.featureCard p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.ctaSection p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  animation: fadeInScale 0.8s ease-out 0.2s backwards;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInScale 0.8s ease-out 0.4s backwards;
+}
+
+.whatsappBtn {
+  padding: 14px 40px;
+  background: white;
+  color: #f5576c;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.whatsappBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .categoriesGrid,
+  .destinationsGrid,
+  .stepsGrid,
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .whatsappBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .main {
+    padding: 40px 15px;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .categoryCard,
+  .stepCard,
+  .featureCard {
+    padding: 20px;
+  }
+
+  .ctaSection {
+    padding: 40px 15px;
+  }
+
+  .ctaSection h2 {
+    font-size: 1.5rem;
+  }
+}

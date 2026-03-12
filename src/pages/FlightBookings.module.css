@@ -1,0 +1,576 @@
+.page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.8s ease-out 0.2s backwards;
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  animation: slideDown 0.8s ease-out 0.4s backwards;
+}
+
+/* Main Content */
+.main {
+  padding: 60px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInScale 0.8s ease-out 0.2s backwards;
+}
+
+/* Flight Types Section */
+.flightTypesSection {
+  margin-bottom: 80px;
+}
+
+.typesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 25px;
+}
+
+.typeCard {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+  border: 2px solid transparent;
+}
+
+.typeCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.typeCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.typeCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.typeCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.typeCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.typeCard.active {
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  border-color: #667eea;
+}
+
+.typeIcon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: bounce 0.6s ease-out;
+}
+
+.typeCard h3 {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.typeCard p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Routes Section */
+.routesSection {
+  background: white;
+  padding: 60px 20px;
+  margin: 0 -20px 80px -20px;
+}
+
+.routesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.routeCard {
+  background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.routeCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.routeCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.routeCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.routeCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.routeCard:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.routeCard:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.routeCard:hover {
+  transform: translateY(-8px);
+  border-color: #667eea;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.routeFrom,
+.routeTo {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.routeArrow {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 10px 0;
+  animation: slideRight 1.5s ease-in-out infinite;
+}
+
+.routeInfo {
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 15px;
+}
+
+.duration {
+  color: #667eea;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.airlines {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* Airlines Section */
+.airlinesSection {
+  margin-bottom: 80px;
+}
+
+.airlinesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.airlineCard {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.airlineCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.airlineCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.airlineCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.airlineCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.airlineCard:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.airlineCard:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.airlineCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.airlineLogo {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  animation: bounce 0.6s ease-out;
+}
+
+.airlineCard h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.airlineCard p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Benefits Section */
+.benefitsSection {
+  background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
+  padding: 60px 20px;
+  margin: 0 -20px 80px -20px;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.benefitCard {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.benefitCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.benefitCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.benefitCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.benefitCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.benefitCard:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.benefitCard:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.benefitCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.benefitIcon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  animation: bounce 0.6s ease-out;
+}
+
+.benefitCard h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.benefitCard p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Tips Section */
+.tipsSection {
+  margin-bottom: 80px;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.tipCard {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.tipCard:nth-child(1) {
+  animation-delay: 0s;
+}
+.tipCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.tipCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.tipCard:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.tipCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-left-color: #764ba2;
+}
+
+.tipNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.tipCard h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.tipCard p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.ctaSection p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  animation: fadeInScale 0.8s ease-out 0.2s backwards;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInScale 0.8s ease-out 0.4s backwards;
+}
+
+.whatsappBtn {
+  padding: 14px 40px;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.whatsappBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .typesGrid,
+  .routesGrid,
+  .airlinesGrid,
+  .benefitsGrid,
+  .tipsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .whatsappBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .main {
+    padding: 40px 15px;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .typeCard,
+  .airlineCard,
+  .benefitCard,
+  .tipCard {
+    padding: 20px;
+  }
+
+  .ctaSection {
+    padding: 40px 15px;
+  }
+
+  .ctaSection h2 {
+    font-size: 1.5rem;
+  }
+}
