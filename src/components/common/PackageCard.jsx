@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
+import { ImageReveal } from '../ScrollAnimations'
 import styles from './PackageCard.module.css'
 
 const PackageCard = ({ package: pkg }) => {
   return (
     <Link to={`/packages/${pkg.slug}`} className={styles.card}>
       <div className={styles.imageWrapper}>
-        <img src={pkg.image_url} alt={pkg.title} className={styles.image} />
+        <ImageReveal>
+          <img src={pkg.image_url} alt={pkg.title} className={styles.image} />
+        </ImageReveal>
         <div className={styles.badge}>
           <span className={styles.duration}>{pkg.duration}</span>
         </div>
