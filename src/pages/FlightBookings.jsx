@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ScrollReveal, StaggerReveal, TextReveal, HoverLift } from '../components/ScrollAnimations'
 import styles from './FlightBookings.module.css'
 
 const FlightBookings = () => {
@@ -156,119 +157,141 @@ const FlightBookings = () => {
         {/* Flight Types Section */}
         <section className={styles.flightTypesSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Flight Types</h2>
-            <p className={styles.sectionSubtitle}>Choose the type of flight that suits your travel needs</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>Flight Types</h2>
+              <p className={styles.sectionSubtitle}>Choose the type of flight that suits your travel needs</p>
+            </TextReveal>
 
-            <div className={styles.typesGrid}>
-              {flightTypes.map((type, index) => (
-                <div
-                  key={type.id}
-                  className={`${styles.typeCard} ${selectedFlightType === type.id ? styles.active : ''}`}
-                  onClick={() => setSelectedFlightType(selectedFlightType === type.id ? null : type.id)}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={styles.typeIcon}>{type.icon}</div>
-                  <h3>{type.title}</h3>
-                  <p>{type.description}</p>
-                </div>
-              ))}
-            </div>
+            <StaggerReveal>
+              <div className={styles.typesGrid}>
+                {flightTypes.map((type, index) => (
+                  <div
+                    key={type.id}
+                    data-stagger
+                    className={`${styles.typeCard} ${selectedFlightType === type.id ? styles.active : ''}`}
+                    onClick={() => setSelectedFlightType(selectedFlightType === type.id ? null : type.id)}
+                  >
+                    <div className={styles.typeIcon}>{type.icon}</div>
+                    <h3>{type.title}</h3>
+                    <p>{type.description}</p>
+                  </div>
+                ))}
+              </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* Popular Routes */}
         <section className={styles.routesSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Popular Routes</h2>
-            <p className={styles.sectionSubtitle}>Book flights on these popular international routes</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>Popular Routes</h2>
+              <p className={styles.sectionSubtitle}>Book flights on these popular international routes</p>
+            </TextReveal>
 
-            <div className={styles.routesGrid}>
-              {popularRoutes.map((route, index) => (
-                <div
-                  key={`${route.from}-${route.to}`}
-                  className={styles.routeCard}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={styles.routeFrom}>{route.from}</div>
-                  <div className={styles.routeArrow}>✈️</div>
-                  <div className={styles.routeTo}>{route.to}</div>
-                  <div className={styles.routeInfo}>
-                    <p className={styles.duration}>{route.duration}</p>
-                    <p className={styles.airlines}>{route.airlines}</p>
+            <StaggerReveal>
+              <div className={styles.routesGrid}>
+                {popularRoutes.map((route, index) => (
+                  <div
+                    key={`${route.from}-${route.to}`}
+                    data-stagger
+                    className={styles.routeCard}
+                  >
+                    <div className={styles.routeFrom}>{route.from}</div>
+                    <div className={styles.routeArrow}>✈️</div>
+                    <div className={styles.routeTo}>{route.to}</div>
+                    <div className={styles.routeInfo}>
+                      <p className={styles.duration}>{route.duration}</p>
+                      <p className={styles.airlines}>{route.airlines}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* Partner Airlines */}
         <section className={styles.airlinesSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Partner Airlines</h2>
-            <p className={styles.sectionSubtitle}>We work with leading international airlines</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>Partner Airlines</h2>
+              <p className={styles.sectionSubtitle}>We work with leading international airlines</p>
+            </TextReveal>
 
-            <div className={styles.airlinesGrid}>
-              {partnerAirlines.map((airline, index) => (
-                <div
-                  key={airline.name}
-                  className={styles.airlineCard}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={styles.airlineLogo}>{airline.logo}</div>
-                  <h3>{airline.name}</h3>
-                  <p>{airline.description}</p>
-                </div>
-              ))}
-            </div>
+            <StaggerReveal>
+              <div className={styles.airlinesGrid}>
+                {partnerAirlines.map((airline, index) => (
+                  <div
+                    key={airline.name}
+                    data-stagger
+                    className={styles.airlineCard}
+                  >
+                    <div className={styles.airlineLogo}>{airline.logo}</div>
+                    <h3>{airline.name}</h3>
+                    <p>{airline.description}</p>
+                  </div>
+                ))}
+              </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* Benefits Section */}
         <section className={styles.benefitsSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Why Book With Us</h2>
-            <p className={styles.sectionSubtitle}>Experience hassle-free flight booking</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>Why Book With Us</h2>
+              <p className={styles.sectionSubtitle}>Experience hassle-free flight booking</p>
+            </TextReveal>
 
-            <div className={styles.benefitsGrid}>
-              {benefits.map((benefit, index) => (
-                <div
-                  key={benefit.title}
-                  className={styles.benefitCard}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={styles.benefitIcon}>{benefit.icon}</div>
-                  <h3>{benefit.title}</h3>
-                  <p>{benefit.description}</p>
-                </div>
-              ))}
-            </div>
+            <StaggerReveal>
+              <div className={styles.benefitsGrid}>
+                {benefits.map((benefit, index) => (
+                  <div
+                    key={benefit.title}
+                    data-stagger
+                    className={styles.benefitCard}
+                  >
+                    <div className={styles.benefitIcon}>{benefit.icon}</div>
+                    <h3>{benefit.title}</h3>
+                    <p>{benefit.description}</p>
+                  </div>
+                ))}
+              </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* Booking Tips */}
         <section className={styles.tipsSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Travel Smart - Booking Tips</h2>
-            <p className={styles.sectionSubtitle}>Get the best deals with these pro tips</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>Travel Smart - Booking Tips</h2>
+              <p className={styles.sectionSubtitle}>Get the best deals with these pro tips</p>
+            </TextReveal>
 
-            <div className={styles.tipsGrid}>
-              {bookingTips.map((tip) => (
-                <div key={tip.number} className={styles.tipCard}>
+            <StaggerReveal>
+              <div className={styles.tipsGrid}>
+                {bookingTips.map((tip) => (
+                  <div key={tip.number} data-stagger className={styles.tipCard}>
                   <div className={styles.tipNumber}>{tip.number}</div>
                   <h3>{tip.title}</h3>
                   <p>{tip.tip}</p>
                 </div>
               ))}
             </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className={styles.ctaSection}>
           <div className={styles.container}>
-            <h2>Ready to Book Your Flight?</h2>
-            <p>Search our database or let our experts find the best options for you</p>
+            <ScrollReveal>
+              <h2>Ready to Book Your Flight?</h2>
+              <p>Search our database or let our experts find the best options for you</p>
+            </ScrollReveal>
             <div className={styles.ctaButtons}>
               <button className={styles.whatsappBtn} onClick={handleWhatsApp}>
                 📱 Chat on WhatsApp

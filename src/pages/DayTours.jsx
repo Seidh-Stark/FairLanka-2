@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ScrollReveal, StaggerReveal, TextReveal, HoverLift } from '../components/ScrollAnimations'
 import styles from './DayTours.module.css'
 
 const DayTours = () => {
@@ -194,18 +195,22 @@ const DayTours = () => {
       <main className={styles.main}>
         <section className={styles.toursSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>10 Amazing Day Tours</h2>
-            <p className={styles.sectionSubtitle}>Choose from our most popular day tour experiences</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>10 Amazing Day Tours</h2>
+              <p className={styles.sectionSubtitle}>Choose from our most popular day tour experiences</p>
+            </TextReveal>
 
-            <div className={styles.toursGrid}>
-              {dayTours.map((tour, index) => (
-                <div key={tour.id} className={`${styles.tourCard} ${expandedTour === tour.id ? styles.expanded : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className={styles.tourImage}>
-                    <img src={tour.image} alt={tour.title} />
-                    {mostPopular.includes(tour.id) && (
-                      <span className={styles.badge}>Most Popular</span>
-                    )}
-                  </div>
+            <StaggerReveal>
+              <div className={styles.toursGrid}>
+                {dayTours.map((tour, index) => (
+                  <div key={tour.id} data-stagger>
+                    <HoverLift className={`${styles.tourCard} ${expandedTour === tour.id ? styles.expanded : ''}`}>
+                      <div className={styles.tourImage}>
+                        <img src={tour.image} alt={tour.title} />
+                        {mostPopular.includes(tour.id) && (
+                          <span className={styles.badge}>Most Popular</span>
+                        )}
+                      </div>
 
                   <div className={styles.tourContent}>
                     <h3>{tour.title}</h3>
@@ -249,10 +254,12 @@ const DayTours = () => {
                         📱 Book Now
                       </button>
                     </div>
-                  </div>
+                    </div>
+                  </HoverLift>
                 </div>
               ))}
             </div>
+            </StaggerReveal>
           </div>
         </section>
 

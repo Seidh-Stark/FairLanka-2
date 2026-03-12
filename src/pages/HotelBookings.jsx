@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ScrollReveal, StaggerReveal, TextReveal, HoverLift } from '../components/ScrollAnimations'
 import styles from './HotelBookings.module.css'
 
 const HotelBookings = () => {
@@ -141,17 +142,20 @@ const HotelBookings = () => {
         {/* Categories Section */}
         <section className={styles.categoriesSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Hotel Categories</h2>
-            <p className={styles.sectionSubtitle}>Choose the type of accommodation that suits your travel style</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>Hotel Categories</h2>
+              <p className={styles.sectionSubtitle}>Choose the type of accommodation that suits your travel style</p>
+            </TextReveal>
 
-            <div className={styles.categoriesGrid}>
-              {hotelCategories.map((category, index) => (
-                <div
-                  key={category.id}
-                  className={`${styles.categoryCard} ${selectedCategory === category.id ? styles.active : ''}`}
-                  onClick={() => setSelectedCategory(selectedCategory === category.id ? null : category.id)}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+            <StaggerReveal>
+              <div className={styles.categoriesGrid}>
+                {hotelCategories.map((category, index) => (
+                  <div
+                    key={category.id}
+                    data-stagger
+                    className={`${styles.categoryCard} ${selectedCategory === category.id ? styles.active : ''}`}
+                    onClick={() => setSelectedCategory(selectedCategory === category.id ? null : category.id)}
+                  >
                   <h3>{category.title}</h3>
                   <p className={styles.description}>{category.description}</p>
 
@@ -168,22 +172,26 @@ const HotelBookings = () => {
                 </div>
               ))}
             </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* Popular Destinations */}
         <section className={styles.destinationsSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Popular Hotel Destinations</h2>
-            <p className={styles.sectionSubtitle}>Book hotels in these top-rated locations</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>Popular Hotel Destinations</h2>
+              <p className={styles.sectionSubtitle}>Book hotels in these top-rated locations</p>
+            </TextReveal>
 
-            <div className={styles.destinationsGrid}>
-              {popularDestinations.map((dest, index) => (
-                <div
-                  key={dest.name}
-                  className={styles.destinationCard}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+            <StaggerReveal>
+              <div className={styles.destinationsGrid}>
+                {popularDestinations.map((dest, index) => (
+                  <div
+                    key={dest.name}
+                    data-stagger
+                    className={styles.destinationCard}
+                  >
                   <div className={styles.destImage}>
                     <img src={dest.image} alt={dest.name} />
                   </div>
@@ -194,58 +202,69 @@ const HotelBookings = () => {
                 </div>
               ))}
             </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* How It Works */}
         <section className={styles.howItWorksSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>How It Works</h2>
-            <p className={styles.sectionSubtitle}>4 Simple steps to book your perfect hotel</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>How It Works</h2>
+              <p className={styles.sectionSubtitle}>4 Simple steps to book your perfect hotel</p>
+            </TextReveal>
 
-            <div className={styles.stepsGrid}>
-              {bookingSteps.map((step, index) => (
-                <div
-                  key={step.number}
-                  className={styles.stepCard}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+            <StaggerReveal>
+              <div className={styles.stepsGrid}>
+                {bookingSteps.map((step, index) => (
+                  <div
+                    key={step.number}
+                    data-stagger
+                    className={styles.stepCard}
+                  >
                   <div className={styles.stepNumber}>{step.number}</div>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
                 </div>
               ))}
             </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* Why Choose Us */}
         <section className={styles.featuresSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Why Choose Our Hotel Booking Service</h2>
-            <p className={styles.sectionSubtitle}>Experience the best hotel booking experience</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>Why Choose Our Hotel Booking Service</h2>
+              <p className={styles.sectionSubtitle}>Experience the best hotel booking experience</p>
+            </TextReveal>
 
-            <div className={styles.featuresGrid}>
-              {hotelFeatures.map((feature, index) => (
-                <div
-                  key={feature.title}
-                  className={styles.featureCard}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+            <StaggerReveal>
+              <div className={styles.featuresGrid}>
+                {hotelFeatures.map((feature, index) => (
+                  <div
+                    key={feature.title}
+                    data-stagger
+                    className={styles.featureCard}
+                  >
                   <div className={styles.featureIcon}>{feature.icon}</div>
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
                 </div>
               ))}
             </div>
+            </StaggerReveal>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className={styles.ctaSection}>
           <div className={styles.container}>
-            <h2>Start Booking Your Hotel Today</h2>
-            <p>Browse our collection or chat with our experts for personalized recommendations</p>
+            <ScrollReveal>
+              <h2>Start Booking Your Hotel Today</h2>
+              <p>Browse our collection or chat with our experts for personalized recommendations</p>
+            </ScrollReveal>
             <div className={styles.ctaButtons}>
               <button className={styles.whatsappBtn} onClick={handleWhatsApp}>
                 📱 Chat on WhatsApp

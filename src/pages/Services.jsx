@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ScrollReveal, StaggerReveal, TextReveal, HoverLift } from '../components/ScrollAnimations'
 import styles from './Services.module.css'
 
 const Services = () => {
@@ -18,7 +19,7 @@ const Services = () => {
       image: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600',
       type: 'whatsapp',
       message: 'Hello, I would like to book an Airport Transfer. Please provide more details',
-      buttonText: '📱 Book Now'
+      buttonText: 'Book Now'
     },
     {
       id: 2,
@@ -45,7 +46,7 @@ const Services = () => {
       image: 'https://images.pexels.com/photos/3595925/pexels-photo-3595925.jpeg?auto=compress&cs=tinysrgb&w=1600',
       type: 'whatsapp',
       message: 'Hello, I need information about Intercity Transfers',
-      buttonText: '📱 Book Now'
+      buttonText: 'Book Now'
     },
     {
       id: 5,
@@ -88,36 +89,42 @@ const Services = () => {
       <main className={styles.main}>
         <section className={styles.servicesSection}>
           <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>7 Essential Travel Services</h2>
-            <p className={styles.sectionSubtitle}>Choose the services you need for your perfect Sri Lankan adventure</p>
+            <TextReveal>
+              <h2 className={styles.sectionTitle}>7 Essential Travel Services</h2>
+              <p className={styles.sectionSubtitle}>Choose the services you need for your perfect Sri Lankan adventure</p>
+            </TextReveal>
 
-            <div className={styles.servicesGrid}>
-              {services.map((service, index) => (
-                <div key={service.id} className={styles.serviceCard} style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className={styles.serviceImage}>
-                    <img src={service.image} alt={service.title} />
+            <StaggerReveal>
+              <div className={styles.servicesGrid}>
+                {services.map((service, index) => (
+                  <div key={service.id} data-stagger>
+                    <HoverLift className={styles.serviceCard}>
+                      <div className={styles.serviceImage}>
+                        <img src={service.image} alt={service.title} />
+                      </div>
+                      <div className={styles.serviceContent}>
+                        <h3>{service.title}</h3>
+                        <p>{service.description}</p>
+                        <div className={styles.serviceFooter}>
+                          {service.type === 'whatsapp' ? (
+                            <button
+                              className={styles.whatsappBtn}
+                              onClick={() => handleWhatsApp(service.title, service.message)}
+                            >
+                              {service.buttonText}
+                            </button>
+                          ) : (
+                            <Link to={service.link} className={styles.viewBtn}>
+                              {service.buttonText}
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+                    </HoverLift>
                   </div>
-                  <div className={styles.serviceContent}>
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                    <div className={styles.serviceFooter}>
-                      {service.type === 'whatsapp' ? (
-                        <button
-                          className={styles.whatsappBtn}
-                          onClick={() => handleWhatsApp(service.title, service.message)}
-                        >
-                          {service.buttonText}
-                        </button>
-                      ) : (
-                        <Link to={service.link} className={styles.viewBtn}>
-                          {service.buttonText}
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </StaggerReveal>
           </div>
         </section>
 

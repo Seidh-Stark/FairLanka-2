@@ -7,6 +7,7 @@ import ActivityCard from '../components/common/ActivityCard'
 import TestimonialCard from '../components/common/TestimonialCard'
 import TravelInfoCard from '../components/common/TravelInfoCard'
 import ServiceCard from '../components/common/ServiceCard'
+import { ScrollReveal, StaggerReveal, TextReveal, HoverLift } from '../components/ScrollAnimations'
 import { destinationService } from '../services/destinationService'
 import { packageService } from '../services/packageService'
 import { testimonialService } from '../services/testimonialService'
@@ -17,6 +18,7 @@ const Home = () => {
   const [packages, setPackages] = useState([])
   const [testimonials, setTestimonials] = useState([])
   const [loading, setLoading] = useState(true)
+  const whatsappNumber = '94764374114'
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,6 +75,12 @@ const Home = () => {
       image: 'https://images.pexels.com/photos/390051/surfer-wave-sunset-the-indian-ocean-390051.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ]
+
+  const handleWhatsApp = (serviceTitle, message) => {
+    const fullMessage = `${message}`
+    const encodedMessage = encodeURIComponent(fullMessage)
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank')
+  }
 
   const travelInfo = [
     {
@@ -144,30 +152,63 @@ const Home = () => {
 
       <section className="section section-alt">
         <div className="container">
-          <h2 className="section-title">Our Premium Travel Services</h2>
-          <p className="section-subtitle">We provide complete travel solutions for a smooth and unforgettable Sri Lanka experience.</p>
-          <div className="grid grid-4">
-            {servicesPreview.map((s, i) => (
-              <ServiceCard key={i} title={s.title} description={s.description} icon={s.icon} ctaText="View Service" ctaTo={`/services#${s.id}`} />
-            ))}
-          </div>
+          <TextReveal>
+            <h2 className="section-title">Our Premium Travel Services</h2>
+            <p className="section-subtitle">We provide complete travel solutions for a smooth and unforgettable Sri Lanka experience.</p>
+          </TextReveal>
+          <StaggerReveal>
+            <div className="grid grid-4">
+              {servicesPreview.map((s, i) => {
+                const isWhatsApp = s.id === 'airport-transfer' || s.id === 'intercity-transfers'
+                return (
+                  <div key={i} data-stagger>
+                    <HoverLift>
+                      {isWhatsApp ? (
+                        <ServiceCard 
+                          title={s.title} 
+                          description={s.description} 
+                          icon={s.icon} 
+                          ctaText="Book Now"
+                          ctaAction={() => handleWhatsApp(s.title, `Hello, I would like to book ${s.title}. Please provide more details`)}
+                        />
+                      ) : (
+                        <ServiceCard title={s.title} description={s.description} icon={s.icon} ctaText="View Service" ctaTo={`/services#${s.id}`} />
+                      )}
+                    </HoverLift>
+                  </div>
+                )
+              })}
+            </div>
+          </StaggerReveal>
           <div className={styles.viewAll} style={{marginTop:24}}>
-            <Link to="/services" className="btn btn-secondary">View All Services</Link>
+            <ScrollReveal>
+              <Link to="/services" className="btn btn-secondary">View All Services</Link>
+            </ScrollReveal>
           </div>
         </div>
       </section>
       {topDestinations.length > 0 && (
         <section className="section">
           <div className="container">
-            <h2 className="section-title">Top 15 Tourist Destinations</h2>
-            <p className="section-subtitle">Discover some of our most popular destinations across Sri Lanka.</p>
-            <div className="grid grid-4">
-              {topDestinations.slice(0, 4).map((destination) => (
-                <DestinationCard key={destination.id} destination={destination} />
-              ))}
-            </div>
+            <TextReveal>
+              <h2 className="section-title">Top 15 Tourist Destinations</h2>
+              <p className="section-subtitle">Discover some of our most popular destinations across Sri Lanka.</p>
+            </TextReveal>
+            <StaggerReveal>
+              <div className="grid grid-4">
+                {topDestinations.slice(0, 4).map((destination) => (
+                  <div key={destination.id} data-stagger>
+                    <HoverLift>
+                      <DestinationCard destination={destination} />
+                    </HoverLift>
+                  </div>
+                ))}
+              </div>
+            </StaggerReveal>
             <div className={styles.viewAll} style={{marginTop:24}}>
-              <Link to="/destinations" className="btn btn-secondary">View All Destinations</Link>
+              <ScrollReveal>
+                <Link to="/destinations" className="btn btn-secondary">View All Destinations</Link>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -175,34 +216,52 @@ const Home = () => {
 
       <section className="section section-alt">
         <div className="container">
-          <h2 className="section-title">Popular Activities</h2>
-          <p className="section-subtitle">
-            Discover exciting adventures and experiences waiting for you
-          </p>
-          <div className="grid grid-3">
-            {activities.map((activity, index) => (
-              <ActivityCard key={index} activity={activity} />
-            ))}
-          </div>
+          <TextReveal>
+            <h2 className="section-title">Popular Activities</h2>
+            <p className="section-subtitle">
+              Discover exciting adventures and experiences waiting for you
+            </p>
+          </TextReveal>
+          <StaggerReveal>
+            <div className="grid grid-3">
+              {activities.map((activity, index) => (
+                <div key={index} data-stagger>
+                  <HoverLift>
+                    <ActivityCard activity={activity} />
+                  </HoverLift>
+                </div>
+              ))}
+            </div>
+          </StaggerReveal>
         </div>
       </section>
 
       {packages.length > 0 && (
         <section className="section">
           <div className="container">
-            <h2 className="section-title">Featured Tour Packages</h2>
-            <p className="section-subtitle">
-              Handpicked tours designed to give you the best of Sri Lanka
-            </p>
-            <div className="grid grid-3">
-              {packages.slice(0, 3).map((pkg) => (
-                <PackageCard key={pkg.id} package={pkg} />
-              ))}
-            </div>
+            <TextReveal>
+              <h2 className="section-title">Featured Tour Packages</h2>
+              <p className="section-subtitle">
+                Handpicked tours designed to give you the best of Sri Lanka
+              </p>
+            </TextReveal>
+            <StaggerReveal>
+              <div className="grid grid-3">
+                {packages.slice(0, 3).map((pkg) => (
+                  <div key={pkg.id} data-stagger>
+                    <HoverLift>
+                      <PackageCard package={pkg} />
+                    </HoverLift>
+                  </div>
+                ))}
+              </div>
+            </StaggerReveal>
             <div className={styles.viewAll}>
-              <Link to="/packages" className="btn btn-secondary">
-                View All Packages
-              </Link>
+              <ScrollReveal>
+                <Link to="/packages" className="btn btn-secondary">
+                  View All Packages
+                </Link>
+              </ScrollReveal>
             </div>
           </div>
         </section>

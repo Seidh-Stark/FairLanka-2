@@ -337,7 +337,128 @@ input:focus, textarea:focus, select:focus {
   .btn { padding: 10px 24px; font-size: 0.9rem; }
 }
 
-/* Scroll Animation Utilities */
+/* ==================== ENHANCED SCROLL ANIMATIONS ==================== */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base animation styles for GSAP scroll reveal */
+[data-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+[data-stagger] {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+[data-image-zoom] {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+[data-text-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Heading animations */
+.section-title-animate {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.section-subtitle-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  margin-top: 10px;
+}
+
+/* Enhanced hover states for cards */
+.card-hover-lift {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Image hover zoom effect */
+.image-hover-zoom {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-hover-zoom img {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.image-hover-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* Click feedback animation */
+@keyframes clickPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+  }
+}
+
+.btn-interactive:active {
+  animation: clickPulse 0.6s ease-out;
+}
+
+/* Staggered fade-in animations */
+@keyframes staggerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text reveal from bottom */
+@keyframes textRevealUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Section slide up */
+@keyframes sectionSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Smooth Scroll Animation Utilities */
 .scroll-animate {
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
