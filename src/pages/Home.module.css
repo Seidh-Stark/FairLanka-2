@@ -51,6 +51,33 @@
   z-index: 1;
 }
 
+.aboutItem {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(27, 107, 79, 0.12);
+}
+
+.aboutItem h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #1b6b4f;
+}
+
+.aboutItem p {
+  margin: 0;
+  line-height: 1.6;
+  color: #4a4a4a;
+}
+
+@media (max-width: 768px) {
+  .aboutItem {
+    padding: 18px;
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

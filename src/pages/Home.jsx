@@ -160,6 +160,56 @@ const Home = () => {
     <div className={styles.home}>
       <Hero />
 
+      <section className="section">
+        <div className="container">
+          <TextReveal>
+            <h2 className="section-title">About Fair Lanka Travels</h2>
+            <p className="section-subtitle">
+              Fair Lanka Travels is a registered travel service provider under the Sri Lanka Government Individual Trading Registration (R/No: 2368019). With over 10 years of experience in the tourism industry and more than 3 years as a professional travel agent, we are committed to providing reliable and memorable travel experiences across Sri Lanka.
+            </p>
+          </TextReveal>
+
+          <StaggerReveal>
+            <div className="grid grid-3">
+              <div className={styles.aboutItem} data-stagger>
+                <h3>Professional & Friendly</h3>
+                <p>We deliver personalized service with a friendly local touch and expert guidance.</p>
+              </div>
+              <div className={styles.aboutItem} data-stagger>
+                <h3>Local Expertise</h3>
+                <p>Our team knows Sri Lanka inside out and crafts experiences that feel authentic.</p>
+              </div>
+              <div className={styles.aboutItem} data-stagger>
+                <h3>Safe & Comfortable</h3>
+                <p>We partner with trusted transport providers to keep your journeys smooth and secure.</p>
+              </div>
+              <div className={styles.aboutItem} data-stagger>
+                <h3>Tailor-Made Tours</h3>
+                <p>Every itinerary can be adjusted to match your pace, interests, and budget.</p>
+              </div>
+              <div className={styles.aboutItem} data-stagger>
+                <h3>Transparent Pricing</h3>
+                <p>Clear, competitive rates with no hidden fees—just honest value.</p>
+              </div>
+              <div className={styles.aboutItem} data-stagger>
+                <h3>Expert Support</h3>
+                <p>We’re available to help before, during, and after your trip.</p>
+              </div>
+            </div>
+          </StaggerReveal>
+
+          <TextReveal>
+            <h2 className="section-title" style={{ marginTop: 48 }}>Our Owner</h2>
+            <p className="section-subtitle">
+              Fair Lanka Travels is owned by Mr. Yoonus, a passionate young entrepreneur in the tourism field. He holds a Diploma in Inbound Tourism Management under a Government Registered Certificate, ensuring professional knowledge and quality service for every traveler.
+            </p>
+            <p className="section-subtitle">
+              We specialize in Airport Transfers, Day Tours, Round Tours, Tailor-Made Tours, and Safaris across Sri Lanka, helping you explore the island with comfort and confidence. 🌴✈️
+            </p>
+          </TextReveal>
+        </div>
+      </section>
+
       <section className="section section-alt">
         <div className="container">
           {isMobile ? (

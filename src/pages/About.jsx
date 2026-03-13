@@ -14,6 +14,32 @@ const About = () => {
       <section className="section">
         <div className="container">
           <div className={styles.content}>
+            <h2>About Us – Fair Lanka Travels</h2>
+            <p>
+              Fair Lanka Travels is a registered travel service provider under the Sri Lanka Government Individual Trading Registration (R/No: 2368019). With over 10 years of experience in the tourism industry and more than 3 years as a professional travel agent, we are committed to providing reliable and memorable travel experiences across Sri Lanka.
+            </p>
+            <h3>Why Travel with Fair Lanka Travels</h3>
+            <ul>
+              <li>Professional and friendly service</li>
+              <li>Experienced local travel expertise</li>
+              <li>Comfortable and safe transport</li>
+              <li>Flexible and tailor-made tours</li>
+              <li>Fair and competitive pricing</li>
+            </ul>
+            <h3>Our Owner</h3>
+            <p>
+              Fair Lanka Travels is owned by Mr. Yoonus, a passionate young entrepreneur in the tourism field. He holds a Diploma in Inbound Tourism Management under a Government Registered Certificate, ensuring professional knowledge and quality service for every traveler.
+            </p>
+            <p>
+              We specialize in Airport Transfers, Day Tours, Round Tours, Tailor-Made Tours, and Safaris across Sri Lanka, helping you explore the island with comfort and confidence. 🌴✈️
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className={styles.content}>
             <h2>Welcome to Sri Lanka</h2>
             <p>
               Sri Lanka, formerly known as Ceylon, is an island nation located in South Asia,
