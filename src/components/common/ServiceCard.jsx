@@ -2,10 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './ServiceCard.module.css'
 
-const ServiceCard = ({ icon, title, description, ctaText, ctaTo, ctaAction }) => {
+const ServiceCard = ({ icon, iconSrc, title, description, ctaText, ctaTo, ctaAction }) => {
   return (
     <article className={styles.card} tabIndex={0}>
-      <div className={styles.icon} aria-hidden dangerouslySetInnerHTML={{ __html: icon }} />
+      <div className={styles.icon} aria-hidden>
+        {iconSrc ? (
+          <img src={iconSrc} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 12 }} />
+        ) : (
+          <span dangerouslySetInnerHTML={{ __html: icon }} />
+        )}
+      </div>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>
       {ctaText && (ctaTo || ctaAction) && (

@@ -328,6 +328,20 @@ input:focus, textarea:focus, select:focus {
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.5rem; }
   .section { padding: var(--spacing-lg) 0; }
+  .grid-4 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-5 { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 0 var(--spacing-sm); }
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
   .container, .container-wide { padding: 0 var(--spacing-sm); }
 }
 

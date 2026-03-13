@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { motion, useAnimation, useInView } from 'framer-motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -192,5 +193,86 @@ export const HoverLift = ({ children, className = '' }) => {
     <div ref={ref} className={`card-hover-lift ${className}`}>
       {children}
     </div>
+  )
+}
+
+// Framer Motion Components for Mobile-Optimized Animations
+export const MobileCardReveal = ({ children, index = 0 }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export const MobileStaggerReveal = ({ children }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+          }
+        }
+      }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export const MobileTextReveal = ({ children }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export const MobileHoverLift = ({ children }) => {
+  return (
+    <motion.div
+      whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)" }}
+      whileTap={{ scale: 0.98 }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 20
+      }}
+    >
+      {children}
+    </motion.div>
   )
 }

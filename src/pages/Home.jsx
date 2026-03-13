@@ -7,7 +7,7 @@ import ActivityCard from '../components/common/ActivityCard'
 import TestimonialCard from '../components/common/TestimonialCard'
 import TravelInfoCard from '../components/common/TravelInfoCard'
 import ServiceCard from '../components/common/ServiceCard'
-import { ScrollReveal, StaggerReveal, TextReveal, HoverLift } from '../components/ScrollAnimations'
+import { ScrollReveal, StaggerReveal, TextReveal, HoverLift, MobileCardReveal, MobileStaggerReveal, MobileTextReveal, MobileHoverLift } from '../components/ScrollAnimations'
 import { destinationService } from '../services/destinationService'
 import { packageService } from '../services/packageService'
 import { testimonialService } from '../services/testimonialService'
@@ -18,9 +18,17 @@ const Home = () => {
   const [packages, setPackages] = useState([])
   const [testimonials, setTestimonials] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
   const whatsappNumber = '94764374114'
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
     const fetchData = async () => {
       try {
         const [allDestData, pkgData, testData] = await Promise.all([
@@ -41,6 +49,8 @@ const Home = () => {
     }
 
     fetchData()
+
+    return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
   const activities = [
@@ -106,43 +116,43 @@ const Home = () => {
       id: 'airport-transfer',
       title: 'Airport Transfer',
       description: 'Comfortable and safe airport transfers with professional drivers.',
-      icon: '<img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Airport transfer" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      iconSrc: '../assets/service-icons/airport-transfer-icon.jpg'
     },
     {
       id: 'tour-packages',
       title: 'Tour Packages',
       description: 'Handpicked round-trip tour packages to explore the best of Sri Lanka.',
-      icon: '<img src="https://images.pexels.com/photos/707915/pexels-photo-707915.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Tour packages" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      iconSrc: '../assets/service-icons/tour-package-icon.jpg'
     },
     {
       id: 'day-tour',
       title: 'Day Tours',
       description: 'Exciting day tours to Sri Lanka\'s most popular destinations.',
-      icon: '<img src="https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=200" alt="Day tours" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      iconSrc: '../assets/service-icons/Day tour-icon].png'
     },
     {
       id: 'intercity-transfers',
       title: 'Intercity Transfers',
       description: 'Convenient transfers between major cities and towns.',
-      icon: '<img src="https://images.pexels.com/photos/3595925/pexels-photo-3595925.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Intercity transfers" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      iconSrc: '../assets/service-icons/Intercity Transfers.png'
     },
     {
       id: 'safaris',
       title: 'Safaris In Sri Lanka',
       description: 'Thrilling wildlife safaris in Yala, Udawalawe, and national parks.',
-      icon: '<img src="https://images.pexels.com/photos/3407817/pexels-photo-3407817.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Safaris" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      iconSrc: '../assets/service-icons/Safaris-icon.jpg'
     },
     {
       id: 'hotel-bookings',
       title: 'Hotel Bookings',
       description: 'Luxury resorts, boutique hotels, and budget stays across Sri Lanka.',
-      icon: '<img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Hotel bookings" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      iconSrc: '../assets/service-icons/Hotel-booking-icon.jpg'
     },
     {
       id: 'flight-bookings',
       title: 'Flight Bookings',
       description: 'Book international and domestic flights at competitive prices.',
-      icon: '<img src="https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Flight bookings" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />'
+      iconSrc: '../assets/service-icons/flight-booking-icon.jpg'
     }
   ]
 
@@ -152,38 +162,78 @@ const Home = () => {
 
       <section className="section section-alt">
         <div className="container">
-          <TextReveal>
-            <h2 className="section-title">Our Premium Travel Services</h2>
-            <p className="section-subtitle">We provide complete travel solutions for a smooth and unforgettable Sri Lanka experience.</p>
-          </TextReveal>
-          <StaggerReveal>
-            <div className="grid grid-4">
-              {servicesPreview.map((s, i) => {
-                const isWhatsApp = s.id === 'airport-transfer' || s.id === 'intercity-transfers'
-                return (
-                  <div key={i} data-stagger>
-                    <HoverLift>
-                      {isWhatsApp ? (
-                        <ServiceCard 
-                          title={s.title} 
-                          description={s.description} 
-                          icon={s.icon} 
+          {isMobile ? (
+            <MobileTextReveal>
+              <h2 className="section-title">Our Premium Travel Services</h2>
+              <p className="section-subtitle">We provide complete travel solutions for a smooth and unforgettable Sri Lanka experience.</p>
+            </MobileTextReveal>
+          ) : (
+            <TextReveal>
+              <h2 className="section-title">Our Premium Travel Services</h2>
+              <p className="section-subtitle">We provide complete travel solutions for a smooth and unforgettable Sri Lanka experience.</p>
+            </TextReveal>
+          )}
+          {isMobile ? (
+            <MobileStaggerReveal>
+              <div className="grid grid-4">
+                {servicesPreview.map((s, i) => {
+                  const isWhatsApp = s.id === 'airport-transfer' || s.id === 'intercity-transfers'
+                  return (
+                    <MobileCardReveal key={i} index={i}>
+                      <MobileHoverLift>
+                        {isWhatsApp ? (
+                          <ServiceCard 
+                            title={s.title} 
+                            description={s.description} 
+                          iconSrc={s.iconSrc}
                           ctaText="Book Now"
                           ctaAction={() => handleWhatsApp(s.title, `Hello, I would like to book ${s.title}. Please provide more details`)}
                         />
                       ) : (
-                        <ServiceCard title={s.title} description={s.description} icon={s.icon} ctaText="View Service" ctaTo={`/services#${s.id}`} />
-                      )}
-                    </HoverLift>
-                  </div>
-                )
-              })}
-            </div>
-          </StaggerReveal>
+                        <ServiceCard title={s.title} description={s.description} iconSrc={s.iconSrc} ctaText="View Service" ctaTo={`/services#${s.id}`} />
+                        )}
+                      </MobileHoverLift>
+                    </MobileCardReveal>
+                  )
+                })}
+              </div>
+            </MobileStaggerReveal>
+          ) : (
+            <StaggerReveal>
+              <div className="grid grid-4">
+                {servicesPreview.map((s, i) => {
+                  const isWhatsApp = s.id === 'airport-transfer' || s.id === 'intercity-transfers'
+                  return (
+                    <div key={i} data-stagger>
+                      <HoverLift>
+                        {isWhatsApp ? (
+                          <ServiceCard 
+                            title={s.title} 
+                            description={s.description} 
+                            icon={s.icon} 
+                            ctaText="Book Now"
+                            ctaAction={() => handleWhatsApp(s.title, `Hello, I would like to book ${s.title}. Please provide more details`)}
+                          />
+                        ) : (
+                          <ServiceCard title={s.title} description={s.description} icon={s.icon} ctaText="View Service" ctaTo={`/services#${s.id}`} />
+                        )}
+                      </HoverLift>
+                    </div>
+                  )
+                })}
+              </div>
+            </StaggerReveal>
+          )}
           <div className={styles.viewAll} style={{marginTop:24}}>
-            <ScrollReveal>
-              <Link to="/services" className="btn btn-secondary">View All Services</Link>
-            </ScrollReveal>
+            {isMobile ? (
+              <MobileCardReveal>
+                <Link to="/services" className="btn btn-secondary">View All Services</Link>
+              </MobileCardReveal>
+            ) : (
+              <ScrollReveal>
+                <Link to="/services" className="btn btn-secondary">View All Services</Link>
+              </ScrollReveal>
+            )}
           </div>
         </div>
       </section>
