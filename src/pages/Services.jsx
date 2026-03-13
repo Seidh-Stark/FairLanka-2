@@ -14,7 +14,7 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      title: 'Airport Transfer',
+      title: 'Airport Transfers',
       description: 'Comfortable and reliable airport transfers with professional drivers. Safe, timely, and hassle-free transportation from airport to your hotel or destination.',
       image: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600',
       type: 'whatsapp',
