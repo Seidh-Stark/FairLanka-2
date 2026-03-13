@@ -11,13 +11,6 @@ import { ScrollReveal, StaggerReveal, TextReveal, HoverLift, MobileCardReveal, M
 import { destinationService } from '../services/destinationService'
 import { packageService } from '../services/packageService'
 import { testimonialService } from '../services/testimonialService'
-import airportIcon from '../assets/service-icons/airport-transfer-icon.jpg'
-import tourPackageIcon from '../assets/service-icons/tour-package-icon.jpg'
-import dayTourIcon from '../assets/service-icons/day-tour-icon.png'
-import intercityIcon from '../assets/service-icons/intercity-transfers-icon.png'
-import safarisIcon from '../assets/service-icons/Safaris-icon.jpg'
-import hotelIcon from '../assets/service-icons/Hotel-booking-icon.jpg'
-import flightIcon from '../assets/service-icons/flight-booking-icon.jpg'
 import styles from './Home.module.css'
 
 const Home = () => {
@@ -120,46 +113,46 @@ const Home = () => {
 
   const servicesPreview = [
     {
-      id: 'airport-transfer',
-      title: 'Airport Transfer',
+      id: 'airport-transfers',
+      title: 'Airport Transfers',
       description: 'Comfortable and safe airport transfers with professional drivers.',
-      iconSrc: new URL('../assets/service-icons/airport-transfer-icon.jpg', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/airport-transfers.jpg', import.meta.url).href
     },
     {
       id: 'tour-packages',
       title: 'Tour Packages',
       description: 'Handpicked round-trip tour packages to explore the best of Sri Lanka.',
-      iconSrc: new URL('../assets/service-icons/tour-package-icon.jpg', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/tour-package.jpg', import.meta.url).href
     },
     {
       id: 'day-tour',
       title: 'Day Tours',
       description: 'Exciting day tours to Sri Lanka\'s most popular destinations.',
-      iconSrc: new URL('../assets/service-icons/day-tour-icon.png', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/Day tour.png', import.meta.url).href
     },
     {
       id: 'intercity-transfers',
       title: 'Intercity Transfers',
       description: 'Convenient transfers between major cities and towns.',
-      iconSrc: new URL('../assets/service-icons/intercity-transfers-icon.png', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/intercity-transfers.JPG', import.meta.url).href
     },
     {
       id: 'safaris',
       title: 'Safaris In Sri Lanka',
       description: 'Thrilling wildlife safaris in Yala, Udawalawe, and national parks.',
-      iconSrc: new URL('../assets/service-icons/Safaris-icon.jpg', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/safaris.jpg', import.meta.url).href
     },
     {
       id: 'hotel-bookings',
       title: 'Hotel Bookings',
       description: 'Luxury resorts, boutique hotels, and budget stays across Sri Lanka.',
-      iconSrc: new URL('../assets/service-icons/Hotel-booking-icon.jpg', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/Hotel-booking-icon.jpg', import.meta.url).href
     },
     {
       id: 'flight-bookings',
       title: 'Flight Bookings',
       description: 'Book international and domestic flights at competitive prices.',
-      iconSrc: new URL('../assets/service-icons/flight-booking-icon.jpg', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/flight-booking-icon.jpg', import.meta.url).href
     }
   ]
 
@@ -192,12 +185,12 @@ const Home = () => {
                           <ServiceCard 
                             title={s.title} 
                             description={s.description} 
-                          iconSrc={s.iconSrc}
-                          ctaText="Book Now"
-                          ctaAction={() => handleWhatsApp(s.title, `Hello, I would like to book ${s.title}. Please provide more details`)}
-                        />
-                      ) : (
-                        <ServiceCard title={s.title} description={s.description} iconSrc={s.iconSrc} ctaText="View Service" ctaTo={`/services#${s.id}`} />
+                            imageSrc={s.imageSrc}
+                            ctaText="Book Now"
+                            ctaAction={() => handleWhatsApp(s.title, `Hello, I would like to book ${s.title}. Please provide more details`)}
+                          />
+                        ) : (
+                          <ServiceCard title={s.title} description={s.description} imageSrc={s.imageSrc} ctaText="View Service" ctaTo={`/services#${s.id}`} />
                         )}
                       </MobileHoverLift>
                     </MobileCardReveal>
@@ -217,12 +210,12 @@ const Home = () => {
                           <ServiceCard 
                             title={s.title} 
                             description={s.description} 
-                            icon={s.icon} 
+                            imageSrc={s.imageSrc}
                             ctaText="Book Now"
                             ctaAction={() => handleWhatsApp(s.title, `Hello, I would like to book ${s.title}. Please provide more details`)}
                           />
                         ) : (
-                          <ServiceCard title={s.title} description={s.description} icon={s.icon} ctaText="View Service" ctaTo={`/services#${s.id}`} />
+                          <ServiceCard title={s.title} description={s.description} imageSrc={s.imageSrc} ctaText="View Service" ctaTo={`/services#${s.id}`} />
                         )}
                       </HoverLift>
                     </div>

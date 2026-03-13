@@ -91,7 +91,7 @@ const Contact = () => {
               <div className={styles.contactDetails}>
                 <div className={styles.detail}>
                   <h3>Email</h3>
-                  <p>info@fairlanka.com</p>
+                  <p>mbyoonusahamed@gmail.com</p>
                 </div>
                 <div className={styles.detail}>
                   <h3>Phone</h3>
