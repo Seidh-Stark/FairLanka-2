@@ -128,13 +128,13 @@ const Home = () => {
       id: 'day-tour',
       title: 'Day Tours',
       description: 'Exciting day tours to Sri Lanka\'s most popular destinations.',
-      imageSrc: new URL('../assets/service-images/Day tour.png', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/day-tour.png', import.meta.url).href
     },
     {
       id: 'intercity-transfers',
       title: 'Intercity Transfers',
       description: 'Convenient transfers between major cities and towns.',
-      imageSrc: new URL('../assets/service-images/intercity-transfers.JPG', import.meta.url).href
+      imageSrc: new URL('../assets/service-images/intercity-transfers.jpg', import.meta.url).href
     },
     {
       id: 'safaris',
