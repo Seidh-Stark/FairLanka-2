@@ -20,8 +20,8 @@ const DayTours = () => {
       ],
       description: 'This is one of the most popular cultural day tours in Sri Lanka.',
       image: 'https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '8-10 hours',
-      price: 'From $45 per person'
+      duration: '8-10 hours (Adjustable)'
+      
     },
     {
       id: 2,
@@ -37,8 +37,8 @@ const DayTours = () => {
       ],
       description: 'Experience the cultural heart of Sri Lanka with ancient temples and royal gardens.',
       image: 'https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '8-10 hours',
-      price: 'From $50 per person'
+      duration: '8-10 hours (Adjustable)'
+  
     },
     {
       id: 3,
@@ -53,8 +53,8 @@ const DayTours = () => {
       ],
       description: 'Explore the historic Galle Fort and discover the charm of the southern coast.',
       image: 'https://images.pexels.com/photos/3535508/pexels-photo-3535508.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '8-10 hours',
-      price: 'From $48 per person'
+      duration: '8-10 hours (Adjustable)'
+      
     },
     {
       id: 4,
@@ -68,8 +68,8 @@ const DayTours = () => {
       ],
       description: 'Experience thrilling wildlife encounters in one of Asia\'s best national parks.',
       image: 'https://images.pexels.com/photos/3407817/pexels-photo-3407817.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '8-10 hours',
-      price: 'From $55 per person'
+      duration: '8-10 hours (Adjustable)'
+      
     },
     {
       id: 5,
@@ -84,8 +84,8 @@ const DayTours = () => {
       ],
       description: 'Ella is famous for tea plantations, waterfalls and scenic hikes.',
       image: 'https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '8-10 hours',
-      price: 'From $42 per person'
+      duration: '8-10 hours (Adjustable)'
+      
     },
     {
       id: 6,
@@ -100,8 +100,8 @@ const DayTours = () => {
       ],
       description: 'Most demanded day tour by tourists - adventure and nature combined.',
       image: 'https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '7-9 hours',
-      price: 'From $50 per person'
+      duration: '7-9 hours (Adjustable)'
+      
     },
     {
       id: 7,
@@ -116,8 +116,8 @@ const DayTours = () => {
       ],
       description: 'One of the best whale watching locations in the world (November – April season).',
       image: 'https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '8-10 hours',
-      price: 'From $60 per person'
+      duration: '8-10 hours (Adjustable)'
+      
     },
     {
       id: 8,
@@ -132,8 +132,8 @@ const DayTours = () => {
       ],
       description: 'Hiriketiya is becoming one of the trendiest beach destinations in Sri Lanka.',
       image: 'https://images.pexels.com/photos/390051/surfer-wave-sunset-the-indian-ocean-390051.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '7-9 hours',
-      price: 'From $45 per person'
+      duration: '7-9 hours (Adjustable)'
+      
     },
     {
       id: 9,
@@ -149,8 +149,8 @@ const DayTours = () => {
       ],
       description: 'Great for tourists who want to see culture, shopping, and city life in one day.',
       image: 'https://images.pexels.com/photos/460537/pexels-photo-460537.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '6-8 hours',
-      price: 'From $40 per person'
+      duration: '6-8 hours (Adjustable)'
+      
     },
     {
       id: 10,
@@ -165,8 +165,8 @@ const DayTours = () => {
       ],
       description: 'This park is one of the best places in Sri Lanka to see wild elephants closely.',
       image: 'https://images.pexels.com/photos/17314505/pexels-photo-17314505.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      duration: '8-10 hours',
-      price: 'From $52 per person'
+      duration: '8-10 hours (Adjustable)'
+      
     }
   ]
 
