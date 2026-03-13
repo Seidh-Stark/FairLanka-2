@@ -7,6 +7,13 @@ import ActivityCard from '../components/common/ActivityCard'
 import TestimonialCard from '../components/common/TestimonialCard'
 import TravelInfoCard from '../components/common/TravelInfoCard'
 import ServiceCard from '../components/common/ServiceCard'
+import airportTransfersImg from '../assets/service-images/airport-transfers.jpg'
+import tourPackageImg from '../assets/service-images/tour-package.jpg'
+import dayTourImg from '../assets/service-images/day-tour.png'
+import intercityTransfersImg from '../assets/service-images/intercity-transfers.jpg'
+import safarisImg from '../assets/service-images/safaris.jpg'
+import hotelBookingImg from '../assets/service-images/Hotel-booking-icon.jpg'
+import flightBookingImg from '../assets/service-images/flight-booking-icon.jpg'
 import { ScrollReveal, StaggerReveal, TextReveal, HoverLift, MobileCardReveal, MobileStaggerReveal, MobileTextReveal, MobileHoverLift } from '../components/ScrollAnimations'
 import { destinationService } from '../services/destinationService'
 import { packageService } from '../services/packageService'
@@ -116,43 +123,43 @@ const Home = () => {
       id: 'airport-transfers',
       title: 'Airport Transfers',
       description: 'Comfortable and safe airport transfers with professional drivers.',
-      imageSrc: new URL('../assets/service-images/airport-transfers.jpg', import.meta.url).href
+      imageSrc: airportTransfersImg
     },
     {
       id: 'tour-packages',
       title: 'Tour Packages',
       description: 'Handpicked round-trip tour packages to explore the best of Sri Lanka.',
-      imageSrc: new URL('../assets/service-images/tour-package.jpg', import.meta.url).href
+      imageSrc: tourPackageImg
     },
     {
       id: 'day-tour',
       title: 'Day Tours',
       description: 'Exciting day tours to Sri Lanka\'s most popular destinations.',
-      imageSrc: new URL('../assets/service-images/day-tour.png', import.meta.url).href
+      imageSrc: dayTourImg
     },
     {
       id: 'intercity-transfers',
       title: 'Intercity Transfers',
       description: 'Convenient transfers between major cities and towns.',
-      imageSrc: new URL('../assets/service-images/intercity-transfers.jpg', import.meta.url).href
+      imageSrc: intercityTransfersImg
     },
     {
       id: 'safaris',
       title: 'Safaris In Sri Lanka',
       description: 'Thrilling wildlife safaris in Yala, Udawalawe, and national parks.',
-      imageSrc: new URL('../assets/service-images/safaris.jpg', import.meta.url).href
+      imageSrc: safarisImg
     },
     {
       id: 'hotel-bookings',
       title: 'Hotel Bookings',
       description: 'Luxury resorts, boutique hotels, and budget stays across Sri Lanka.',
-      imageSrc: new URL('../assets/service-images/Hotel-booking-icon.jpg', import.meta.url).href
+      imageSrc: hotelBookingImg
     },
     {
       id: 'flight-bookings',
       title: 'Flight Bookings',
       description: 'Book international and domestic flights at competitive prices.',
-      imageSrc: new URL('../assets/service-images/flight-booking-icon.jpg', import.meta.url).href
+      imageSrc: flightBookingImg
     }
   ]
 
@@ -227,7 +234,7 @@ const Home = () => {
             <MobileStaggerReveal>
               <div className="grid grid-4">
                 {servicesPreview.map((s, i) => {
-                  const isWhatsApp = s.id === 'airport-transfer' || s.id === 'intercity-transfers'
+                  const isWhatsApp = s.id === 'airport-transfers' || s.id === 'intercity-transfers'
                   return (
                     <MobileCardReveal key={i} index={i}>
                       <MobileHoverLift>
@@ -252,7 +259,7 @@ const Home = () => {
             <StaggerReveal>
               <div className="grid grid-4">
                 {servicesPreview.map((s, i) => {
-                  const isWhatsApp = s.id === 'airport-transfer' || s.id === 'intercity-transfers'
+                  const isWhatsApp = s.id === 'airport-transfers' || s.id === 'intercity-transfers'
                   return (
                     <div key={i} data-stagger>
                       <HoverLift>
