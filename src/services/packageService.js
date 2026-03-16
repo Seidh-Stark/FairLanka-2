@@ -276,10 +276,10 @@ const staticPackages = [
 const packageImageMap = {
   'ayurvedic-wellness-pearl-island': 'The Spirit of Ayurvedic Wellness on a Pearl Island.jpg',
   'authentic-jewel-indian-ocean': 'Authentic Tour on the Jewel of the Indian Ocean.jpg',
-  'wildlife-tour-sri-lanka-amaze': "The Wildlife Tour in Sri Lanka's Amaze.jpg",
+  'wildlife-tour-sri-lanka-amaze': 'The Wildlife Tour in Sri Lankas Amaze.jpg',
   'soothing-family-tropical-island': 'A Soothing Family Time on a Tropical Island.jpg',
   'dual-wonder-isles-sri-lanka-maldives': 'Single Tour on Dual Wonder Isles – Sri Lanka & Maldives.jpg',
-  'essence-tropical-romance-honeymoon': 'The Essence of Tropical Romance (Honeymoon Tour).JPG',
+  'essence-tropical-romance-honeymoon': 'The Essence of Tropical Romance Honeymoon Tour.JPG',
   'northern-sri-lankan-ancestry': 'A Soothing Family Time on a Tropical Island2.jpg',
   'sea-tea-combo': 'The Sea and Tea Combo.jpg',
   'wonders-wildlife-package': 'The Wonders of Wildlife Package.jpg',
