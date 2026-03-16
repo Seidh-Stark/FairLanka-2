@@ -7,14 +7,13 @@ import ActivityCard from '../components/common/ActivityCard'
 import TestimonialCard from '../components/common/TestimonialCard'
 import TravelInfoCard from '../components/common/TravelInfoCard'
 import ServiceCard from '../components/common/ServiceCard'
-// Use string paths for images in public/assets/service-images/
-const airportTransfersImg = '/assets/service-images/airport-transfers.jpg';
-const tourPackageImg = '/assets/service-images/tour-package.jpg';
-const dayTourImg = '/assets/service-images/day-tour.png';
-const intercityTransfersImg = '/assets/service-images/intercity-transfers.jpg';
-const safarisImg = '/assets/service-images/safaris.jpg';
-const hotelBookingImg = '/assets/service-images/Hotel-booking-icon.jpg';
-const flightBookingImg = '/assets/service-images/flight-booking-icon.jpg';
+import airportTransfersImg from '../assets/service-images/airport-transfers.jpg';
+import tourPackageImg from '../assets/service-images/tour-package.jpg';
+import dayTourImg from '../assets/service-images/day-tour.png';
+import intercityTransfersImg from '../assets/service-images/intercity-transfers.jpg';
+import safarisImg from '../assets/service-images/safaris.jpg';
+import hotelBookingImg from '../assets/service-images/Hotel-booking-icon.jpg';
+import flightBookingImg from '../assets/service-images/flight-booking-icon.jpg';
 import { ScrollReveal, StaggerReveal, TextReveal, HoverLift, MobileCardReveal, MobileStaggerReveal, MobileTextReveal, MobileHoverLift } from '../components/ScrollAnimations'
 import { destinationService } from '../services/destinationService'
 import { packageService } from '../services/packageService'
