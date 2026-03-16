@@ -28,7 +28,7 @@ const PackageDetail = () => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.hero} style={{ backgroundImage: `url(${pkg.image_url})` }}>
+      <div className={styles.hero} style={{ backgroundImage: `url(${pkg.image || pkg.image_url})` }}>
         <div className={styles.heroOverlay}>
           <div className="container">
             <h1>{pkg.title}</h1>

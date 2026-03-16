@@ -7,7 +7,7 @@ const PackageCard = ({ package: pkg }) => {
     <Link to={`/packages/${pkg.slug}`} className={styles.card}>
       <div className={styles.imageWrapper}>
         <ImageReveal>
-          <img src={pkg.image_url} alt={pkg.title} className={styles.image} />
+          <img src={pkg.image || pkg.image_url} alt={pkg.title} className={styles.image} />
         </ImageReveal>
         <div className={styles.badge}>
           <span className={styles.duration}>{pkg.duration}</span>

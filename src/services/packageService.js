@@ -273,7 +273,19 @@ const staticPackages = [
   }
 ];
 
-const packageImageMap = {
+// Load package images from the source assets folder (Vite will bundle these properly)
+const packageImages = import.meta.globEager('../assets/packages/*.{jpg,jpeg,png,JPG,webp}')
+
+// Map file name -> resolved URL
+const packageImageMap = Object.fromEntries(
+  Object.entries(packageImages).map(([path, mod]) => {
+    const fileName = path.split('/').pop()
+    return [fileName, mod.default]
+  })
+)
+
+// Map slug -> file name (used to look up the resolved asset URL above)
+const packageImageFileNameBySlug = {
   'ayurvedic-wellness-pearl-island': 'The Spirit of Ayurvedic Wellness on a Pearl Island.jpg',
   'authentic-jewel-indian-ocean': 'Authentic Tour on the Jewel of the Indian Ocean.jpg',
   'wildlife-tour-sri-lanka-amaze': 'The Wildlife Tour in Sri Lankas Amaze.jpg',
@@ -283,14 +295,20 @@ const packageImageMap = {
   'northern-sri-lankan-ancestry': 'A Soothing Family Time on a Tropical Island2.jpg',
   'sea-tea-combo': 'The Sea and Tea Combo.jpg',
   'wonders-wildlife-package': 'The Wonders of Wildlife Package.jpg',
-};
+}
 
-const staticPackagesWithImages = staticPackages.map(pkg => ({
-  ...pkg,
-  image: packageImageMap[pkg.slug]
-    ? new URL(`../assets/packages/${packageImageMap[pkg.slug]}`, import.meta.url).href
-    : pkg.image_url,
-}));
+const staticPackagesWithImages = staticPackages.map(pkg => {
+  const basePath = import.meta.env.BASE_URL || ''
+  const fallbackImage = pkg.image_url ? `${basePath}${pkg.image_url.replace(/^\//, '')}` : ''
+
+  return {
+    ...pkg,
+    image: packageImageMap[packageImageFileNameBySlug[pkg.slug]]
+      ? packageImageMap[packageImageFileNameBySlug[pkg.slug]]
+      : fallbackImage,
+  }
+})
+
 
 export const packageService = {
   async getAll() {
