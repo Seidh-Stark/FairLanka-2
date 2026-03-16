@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom'
 import { ScrollReveal, StaggerReveal, TextReveal, HoverLift } from '../components/ScrollAnimations'
 import styles from './Services.module.css'
+import airportTransfersImg from '../assets/service-images/airport-transfers.jpg'
+import tourPackageImg from '../assets/service-images/tour-package.jpg'
+import dayTourImg from '../assets/service-images/day-tour.png'
+import intercityTransfersImg from '../assets/service-images/intercity-transfers.jpg'
+import safarisImg from '../assets/service-images/safaris.jpg'
+import hotelBookingImg from '../assets/service-images/Hotel-booking-icon.jpg'
+import flightBookingImg from '../assets/service-images/flight-booking-icon.jpg'
 
 const Services = () => {
   const whatsappNumber = '94764374114'
@@ -16,7 +23,7 @@ const Services = () => {
       id: 1,
       title: 'Airport Transfers',
       description: 'Comfortable and reliable airport transfers with professional drivers. Safe, timely, and hassle-free transportation from airport to your hotel or destination.',
-      image: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: airportTransfersImg,
       type: 'whatsapp',
       message: 'Hello, I would like to book an Airport Transfer. Please provide more details',
       buttonText: 'Book Now'
@@ -25,7 +32,7 @@ const Services = () => {
       id: 2,
       title: 'Tour Packages',
       description: 'Handpicked round-trip tour packages to explore the best of Sri Lanka. From cultural heritage tours to adventure packages, we have something for everyone.',
-      image: 'https://images.pexels.com/photos/707915/pexels-photo-707915.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: tourPackageImg,
       type: 'link',
       link: '/packages',
       buttonText: '→ View All'
@@ -34,7 +41,7 @@ const Services = () => {
       id: 3,
       title: 'Day Tours',
       description: 'Exciting day tours to Sri Lanka\'s most popular destinations. Visit Sigiriya, Kandy, Galle, Yala Safari, Ella, and more in expertly guided day trips.',
-      image: 'https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=1600',
+      image: dayTourImg,
       type: 'link',
       link: '/day-tours',
       buttonText: '→ View All'
@@ -43,7 +50,7 @@ const Services = () => {
       id: 4,
       title: 'Intercity Transfers',
       description: 'Convenient transfers between major cities and towns. Travel between Colombo, Kandy, Galle, Mirissa, Ella, and other destinations with comfort and ease.',
-      image: 'https://images.pexels.com/photos/3595925/pexels-photo-3595925.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: intercityTransfersImg,
       type: 'whatsapp',
       message: 'Hello, I need information about Intercity Transfers',
       buttonText: 'Book Now'
@@ -52,7 +59,7 @@ const Services = () => {
       id: 5,
       title: 'Safaris In Sri Lanka',
       description: 'Thrilling wildlife safaris in Yala, Udawalawe, and other national parks. Spot leopards, elephants, crocodiles, and exotic birds in their natural habitat.',
-      image: 'https://images.pexels.com/photos/3407817/pexels-photo-3407817.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: safarisImg,
       type: 'link',
       link: '/destinations?category=wildlife',
       buttonText: '→ View All'
@@ -61,7 +68,7 @@ const Services = () => {
       id: 6,
       title: 'Hotel Bookings',
       description: 'Book luxury resorts, boutique hotels, and budget accommodations across Sri Lanka. Find the perfect place to stay for your budget and preferences.',
-      image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: hotelBookingImg,
       type: 'link',
       link: '/hotel-bookings',
       buttonText: '→ View Options'
@@ -70,7 +77,7 @@ const Services = () => {
       id: 7,
       title: 'Flight Bookings',
       description: 'Book international and domestic flights at competitive prices with trusted airline partners. Find best fares for flights to and from Sri Lanka.',
-      image: 'https://images.pexels.com/photos/46148/airport-terminal-building-sky-46148.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: flightBookingImg,
       type: 'link',
       link: '/flight-bookings',
       buttonText: '→ View Options'
