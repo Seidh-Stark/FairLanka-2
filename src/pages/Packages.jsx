@@ -63,7 +63,7 @@ const Packages = () => {
             <div className="grid grid-3">
               {packages.map((pkg) => (
                 <div key={pkg.id} className={styles.packageCard}>
-                  <div className={styles.cardImage} style={{ backgroundImage: `url("${pkg.image}")` }}></div>
+                  <div className={styles.cardImage} style={{ backgroundImage: `url("${encodeURI(pkg.image)}")` }}></div>
                   <div className={styles.cardContent}>
                     <h3>{pkg.title}</h3>
                     <p className={styles.description}>{pkg.description}</p>
