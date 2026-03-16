@@ -288,7 +288,7 @@ const packageImageMap = {
 const staticPackagesWithImages = staticPackages.map(pkg => ({
   ...pkg,
   image: packageImageMap[pkg.slug]
-    ? `/assets/packages/${packageImageMap[pkg.slug]}`
+    ? new URL(`../assets/packages/${packageImageMap[pkg.slug]}`, import.meta.url).href
     : pkg.image_url,
 }));
 
