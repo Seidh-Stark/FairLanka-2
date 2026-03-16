@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import DestinationCard from '../components/common/DestinationCard'
 import { destinationService } from '../services/destinationService'
 import styles from './Destinations.module.css'
@@ -8,6 +9,7 @@ const Destinations = () => {
   const [filteredDestinations, setFilteredDestinations] = useState([])
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [loading, setLoading] = useState(true)
+  const [searchParams] = useSearchParams()
 
   const categories = ['All', 'Cultural', 'Beach', 'Wildlife', 'Adventure', 'Hill Country']
 
@@ -26,6 +28,14 @@ const Destinations = () => {
 
     fetchDestinations()
   }, [])
+
+  useEffect(() => {
+    // Check for category query parameter
+    const categoryParam = searchParams.get('category')
+    if (categoryParam && categories.includes(categoryParam)) {
+      setSelectedCategory(categoryParam)
+    }
+  }, [searchParams])
 
   useEffect(() => {
     if (selectedCategory === 'All') {

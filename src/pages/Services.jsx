@@ -61,7 +61,7 @@ const Services = () => {
       description: 'Thrilling wildlife safaris in Yala, Udawalawe, and other national parks. Spot leopards, elephants, crocodiles, and exotic birds in their natural habitat.',
       image: safarisImg,
       type: 'link',
-      link: '/destinations?category=wildlife',
+      link: '/destinations?category=Wildlife',
       buttonText: '→ View All'
     },
     {

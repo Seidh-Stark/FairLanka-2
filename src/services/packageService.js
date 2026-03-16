@@ -3,11 +3,14 @@ const staticPackages = [
   {
     id: 1,
     title: 'The Spirit of Ayurvedic Wellness on a Pearl Island',
+    slug: 'ayurvedic-wellness-pearl-island',
+    short_description: 'Experience holistic Ayurvedic treatments and wellness therapies in Sri Lanka\'s serene environments.',
     description: 'Many tourists are aware of the limitations of allopathic treatment, which only treats the body, and are turning to Ayurveda, a holistic method of treatment. As a result, Sri Lanka has become a popular Ayurvedic treatment destination.',
     duration: '15 Days',
+    price: 2850,
     destinations: ['Negombo', 'Habarana', 'Kandy', 'Koggala', 'Talalla'],
     category: 'Wellness',
-    image: '/assets/destination/bentota-beach.jpg',
+    image_url: '/assets/packages/The Spirit of Ayurvedic Wellness on a Pearl Island.jpg',
     itinerary: [
       { day: 1, title: 'Arrival / Negombo', description: 'Our guide will meet you at Colombo International Airport and transport you to Negombo for your first night\'s stay. In Sri Lanka Ayurvedic Tour Package Negombo is a popular tourist attraction in Sri Lanka.' },
       { day: 2, title: 'Negombo / Habarana', description: 'Your driver will meet you and drive you to Habarana, a remote but well-known village. Habarana is a city in Sri Lanka\'s North Central Province. It is well worth a visit because it has many popular attractions such as Kaudulla National Park, Ritigala Forest Monastery, and Safari Wild tour.' },
@@ -29,11 +32,14 @@ const staticPackages = [
   {
     id: 2,
     title: 'Authentic Tour on the Jewel of the Indian Ocean',
+    slug: 'authentic-jewel-indian-ocean',
+    short_description: 'Explore Sri Lanka\'s heritage sites, cultural treasures, and wildlife adventures on this comprehensive tour.',
     description: 'In Sri Lanka, you can be a classic. Our Classic Tour includes heritage sites, cultural and religious sites, beautiful landscapes, an adventurous untamed wild safari tour, and the true taste of Sri Lanka.',
     duration: '17 Days',
+    price: 3200,
     destinations: ['Negombo', 'Sigiriya', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'Mirissa', 'Weligama', 'Unawatuna', 'Galle', 'Hikkaduwa'],
     category: 'Cultural',
-    image: '/assets/destination/sigiriya.jpg',
+    image_url: '/assets/packages/Authentic Tour on the Jewel of the Indian Ocean.jpg',
     itinerary: [
       { day: 1, title: 'Arrival / Negombo', description: 'Airport pickup, overnight in Negombo.' },
       { day: 2, title: 'Negombo / Sigiriya', description: 'Drive to Sigiriya, explore Sigiriya Rock Fortress.' },
@@ -59,11 +65,14 @@ const staticPackages = [
   {
     id: 3,
     title: 'The Wildlife Tour in Sri Lanka\'s Amaze',
+    slug: 'wildlife-tour-sri-lanka-amaze',
+    short_description: 'Thrilling wildlife safaris through Sri Lanka\'s national parks and nature reserves.',
     description: 'Wild Sri Lanka Tour is a popular wildlife tour package that includes extremely interesting and adventurous journeys. This tour will take you through national parks, nature reserves, and wildlife in Sri Lanka\'s wilderness areas.',
     duration: '15 Days',
+    price: 2650,
     destinations: ['Chilaw', 'Wilpattu', 'Bobilella', 'Gal Oya', 'Yala', 'Tangalle', 'Sinharaja', 'Mirissa'],
     category: 'Wildlife',
-    image: '/assets/destination/yala-national-park-1.jpg',
+    image_url: '/assets/packages/The Wildlife Tour in Sri Lanka\'s Amaze.jpg',
     itinerary: [
       { day: 1, title: 'Arrival / Chilaw', description: 'Airport pickup, overnight in Chilaw.' },
       { day: 2, title: 'Chilaw / Wilpattu', description: 'Drive to Wilpattu National Park.' },
@@ -86,11 +95,14 @@ const staticPackages = [
   {
     id: 4,
     title: 'A Soothing Family Time on a Tropical Island',
+    slug: 'soothing-family-tropical-island',
+    short_description: 'Perfect family vacation combining culture, wildlife, beaches, and adventure for unforgettable memories.',
     description: 'Sri Lanka is an excellent choice for a family vacation with children. This island has something for everyone in the family. Culture, heritage, wildlife, landscapes, leisure activities, adventures, and Asia\'s best beaches are all waiting to provide you with an unforgettable vacation experience.',
     duration: '17 Days',
+    price: 2950,
     destinations: ['Negombo', 'Cultural Triangle', 'Kandy', 'Nuwara Eliya', 'Kitulgala', 'Sinharaja', 'Galle', 'Bentota'],
     category: 'Family',
-    image: '/assets/destination/bentota-beach.jpg',
+    image_url: '/assets/packages/A Soothing Family Time on a Tropical Island.jpg',
     itinerary: [
       { day: 1, title: 'Arrival / Negombo', description: 'Airport pickup, overnight in Negombo.' },
       { day: 2, title: 'Negombo', description: 'Beach and market.' },
@@ -115,11 +127,14 @@ const staticPackages = [
   {
     id: 5,
     title: 'Single Tour on Dual Wonder Isles – Sri Lanka & Maldives',
+    slug: 'dual-wonder-isles-sri-lanka-maldives',
+    short_description: 'Luxurious journey combining Sri Lanka\'s cultural wonders with Maldives\' paradise islands.',
     description: 'With all the comforts of a bustling city, operating out of a quiet, rural bubble of beachside tranquility amidst a busy commercial hub, exploring the unique customs, culture, and adventure of these stunning islands is always a once-in-a-lifetime experience in Sri Lanka.',
     duration: '15 Days',
+    price: 4500,
     destinations: ['Negombo', 'Cultural Triangle', 'Kandy', 'Hatton', 'Mirissa', 'Weligama', 'Unawatuna', 'Galle', 'Colombo', 'Maldives'],
     category: 'Luxury',
-    image: '/assets/destination/mirissa-beach.webp',
+    image_url: '/assets/packages/Single Tour on Dual Wonder Isles – Sri Lanka & Maldives.jpg',
     itinerary: [
       { day: 1, title: 'Arrival / Negombo', description: 'Airport pickup.' },
       { day: 2, title: 'Negombo / Cultural Triangle', description: 'Drive to cultural sites.' },
@@ -142,11 +157,14 @@ const staticPackages = [
   {
     id: 6,
     title: 'The Essence of Tropical Romance (Honeymoon Tour)',
+    slug: 'essence-tropical-romance-honeymoon',
+    short_description: 'Romantic honeymoon experience with intimate stays, private dinners, and tropical paradise settings.',
     description: 'Do you want to plan the ideal Sri Lanka honeymoon? Look nowhere else. You and your spouse-to-be can enjoy 15 days of romantic, sigh-inducing activities on this breathtaking island of Sri Lanka.',
     duration: '19 Days',
+    price: 3800,
     destinations: ['Pasyala', 'Anuradhapura', 'Polonnaruwa', 'Sigiriya', 'Kandy', 'Nuwara Eliya', 'Koslanda', 'Yala', 'Mirissa', 'Weligama', 'Unawatuna', 'Galle', 'Bentota'],
     category: 'Romance',
-    image: '/assets/destination/bentota-beach.jpg',
+    image_url: '/assets/packages/The Essence of Tropical Romance (Honeymoon Tour).JPG',
     itinerary: [
       { day: 1, title: 'Arrival / Pasyala', description: 'Airport pickup.' },
       { day: 2, title: 'Pasyala / Anuradhapura / Cultural Triangle', description: 'Drive to cultural sites.' },
@@ -173,11 +191,14 @@ const staticPackages = [
   {
     id: 7,
     title: 'Northern Sri Lankan Ancestry',
+    slug: 'northern-sri-lankan-ancestry',
+    short_description: 'Explore Sri Lanka\'s northern heritage, ancient kingdoms, and diverse cultural influences.',
     description: 'Sri Lankan culture is a blend of modern and traditional elements, as well as regional diversity, influenced by the heritage of Theravada Buddhism passed down from India.',
     duration: '14 Days',
+    price: 2400,
     destinations: ['Kalpitiya', 'Wilpattu', 'Anuradhapura', 'Mannar', 'Jaffna', 'Trincomalee', 'Dambulla', 'Colombo'],
     category: 'Cultural',
-    image: '/assets/destination/anuradhapura-polonnaruwa-srilanka-.jpg',
+    image_url: '/assets/destination/anuradhapura-polonnaruwa-srilanka-.jpg',
     itinerary: [
       { day: 1, title: 'Arrival / Kalpitiya', description: 'Airport pickup.' },
       { day: 2, title: 'Kalpitiya', description: 'Kitesurfing.' },
@@ -199,11 +220,14 @@ const staticPackages = [
   {
     id: 8,
     title: 'The Sea and Tea Combo',
+    slug: 'sea-tea-combo',
+    short_description: 'Luxurious combination of Sri Lanka\'s stunning beaches and famous tea plantations.',
     description: 'The sea and tea tours, presented in cooperation with Walkers Tours, Ceylon Tea Trails, and Cape Weligama, are the ideal way for you to enjoy Sri Lanka\'s sunny beaches and cool hills in comfort.',
     duration: '9 Days',
+    price: 1950,
     destinations: ['Colombo', 'Kandy', 'Nuwara Eliya', 'Koslanda', 'Galle'],
     category: 'Luxury',
-    image: '/assets/destination/tea-plantations-nuwara-eliya-sri-lanka.jpg',
+    image_url: '/assets/packages/The Sea and Tea Combo.jpg',
     itinerary: [
       { day: 1, title: 'Arrival / Colombo', description: 'Airport pickup.' },
       { day: 2, title: 'Colombo / Kandy', description: 'Drive to Kandy.' },
@@ -220,11 +244,14 @@ const staticPackages = [
   {
     id: 9,
     title: 'The Wonders of Wildlife Package',
+    slug: 'wonders-wildlife-package',
+    short_description: 'Comprehensive wildlife adventure through Sri Lanka\'s most exciting national parks and reserves.',
     description: 'A very popular wildlife tour program with a very interesting and exciting journey is called Wild Sri Lanka Tour. You will travel through Sri Lankan national parks, nature preserves, and wild areas on this.',
     duration: '15 Days',
+    price: 2750,
     destinations: ['Kalpitiya', 'Cultural Triangle', 'Knuckles', 'Ella', 'Kitulgala', 'Sinharaja', 'Mirissa'],
     category: 'Wildlife',
-    image: '/assets/destination/yala-national-park-1.jpg',
+    image_url: '/assets/packages/The Wonders of Wildlife Package.jpg',
     itinerary: [
       { day: 1, title: 'Arrival / Kalpitiya', description: 'Airport pickup.' },
       { day: 2, title: 'Kalpitiya', description: 'Activities.' },
@@ -246,21 +273,40 @@ const staticPackages = [
   }
 ];
 
+const packageImageMap = {
+  'ayurvedic-wellness-pearl-island': 'The Spirit of Ayurvedic Wellness on a Pearl Island.jpg',
+  'authentic-jewel-indian-ocean': 'Authentic Tour on the Jewel of the Indian Ocean.jpg',
+  'wildlife-tour-sri-lanka-amaze': "The Wildlife Tour in Sri Lanka's Amaze.jpg",
+  'soothing-family-tropical-island': 'A Soothing Family Time on a Tropical Island.jpg',
+  'dual-wonder-isles-sri-lanka-maldives': 'Single Tour on Dual Wonder Isles – Sri Lanka & Maldives.jpg',
+  'essence-tropical-romance-honeymoon': 'The Essence of Tropical Romance (Honeymoon Tour).JPG',
+  'northern-sri-lankan-ancestry': 'A Soothing Family Time on a Tropical Island2.jpg',
+  'sea-tea-combo': 'The Sea and Tea Combo.jpg',
+  'wonders-wildlife-package': 'The Wonders of Wildlife Package.jpg',
+};
+
+const staticPackagesWithImages = staticPackages.map(pkg => ({
+  ...pkg,
+  image: packageImageMap[pkg.slug]
+    ? new URL(`../assets/packages/${packageImageMap[pkg.slug]}`, import.meta.url).href
+    : pkg.image_url,
+}));
+
 export const packageService = {
   async getAll() {
-    return staticPackages
+    return staticPackagesWithImages
   },
 
   async getFeatured() {
-    return staticPackages.slice(0, 3)
+    return staticPackagesWithImages.slice(0, 3)
   },
 
   async getBySlug(slug) {
-    return staticPackages.find(pkg => pkg.slug === slug)
+    return staticPackagesWithImages.find(pkg => pkg.slug === slug)
   },
 
   async getByCategory(category) {
-    if (category === 'All') return staticPackages
-    return staticPackages.filter(pkg => pkg.category === category)
+    if (category === 'All') return staticPackagesWithImages
+    return staticPackagesWithImages.filter(pkg => pkg.category === category)
   }
 }
