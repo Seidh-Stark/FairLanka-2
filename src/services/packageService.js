@@ -274,9 +274,10 @@ const staticPackages = [
 ];
 
 
+const basePath = import.meta.env.BASE_URL || '/';
 const staticPackagesWithImages = staticPackages.map(pkg => ({
   ...pkg,
-  image: pkg.image_url
+  image: pkg.image_url ? `${basePath}${pkg.image_url.replace(/^\//, '')}` : ''
 }))
 
 
