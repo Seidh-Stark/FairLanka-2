@@ -88,6 +88,7 @@ const Packages = () => {
               <h2>{selectedPackage.title}</h2>
               <p>{selectedPackage.description}</p>
               <h3>Day-by-Day Itinerary</h3>
+              {/* Desktop Timeline */}
               <div className={styles.timeline}>
                 {selectedPackage.itinerary.map((day, index) => (
                   <div key={index} className={styles.timelineItem}>
@@ -96,6 +97,16 @@ const Packages = () => {
                       <h4>{day.title}</h4>
                       <p>{day.description}</p>
                     </div>
+                  </div>
+                ))}
+              </div>
+              {/* Mobile Card Layout */}
+              <div className={styles.mobileItinerary}>
+                {selectedPackage.itinerary.map((day, index) => (
+                  <div key={index} className={styles.itineraryCard}>
+                    <div className={styles.dayBadge}>Day {day.day}</div>
+                    <h4 className={styles.cardTitle}>{day.title}</h4>
+                    <p className={styles.cardDescription}>{day.description}</p>
                   </div>
                 ))}
               </div>
