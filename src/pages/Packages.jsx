@@ -54,7 +54,10 @@ const Packages = () => {
 
   const handleViewItinerary = (pkg) => {
     setSelectedPackage(pkg)
-    window.scrollTo({ top: document.querySelector('#itinerary').offsetTop, behavior: 'smooth' })
+    const itineraryEl = document.querySelector('#itinerary')
+    if (itineraryEl) {
+      window.scrollTo({ top: itineraryEl.offsetTop, behavior: 'smooth' })
+    }
   }
 
   return (
