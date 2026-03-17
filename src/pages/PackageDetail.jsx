@@ -7,17 +7,34 @@ const PackageDetail = () => {
   const { slug } = useParams()
   const [pkg, setPkg] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [expandedDays, setExpandedDays] = useState(new Set())
+  const [openDays, setOpenDays] = useState(new Set())
+  const [allExpanded, setAllExpanded] = useState(false)
+
+  const toggleOpen = (index) => {
+    setOpenDays((prev) => {
+      const next = new Set(prev)
+      if (next.has(index)) {
+        next.delete(index)
+      } else {
+        next.add(index)
+      }
+      return next
+    })
+  }
+
+  const toggleExpandAll = (count) => {
+    setAllExpanded((prev) => {
+      const nextAll = !prev
+      setOpenDays(nextAll ? new Set(Array.from({ length: count }, (_, i) => i)) : new Set())
+      return nextAll
+    })
+  }
 
   useEffect(() => {
     const fetchPackage = async () => {
       try {
         const data = await packageService.getBySlug(slug)
         setPkg(data)
-        // For desktop, expand all by default
-        if (window.innerWidth >= 768) {
-          setExpandedDays(new Set(data.itinerary?.map((_, i) => i) || []))
-        }
       } catch (error) {
         console.error('Error fetching package:', error)
       } finally {
@@ -27,18 +44,6 @@ const PackageDetail = () => {
 
     fetchPackage()
   }, [slug])
-
-  const toggleExpanded = (index) => {
-    setExpandedDays(prev => {
-      const newSet = new Set(prev)
-      if (newSet.has(index)) {
-        newSet.delete(index)
-      } else {
-        newSet.add(index)
-      }
-      return newSet
-    })
-  }
 
   if (loading) return <div className={styles.loading}>Loading...</div>
   if (!pkg) return <div className={styles.notFound}>Package not found</div>
@@ -74,17 +79,49 @@ const PackageDetail = () => {
 
               {pkg.itinerary && pkg.itinerary.length > 0 && (
                 <>
-                  <h3>Itinerary</h3>
-                  <div className={styles.itineraryContainer}>
+                  <div className={styles.itineraryHeaderBar}>
+                    <h3>Itinerary</h3>
+                    <button
+                      type="button"
+                      className={styles.expandAllButton}
+                      onClick={() => toggleExpandAll(pkg.itinerary.length)}
+                    >
+                      {allExpanded ? 'Collapse all' : 'Expand all'}
+                    </button>
+                  </div>
+
+                  <div className={styles.itineraryGrid}>
                     {pkg.itinerary.map((day, index) => {
-                      const description = day.description
-                      const [locationTitle, ...descParts] = description.split(':')
-                      const fullDesc = descParts.join(':').trim() || description
+                      const isOpen = openDays.has(index)
+
                       return (
-                        <div key={index} className={styles.itineraryItem} onClick={() => toggleExpanded(index)}>
-                          <div className={styles.dayBadge}>Day {day.day}</div>
-                          <h5 className={styles.locationTitle}>{locationTitle}</h5>
-                          {expandedDays.has(index) && <p className={styles.itineraryDesc}>{fullDesc}</p>}
+                        <div
+                          key={index}
+                          className={`${styles.itineraryItem} ${isOpen ? styles.open : ''}`}
+                          role="button"
+                          tabIndex={0}
+                          aria-expanded={isOpen}
+                          onClick={() => toggleOpen(index)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault()
+                              toggleOpen(index)
+                            }
+                          }}
+                        >
+                          <div className={styles.itineraryHeader}>
+                            <span className={styles.dayBadge}>Day {day.day}</span>
+                            <h4 className={styles.itineraryTitle}>{day.title}</h4>
+                            <span className={`${styles.chevron} ${isOpen ? styles.open : ''}`}>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 9l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </span>
+                          </div>
+
+                          <div className={styles.itineraryBody}>
+                            <p className={styles.itineraryDesc}>{day.description}</p>
+                          </div>
                         </div>
                       )
                     })}
