@@ -133,7 +133,7 @@ const Packages = () => {
                   return (
                     <div
                       key={index}
-                      className={`${styles.itineraryItem} ${isOpen ? styles.open : ''}`}
+                      className={`${styles.itineraryCard} ${isOpen ? styles.expanded : ''}`}
                       role="button"
                       tabIndex={0}
                       aria-expanded={isOpen}
@@ -145,19 +145,18 @@ const Packages = () => {
                         }
                       }}
                     >
-                      <div className={styles.itineraryHeader}>
+                      <div className={styles.cardHeader}>
                         <span className={styles.dayBadge}>Day {day.day}</span>
-                        <h4 className={styles.itineraryTitle}>{day.title}</h4>
-                        <span className={`${styles.chevron} ${isOpen ? styles.open : ''}`}>
+                        <span className={styles.expandIcon} aria-hidden="true">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 9l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </span>
                       </div>
 
-                      <div className={styles.itineraryBody}>
-                        <p className={styles.itineraryDesc}>{day.description}</p>
-                      </div>
+                      <h4 className={styles.cardTitle}>{day.title}</h4>
+
+                      <p className={styles.cardDescription}>{day.description}</p>
                     </div>
                   )
                 })}
