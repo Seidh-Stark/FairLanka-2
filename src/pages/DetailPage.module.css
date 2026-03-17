@@ -119,101 +119,9 @@
   font-size: 1.25rem;
 }
 
-.itinerary {
-  position: relative;
-  padding: 20px 0;
-}
-
-.itinerary::before {
-  content: '';
-  position: absolute;
-  left: 35px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, #1b6b4f, #8dc63f);
-}
-
-.itineraryDay {
-  display: flex;
-  gap: 24px;
-  margin-bottom: 32px;
-  position: relative;
-}
-
-.dayBadge {
-  min-width: 70px;
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #1b6b4f 0%, #2d8563 100%);
-  color: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 12px rgba(27, 107, 79, 0.2);
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
-}
-
-.dayContent {
-  flex: 1;
-  padding: 16px 0;
-  padding-left: 16px;
-  border-left: 2px solid rgba(27, 107, 79, 0.1);
-  padding-bottom: 16px;
-}
-
-.dayTitle {
-  font-size: 1.2rem;
-  color: #1b6b4f;
-  margin: 0 0 8px 0;
-  font-weight: 700;
-}
-
-.dayDescription {
-  font-size: 1rem;
-  color: #666666;
-  margin: 0;
-  line-height: 1.6;
-}
-
 .sidebar {
   position: sticky;
   top: 100px;
-}
-
-@media (max-width: 768px) {
-  .itinerary::before {
-    left: 25px;
-  }
-
-  .itineraryDay {
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  .dayBadge {
-    min-width: 60px;
-    width: 60px;
-    height: 60px;
-    font-size: 1rem;
-  }
-
-  .dayContent {
-    padding-left: 12px;
-  }
-
-  .dayTitle {
-    font-size: 1.05rem;
-  }
-
-  .dayDescription {
-    font-size: 0.95rem;
-  }
 }
 
 .card {
@@ -232,6 +140,58 @@
 .card p {
   color: #666666;
   margin-bottom: 24px;
+}
+
+.itineraryItem {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 28px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(27, 107, 79, 0.03) 0%, rgba(141, 198, 63, 0.03) 100%);
+  border-radius: 12px;
+  border-left: 4px solid #1b6b4f;
+  transition: all 0.3s ease;
+}
+
+.itineraryItem:hover {
+  background: linear-gradient(135deg, rgba(27, 107, 79, 0.08) 0%, rgba(141, 198, 63, 0.08) 100%);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(27, 107, 79, 0.12);
+}
+
+.dayBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1b6b4f 0%, #2c8c6a 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(27, 107, 79, 0.2);
+}
+
+.itineraryContent {
+  flex: 1;
+}
+
+.itineraryTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1b6b4f;
+  margin: 0 0 10px 0;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+}
+
+.itineraryDescription {
+  color: #555555;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
 }
 
 .loading,
@@ -276,5 +236,26 @@
 
   .description {
     font-size: 1rem;
+  }
+
+  .itineraryItem {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .dayBadge {
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+  }
+
+  .itineraryTitle {
+    font-size: 1.15rem;
+  }
+
+  .itineraryDescription {
+    font-size: 0.95rem;
   }
 }

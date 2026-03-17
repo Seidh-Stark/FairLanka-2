@@ -57,18 +57,18 @@ const PackageDetail = () => {
 
               {pkg.itinerary && pkg.itinerary.length > 0 && (
                 <>
-                  <h3>Itinerary</h3>
-                  <div className={styles.itinerary}>
-                    {pkg.itinerary.map((day, index) => (
-                      <div key={index} className={styles.itineraryDay}>
-                        <div className={styles.dayBadge}>Day {day.day}</div>
-                        <div className={styles.dayContent}>
-                          <h4 className={styles.dayTitle}>{day.title}</h4>
-                          <p className={styles.dayDescription}>{day.description}</p>
-                        </div>
+                  <h3>Day-by-Day Itinerary</h3>
+                  {pkg.itinerary.map((day, index) => (
+                    <div key={index} className={styles.itineraryItem}>
+                      <div className={styles.dayBadge}>
+                        <span>Day {day.day}</span>
                       </div>
-                    ))}
-                  </div>
+                      <div className={styles.itineraryContent}>
+                        <h4 className={styles.itineraryTitle}>{day.title}</h4>
+                        <p className={styles.itineraryDescription}>{day.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 </>
               )}
 
