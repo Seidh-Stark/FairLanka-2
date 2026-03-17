@@ -7,28 +7,6 @@ const PackageDetail = () => {
   const { slug } = useParams()
   const [pkg, setPkg] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [openDays, setOpenDays] = useState(new Set())
-  const [allExpanded, setAllExpanded] = useState(false)
-
-  const toggleOpen = (index) => {
-    setOpenDays((prev) => {
-      const next = new Set(prev)
-      if (next.has(index)) {
-        next.delete(index)
-      } else {
-        next.add(index)
-      }
-      return next
-    })
-  }
-
-  const toggleExpandAll = (count) => {
-    setAllExpanded((prev) => {
-      const nextAll = !prev
-      setOpenDays(nextAll ? new Set(Array.from({ length: count }, (_, i) => i)) : new Set())
-      return nextAll
-    })
-  }
 
   useEffect(() => {
     const fetchPackage = async () => {
@@ -79,53 +57,13 @@ const PackageDetail = () => {
 
               {pkg.itinerary && pkg.itinerary.length > 0 && (
                 <>
-                  <div className={styles.itineraryHeaderBar}>
-                    <h3>Itinerary</h3>
-                    <button
-                      type="button"
-                      className={styles.expandAllButton}
-                      onClick={() => toggleExpandAll(pkg.itinerary.length)}
-                    >
-                      {allExpanded ? 'Collapse all' : 'Expand all'}
-                    </button>
-                  </div>
-
-                  <div className={styles.itineraryGrid}>
-                    {pkg.itinerary.map((day, index) => {
-                      const isOpen = openDays.has(index)
-
-                      return (
-                        <div
-                          key={index}
-                          className={`${styles.itineraryItem} ${isOpen ? styles.open : ''}`}
-                          role="button"
-                          tabIndex={0}
-                          aria-expanded={isOpen}
-                          onClick={() => toggleOpen(index)}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter' || e.key === ' ') {
-                              e.preventDefault()
-                              toggleOpen(index)
-                            }
-                          }}
-                        >
-                          <div className={styles.itineraryHeader}>
-                            <span className={styles.dayBadge}>Day {day.day}</span>
-                            <h4 className={styles.itineraryTitle}>{day.title}</h4>
-                            <span className={`${styles.chevron} ${isOpen ? styles.open : ''}`}>
-                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 9l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                              </svg>
-                            </span>
-                          </div>
-
-                          <div className={styles.itineraryBody}>
-                            <p className={styles.itineraryDesc}>{day.description}</p>
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
+                  <h3>Itinerary</h3>
+                  {pkg.itinerary.map((day, index) => (
+                    <div key={index} className={styles.itineraryItem}>
+                      <h4 className={styles.itineraryDay}>Day {day.day}</h4>
+                      <p className={styles.itineraryDesc}>{day.description}</p>
+                    </div>
+                  ))}
                 </>
               )}
 
