@@ -1,13 +1,14 @@
 .card {
   display: block;
-  background: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(248, 249, 250, 0.95) 100%);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 20px rgba(27, 107, 79, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
   transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
   cursor: pointer;
   animation: fadeInUp 0.6s ease-out;
-  border: 1px solid rgba(27, 107, 79, 0.05);
+  border: 1px solid rgba(141, 198, 63, 0.15);
+  position: relative;
 }
 
 .card:hover {
@@ -70,11 +71,26 @@
 }
 
 @media (max-width: 768px) {
+  .card {
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+  }
+  
   .imageWrapper {
-    height: 160px;
+    height: 140px;
+  }
+
+  .content {
+    padding: 14px;
   }
 
   .title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .description {
+    font-size: 0.82rem;
+    line-height: 1.4;
   }
 }
