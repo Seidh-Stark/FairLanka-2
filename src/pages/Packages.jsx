@@ -54,11 +54,20 @@ const Packages = () => {
 
   const handleViewItinerary = (pkg) => {
     setSelectedPackage(pkg)
-    const itineraryEl = document.querySelector('#itinerary')
-    if (itineraryEl) {
-      window.scrollTo({ top: itineraryEl.offsetTop, behavior: 'smooth' })
-    }
   }
+
+  useEffect(() => {
+    if (!selectedPackage) return
+
+    const id = window.setTimeout(() => {
+      const itineraryEl = document.querySelector('#itinerary')
+      if (itineraryEl) {
+        itineraryEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 50)
+
+    return () => window.clearTimeout(id)
+  }, [selectedPackage])
 
   return (
     <div className={styles.page}>
