@@ -117,7 +117,7 @@ const Packages = () => {
               <h2>{selectedPackage.title}</h2>
               <p>{selectedPackage.description}</p>
               <div className={styles.itineraryHeaderBar}>
-                <h3>Day-by-Day Itinerary</h3>
+                <h3>Day-by-Day Itinerary <span style={{ fontSize: '0.9rem', opacity: 0.7 }}>(new UI)</span></h3>
                 <button
                   type="button"
                   className={styles.expandAllButton}
