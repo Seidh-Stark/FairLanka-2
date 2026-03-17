@@ -6,8 +6,29 @@ import styles from './Packages.module.css'
 const Packages = () => {
   const [packages, setPackages] = useState([])
   const [selectedPackage, setSelectedPackage] = useState(null)
-  const [expandedDays, setExpandedDays] = useState({})
+  const [openDays, setOpenDays] = useState(new Set())
+  const [allExpanded, setAllExpanded] = useState(false)
   const [loading, setLoading] = useState(true)
+
+  const toggleOpen = (index) => {
+    setOpenDays((prev) => {
+      const next = new Set(prev)
+      if (next.has(index)) {
+        next.delete(index)
+      } else {
+        next.add(index)
+      }
+      return next
+    })
+  }
+
+  const toggleExpandAll = (count) => {
+    setAllExpanded((prev) => {
+      const nextAll = !prev
+      setOpenDays(nextAll ? new Set(Array.from({ length: count }, (_, i) => i)) : new Set())
+      return nextAll
+    })
+  }
 
   useEffect(() => {
     const fetchPackages = async () => {
@@ -95,37 +116,51 @@ const Packages = () => {
             <div className={styles.itinerary}>
               <h2>{selectedPackage.title}</h2>
               <p>{selectedPackage.description}</p>
-              <h3>Day-by-Day Itinerary</h3>
-              {/* Desktop Timeline */}
-              <div className={styles.timeline}>
-                {selectedPackage.itinerary.map((day, index) => (
-                  <div key={index} className={styles.timelineItem}>
-                    <div className={styles.timelineMarker}>Day {day.day}</div>
-                    <div className={styles.timelineContent}>
-                      <h4>{day.title}</h4>
-                      <p>{day.description}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className={styles.itineraryHeaderBar}>
+                <h3>Day-by-Day Itinerary</h3>
+                <button
+                  type="button"
+                  className={styles.expandAllButton}
+                  onClick={() => toggleExpandAll(selectedPackage.itinerary.length)}
+                >
+                  {allExpanded ? 'Collapse all' : 'Expand all'}
+                </button>
               </div>
-              {/* Mobile Card Layout */}
-              <div className={styles.mobileItinerary}>
-                {selectedPackage.itinerary.map((day, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.itineraryCard} ${expandedDays[index] ? styles.expanded : ''}`}
-                    onClick={() => toggleDayExpand(index)}
-                  >
-                    <div className={styles.cardHeader}>
-                      <div className={styles.dayBadge}>Day {day.day}</div>
-                      <div className={styles.expandIcon}>{expandedDays[index] ? '−' : '+'}</div>
+
+              <div className={styles.itineraryGrid}>
+                {selectedPackage.itinerary.map((day, index) => {
+                  const isOpen = openDays.has(index)
+                  return (
+                    <div
+                      key={index}
+                      className={`${styles.itineraryItem} ${isOpen ? styles.open : ''}`}
+                      role="button"
+                      tabIndex={0}
+                      aria-expanded={isOpen}
+                      onClick={() => toggleOpen(index)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault()
+                          toggleOpen(index)
+                        }
+                      }}
+                    >
+                      <div className={styles.itineraryHeader}>
+                        <span className={styles.dayBadge}>Day {day.day}</span>
+                        <h4 className={styles.itineraryTitle}>{day.title}</h4>
+                        <span className={`${styles.chevron} ${isOpen ? styles.open : ''}`}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 9l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </span>
+                      </div>
+
+                      <div className={styles.itineraryBody}>
+                        <p className={styles.itineraryDesc}>{day.description}</p>
+                      </div>
                     </div>
-                    <h4 className={styles.cardTitle}>{day.title}</h4>
-                    <p className={`${styles.cardDescription} ${expandedDays[index] ? styles.fullDescription : ''}`}>
-                      {day.description}
-                    </p>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
               <h3>Tour Highlights</h3>
               <ul className={styles.highlights}>
