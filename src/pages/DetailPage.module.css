@@ -150,6 +150,22 @@
   color: #666666;
 }
 
+/* Itinerary Styles */
+.itineraryItem {
+  margin-bottom: 24px;
+}
+
+.itineraryDay {
+  color: #1b6b4f;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.itineraryDesc {
+  color: #666666;
+  line-height: 1.8;
+}
+
 @media (max-width: 1024px) {
   .content {
     grid-template-columns: 1fr;
@@ -184,5 +200,53 @@
 
   .description {
     font-size: 1rem;
+  }
+
+  /* Mobile Itinerary Cards */
+  .itineraryItem {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(248, 249, 250, 0.95) 100%);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(27, 107, 79, 0.08);
+    box-shadow: 0 2px 8px rgba(27, 107, 79, 0.06);
+    animation: slideInUp 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .itineraryItem:nth-child(1) { animation-delay: 0.1s; }
+  .itineraryItem:nth-child(2) { animation-delay: 0.15s; }
+  .itineraryItem:nth-child(3) { animation-delay: 0.2s; }
+  .itineraryItem:nth-child(4) { animation-delay: 0.25s; }
+  .itineraryItem:nth-child(5) { animation-delay: 0.3s; }
+  .itineraryItem:nth-child(n+6) { animation-delay: 0.35s; }
+
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .itineraryDay {
+    display: inline-block;
+    background: linear-gradient(135deg, #1b6b4f 0%, #2c5530 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(27, 107, 79, 0.25);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .itineraryDesc {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
   }
 }

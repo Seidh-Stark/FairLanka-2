@@ -59,9 +59,9 @@ const PackageDetail = () => {
                 <>
                   <h3>Itinerary</h3>
                   {pkg.itinerary.map((day, index) => (
-                    <div key={index} style={{ marginBottom: '24px' }}>
-                      <h4 style={{ color: '#1b6b4f', fontSize: '1.25rem' }}>Day {day.day}</h4>
-                      <p style={{ color: '#666666', lineHeight: '1.8' }}>{day.description}</p>
+                    <div key={index} className={styles.itineraryItem}>
+                      <h4 className={styles.itineraryDay}>Day {day.day}</h4>
+                      <p className={styles.itineraryDesc}>{day.description}</p>
                     </div>
                   ))}
                 </>
