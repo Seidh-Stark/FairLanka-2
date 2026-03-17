@@ -7,12 +7,17 @@ const PackageDetail = () => {
   const { slug } = useParams()
   const [pkg, setPkg] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [expandedDays, setExpandedDays] = useState(new Set())
 
   useEffect(() => {
     const fetchPackage = async () => {
       try {
         const data = await packageService.getBySlug(slug)
         setPkg(data)
+        // For desktop, expand all by default
+        if (window.innerWidth >= 768) {
+          setExpandedDays(new Set(data.itinerary?.map((_, i) => i) || []))
+        }
       } catch (error) {
         console.error('Error fetching package:', error)
       } finally {
@@ -22,6 +27,18 @@ const PackageDetail = () => {
 
     fetchPackage()
   }, [slug])
+
+  const toggleExpanded = (index) => {
+    setExpandedDays(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(index)) {
+        newSet.delete(index)
+      } else {
+        newSet.add(index)
+      }
+      return newSet
+    })
+  }
 
   if (loading) return <div className={styles.loading}>Loading...</div>
   if (!pkg) return <div className={styles.notFound}>Package not found</div>
@@ -58,12 +75,20 @@ const PackageDetail = () => {
               {pkg.itinerary && pkg.itinerary.length > 0 && (
                 <>
                   <h3>Itinerary</h3>
-                  {pkg.itinerary.map((day, index) => (
-                    <div key={index} className={styles.itineraryItem}>
-                      <h4 className={styles.itineraryDay}>Day {day.day}</h4>
-                      <p className={styles.itineraryDesc}>{day.description}</p>
-                    </div>
-                  ))}
+                  <div className={styles.itineraryContainer}>
+                    {pkg.itinerary.map((day, index) => {
+                      const description = day.description
+                      const [locationTitle, ...descParts] = description.split(':')
+                      const fullDesc = descParts.join(':').trim() || description
+                      return (
+                        <div key={index} className={styles.itineraryItem} onClick={() => toggleExpanded(index)}>
+                          <div className={styles.dayBadge}>Day {day.day}</div>
+                          <h5 className={styles.locationTitle}>{locationTitle}</h5>
+                          {expandedDays.has(index) && <p className={styles.itineraryDesc}>{fullDesc}</p>}
+                        </div>
+                      )
+                    })}
+                  </div>
                 </>
               )}
 
