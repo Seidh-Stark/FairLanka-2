@@ -318,233 +318,135 @@
     font-size: 2rem;
   }
 
-  /* Hide desktop timeline on mobile */
+  /* COMPLETELY HIDE DESKTOP TIMELINE ON MOBILE - No visibility at all */
   .timeline {
-    display: none;
+    display: none !important;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
   }
 
-  /* Mobile Itinerary Cards - Premium Mobile-First Design */
+  .timeline::before {
+    display: none !important;
+  }
+
+  .timelineItem {
+    display: none !important;
+  }
+
+  .timelineMarker {
+    display: none !important;
+  }
+
+  .timelineContent {
+    display: none !important;
+  }
+
+  /* ===== MOBILE ITINERARY CARDS - COMPLETE REDESIGN ===== */
   .mobileItinerary {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin: 28px 0 40px 0;
-    padding: 0 12px;
-    /* Ensure smooth scrolling and proper spacing */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    margin: 24px 0 32px 0;
   }
 
+  /* Card Base Style - Compact Travel App Design */
   .itineraryCard {
     position: relative;
     background: linear-gradient(135deg, #ffffff 0%, rgba(248, 249, 250, 0.98) 100%);
-    border-radius: 16px;
-    border: 1px solid rgba(27, 107, 79, 0.08);
-    box-shadow: 0 8px 24px rgba(27, 107, 79, 0.06);
-    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 14px;
+    padding: 14px;
+    border: 1px solid rgba(27, 107, 79, 0.12);
+    box-shadow: 0 3px 10px rgba(27, 107, 79, 0.08);
+    transition: all 0.28s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
     user-select: none;
-    overflow: hidden;
-    /* Force 2-3 cards visible with partial card below */
-    scroll-snap-align: start;
-    /* Enable hardware acceleration for smooth scrolling */
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    /* Touch-friendly height for cards */
-    min-height: 72px;
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Collapsed state - minimal height */
-  .itineraryCard {
-    padding: 14px 16px;
-  }
-
-  /* Expanded state */
-  .itineraryCard.expanded {
-    padding: 18px 16px;
-    min-height: auto;
-  }
-
-  /* Touch feedback - improved active state */
   .itineraryCard:active {
-    box-shadow: 0 12px 32px rgba(27, 107, 79, 0.1);
     transform: scale(0.98);
+    box-shadow: 0 2px 6px rgba(27, 107, 79, 0.1);
   }
 
-  /* Focus state for accessibility */
-  .itineraryCard:focus {
-    outline: 2px solid #1b6b4f;
-    outline-offset: 2px;
-  }
-
-  .itineraryCard:not(.expanded) {
-    border: 1px solid rgba(27, 107, 79, 0.08);
-  }
-
-  .itineraryCard.expanded {
-    border: 1px solid rgba(27, 107, 79, 0.12);
-    box-shadow: 0 12px 32px rgba(27, 107, 79, 0.1);
-  }
-
-  /* Card Header (Always Visible) */
+  /* Card Header - Day Badge + Expand Icon */
   .cardHeader {
     display: flex;
+    justify-content: space-between;
     align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 0;
-    cursor: pointer;
-    /* Ensure header is easy to tap */
-    min-height: 44px;
-    align-items: center;
+    margin-bottom: 6px;
+    gap: 8px;
   }
 
-  .cardHeader.expanded {
-    align-items: flex-start;
-    margin-bottom: 12px;
-    border-bottom: 1px solid rgba(27, 107, 79, 0.06);
-    padding-bottom: 12px;
-  }
-
-  /* Day Badge - Premium Style */
+  /* Day Badge - Small, Inside Card */
   .dayBadge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     background: linear-gradient(135deg, #1b6b4f 0%, #2c5530 100%);
     color: white;
     font-weight: 700;
     font-size: 0.75rem;
-    padding: 6px 10px;
-    border-radius: 18px;
-    flex-shrink: 0;
-    box-shadow: 0 3px 12px rgba(27, 107, 79, 0.2);
     letter-spacing: 0.3px;
-    /* Ensure badge is touch-friendly */
-    min-width: 44px;
-    height: 28px;
-  }
-
-  /* Expand Indicator */
-  .expandIcon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    margin-left: auto;
+    padding: 5px 11px;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(27, 107, 79, 0.18);
     flex-shrink: 0;
+  }
+
+  /* Expand/Collapse Icon */
+  .expandIcon {
+    font-size: 1.5rem;
     color: #1b6b4f;
-    font-size: 0.9rem;
-    transition: transform 0.3s ease;
-    /* Ensure touch zone is adequate */
-    cursor: pointer;
+    font-weight: 300;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
   }
 
-  .expandIcon.expanded {
-    transform: rotate(180deg);
+  .itineraryCard:hover .expandIcon {
+    color: #0d4a36;
   }
 
-  /* Main Content Area */
-  .cardContent {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
+  /* Card Title - Location */
   .cardTitle {
     color: #1b6b4f;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin: 0;
-    line-height: 1.35;
-    letter-spacing: -0.2px;
+    margin: 0 0 5px 0;
+    line-height: 1.25;
+    word-wrap: break-word;
   }
 
+  /* Card Description - Truncated by Default */
   .cardDescription {
-    color: #757575;
-    font-size: 0.85rem;
-    margin: 6px 0 0 0;
-    line-height: 1.45;
+    color: #626262;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+    transition: all 0.3s ease;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    max-height: 45px;
   }
 
-  /* Expanded Description - Show Full Text */
-  .cardDescription.expanded {
+  /* Expanded State - Show Full Description */
+  .itineraryCard.expanded .cardDescription.fullDescription {
     display: block;
     -webkit-line-clamp: unset;
     overflow: visible;
-    margin: 10px 0 0 0;
+    max-height: none;
   }
 
-  /* Optional Thumbnail */
-  .cardThumbnail {
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(141, 198, 63, 0.1) 0%, rgba(27, 107, 79, 0.05) 100%);
-    transition: height 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-    margin: 0;
-    border-radius: 10px;
-  }
-
-  .cardThumbnail.expanded {
-    height: 100px;
-    margin: 12px 0 8px 0;
-  }
-
-  .cardThumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Additional Details (Hidden by default) */
-  .cardDetails {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .cardDetails.expanded {
-    max-height: 300px;
-    opacity: 1;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(27, 107, 79, 0.06);
-  }
-
-  /* Highlights/Details List */
-  .detailsList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .detailsList li {
-    color: #666;
-    font-size: 0.85rem;
-    padding: 6px 0;
-    line-height: 1.4;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .detailsList li:before {
-    content: "→";
-    color: #1b6b4f;
-    font-weight: bold;
-    flex-shrink: 0;
-  }
-
-  /* Hide on mobile - show on desktop */
-  .mobileItinerary {
-    display: flex;
+  /* Expanded Card Style */
+  .itineraryCard.expanded {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(248, 249, 250, 0.95) 100%);
+    box-shadow: 0 5px 15px rgba(27, 107, 79, 0.12);
+    border-color: rgba(27, 107, 79, 0.18);
   }
 
   .ctaButtons {
@@ -553,69 +455,25 @@
   }
 }
 
-/* Show timeline on desktop, hide mobile cards */
+/* ===== DESKTOP LAYOUT - Keep Original Timeline ===== */
 @media (min-width: 769px) {
   .mobileItinerary {
-    display: none;
+    display: none !important;
+  }
+
+  .itineraryCard {
+    display: none !important;
+  }
+
+  .cardHeader {
+    display: none !important;
+  }
+
+  .expandIcon {
+    display: none !important;
   }
 
   .timeline {
-    display: block;
+    display: block !important;
   }
-
-  /* Desktop Timeline hover effects */
-  .timelineItem {
-    transition: all 0.3s ease;
-  }
-
-  .timelineItem:hover {
-    margin-left: 12px;
-  }
-
-  .timelineContent {
-    transition: all 0.3s ease;
-  }
-
-  .timelineItem:hover .timelineContent {
-    background: rgba(27, 107, 79, 0.03);
-    padding: 12px;
-    border-radius: 8px;
-  }
-
-  .timelineItem:hover .timelineContent h4 {
-    color: #2c5530;
-  }
-
-  .timelineMarker {
-    transition: all 0.3s ease;
-    transform: scale(1);
-  }
-
-  .timelineItem:hover .timelineMarker {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(27, 107, 79, 0.3);
-  }
-
-  /* Desktop animation for timeline items */
-  @keyframes slideInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .timelineItem {
-    animation: slideInLeft 0.6s ease-out forwards;
-  }
-
-  .timelineItem:nth-child(1) { animation-delay: 0.1s; }
-  .timelineItem:nth-child(2) { animation-delay: 0.2s; }
-  .timelineItem:nth-child(3) { animation-delay: 0.3s; }
-  .timelineItem:nth-child(4) { animation-delay: 0.4s; }
-  .timelineItem:nth-child(5) { animation-delay: 0.5s; }
-  .timelineItem:nth-child(6) { animation-delay: 0.6s; }
 }
