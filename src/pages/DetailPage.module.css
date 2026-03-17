@@ -180,128 +180,82 @@
 
   .main h3 {
     font-size: 1.5rem;
-    margin-top: 32px;
-    margin-bottom: 16px;
   }
 
   .description {
     font-size: 1rem;
   }
 
-  /* Mobile Itinerary Cards - Premium Compact Design */
-  .itinerarySection {
-    margin-top: 32px;
+  /* Desktop timeline hidden on mobile */
+  .desktop-timeline {
+    display: none !important;
   }
+}
 
-  .itineraryList {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 20px 0;
-  }
-
-  .itineraryItem {
+/* Desktop Timeline Styles */
+@media (min-width: 769px) {
+  .desktop-timeline {
+    display: block !important;
     position: relative;
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 14px 12px;
-    border: none;
-    box-shadow: 0 2px 8px rgba(27, 107, 79, 0.06), 0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    overflow: hidden;
+    padding-left: 2rem;
   }
 
-  .itineraryItem::before {
+  .desktop-timeline::before {
     content: '';
     position: absolute;
+    left: 15px;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #1b6b4f 0%, #2c5530 100%);
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #1b6b4f, #2c5530);
   }
 
-  .itineraryItem:hover {
-    box-shadow: 0 4px 12px rgba(27, 107, 79, 0.12), 0 2px 4px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+  .desktop-timeline > div {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    animation: fadeInUp 0.6s ease-out forwards;
   }
 
-  .itineraryDay {
-    display: inline-block;
-    background: linear-gradient(135deg, #1b6b4f 0%, #2c5530 100%);
-    color: white;
-    font-weight: 700;
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 18px;
-    margin-bottom: 6px;
-    box-shadow: 0 2px 6px rgba(27, 107, 79, 0.15);
-    letter-spacing: 0.5px;
+  .desktop-timeline > div:nth-child(1) { animation-delay: 0.1s; }
+  .desktop-timeline > div:nth-child(2) { animation-delay: 0.2s; }
+  .desktop-timeline > div:nth-child(3) { animation-delay: 0.3s; }
+  .desktop-timeline > div:nth-child(4) { animation-delay: 0.4s; }
+  .desktop-timeline > div:nth-child(5) { animation-delay: 0.5s; }
+  .desktop-timeline > div:nth-child(6) { animation-delay: 0.6s; }
+
+  .desktop-timeline > div::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 3px solid #1b6b4f;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #f5f5f5;
   }
 
-  .itineraryItemTitle {
+  .desktop-timeline h4 {
     color: #1b6b4f;
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin: 0 0 4px 0;
-    line-height: 1.25;
-    word-break: break-word;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
 
-  .itineraryItemDesc {
-    color: #555555;
-    font-size: 0.85rem;
-    margin: 0;
-    line-height: 1.35;
-    word-break: break-word;
+  .desktop-timeline p {
+    color: #666;
+    line-height: 1.6;
   }
 }
 
-@media (min-width: 769px) {
-  /* Desktop Itinerary - Original style */
-  .itinerarySection {
-    margin-top: 32px;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .itineraryList {
-    display: block;
-    margin: 20px 0;
-  }
-
-  .itineraryItem {
-    margin-bottom: 24px;
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-    border: none;
-  }
-
-  .itineraryItem::before {
-    display: none;
-  }
-
-  .itineraryDay {
-    display: block;
-    background: transparent;
-    color: #1b6b4f;
-    font-weight: 700;
-    font-size: 1.25rem;
-    padding: 0;
-    margin: 0 0 8px 0;
-    box-shadow: none;
-    letter-spacing: normal;
-    border: none;
-  }
-
-  .itineraryItemTitle {
-    display: none;
-  }
-
-  .itineraryItemDesc {
-    color: #666666;
-    font-size: 1rem;
-    line-height: 1.8;
-    margin: 0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-

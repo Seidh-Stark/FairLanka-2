@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import gsap from 'gsap'
 import { packageService } from '../services/packageService'
 import styles from './Packages.module.css'
 
@@ -7,6 +8,9 @@ const Packages = () => {
   const [packages, setPackages] = useState([])
   const [selectedPackage, setSelectedPackage] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [expandedDay, setExpandedDay] = useState(null)
+  const itineraryRef = useRef(null)
+  const cardsRef = useRef([])
 
   useEffect(() => {
     const fetchPackages = async () => {
@@ -23,9 +27,33 @@ const Packages = () => {
     fetchPackages()
   }, [])
 
+  // Animate cards on first render with staggered effect
+  useEffect(() => {
+    if (selectedPackage && cardsRef.current.length > 0) {
+      gsap.from(cardsRef.current, {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'cubic-bezier(0.23, 1, 0.32, 1)',
+      })
+    }
+  }, [selectedPackage])
+
   const handleViewItinerary = (pkg) => {
     setSelectedPackage(pkg)
-    window.scrollTo({ top: document.querySelector('#itinerary').offsetTop, behavior: 'smooth' })
+    setExpandedDay(null)
+    setTimeout(() => {
+      window.scrollTo({ top: document.querySelector('#itinerary').offsetTop, behavior: 'smooth' })
+    }, 100)
+  }
+
+  const toggleDayExpand = (dayIndex) => {
+    if (expandedDay === dayIndex) {
+      setExpandedDay(null)
+    } else {
+      setExpandedDay(dayIndex)
+    }
   }
 
   return (
@@ -88,6 +116,7 @@ const Packages = () => {
               <h2>{selectedPackage.title}</h2>
               <p>{selectedPackage.description}</p>
               <h3>Day-by-Day Itinerary</h3>
+              
               {/* Desktop Timeline */}
               <div className={styles.timeline}>
                 {selectedPackage.itinerary.map((day, index) => (
@@ -100,16 +129,55 @@ const Packages = () => {
                   </div>
                 ))}
               </div>
-              {/* Mobile Card Layout */}
-              <div className={styles.mobileItinerary}>
+              
+              {/* Mobile Premium Accordion Cards */}
+              <div ref={itineraryRef} className={styles.mobileItinerary}>
                 {selectedPackage.itinerary.map((day, index) => (
-                  <div key={index} className={styles.itineraryCard}>
-                    <div className={styles.dayBadge}>Day {day.day}</div>
-                    <h4 className={styles.cardTitle}>{day.title}</h4>
-                    <p className={styles.cardDescription}>{day.description}</p>
+                  <div
+                    key={index}
+                    ref={(el) => (cardsRef.current[index] = el)}
+                    className={`${styles.itineraryCard} ${expandedDay === index ? styles.expanded : ''}`}
+                    onClick={() => toggleDayExpand(index)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        toggleDayExpand(index)
+                      }
+                    }}
+                  >
+                    {/* Card Header */}
+                    <div className={`${styles.cardHeader} ${expandedDay === index ? styles.expanded : ''}`}>
+                      <div className={styles.dayBadge}>Day {day.day}</div>
+                      <div className={styles.cardContent}>
+                        <h4 className={styles.cardTitle}>{day.title}</h4>
+                        <p className={styles.cardDescription}>{day.description}</p>
+                      </div>
+                      <span className={`${styles.expandIcon} ${expandedDay === index ? styles.expanded : ''}`}>
+                        ▼
+                      </span>
+                    </div>
+
+                    {/* Expandable Content */}
+                    {expandedDay === index && (
+                      <div className={`${styles.cardDetails} ${styles.expanded}`}>
+                        {/* Additional details can be added here */}
+                        {day.highlights && day.highlights.length > 0 && (
+                          <>
+                            <h5 style={{ color: '#1b6b4f', fontSize: '0.9rem', marginBottom: '8px' }}>Highlights:</h5>
+                            <ul className={styles.detailsList}>
+                              {day.highlights.map((highlight, idx) => (
+                                <li key={idx}>{highlight}</li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
+              
               <h3>Tour Highlights</h3>
               <ul className={styles.highlights}>
                 {selectedPackage.highlights.map((highlight, index) => (
