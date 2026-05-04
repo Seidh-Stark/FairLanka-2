@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ScrollReveal, StaggerReveal, TextReveal, HoverLift } from '../components/ScrollAnimations'
+import sigiriyaDambullaImg from '../../Sigiriya & Dambulla Cultural Day Tour.jpg'
+import kandyImg from '../../Kandy Cultural & Heritage Day Tour.jpg'
+import galleImg from '../../Galle & Southern Coast Day Tour.jpg'
+import yalaImg from '../../Yala Safari Wildlife Day Tour.jpg'
+import ellaImg from '../../Ella Scenic Nature Day Tour.jpg'
+import bentotaImg from '../../Bentota Adventure & River Safari Tour.jpg'
+import mirissaImg from '../../Mirissa Whale Watching & Beach Day Tour.jpg'
+import colomboImg from '../../Colombo City Exploration Day Tour.jpg'
+import safari2Img from '../../safari2.jpg'
 import styles from './DayTours.module.css'
 
 const DayTours = () => {
@@ -19,7 +28,7 @@ const DayTours = () => {
         'Optional village safari (bullock cart + boat ride)'
       ],
       description: 'This is one of the most popular cultural day tours in Sri Lanka.',
-      image: 'https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: sigiriyaDambullaImg,
       duration: '8-10 hours (Adjustable)'
       
     },
@@ -36,7 +45,7 @@ const DayTours = () => {
         'Watch Kandyan cultural dance show'
       ],
       description: 'Experience the cultural heart of Sri Lanka with ancient temples and royal gardens.',
-      image: 'https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: kandyImg,
       duration: '8-10 hours (Adjustable)'
   
     },
@@ -52,7 +61,7 @@ const DayTours = () => {
         'Visit turtle hatchery in Kosgoda'
       ],
       description: 'Explore the historic Galle Fort and discover the charm of the southern coast.',
-      image: 'https://images.pexels.com/photos/3535508/pexels-photo-3535508.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: galleImg,
       duration: '8-10 hours (Adjustable)'
       
     },
@@ -67,7 +76,7 @@ const DayTours = () => {
         'Nature photography'
       ],
       description: 'Experience thrilling wildlife encounters in one of Asia\'s best national parks.',
-      image: 'https://images.pexels.com/photos/3407817/pexels-photo-3407817.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: yalaImg,
       duration: '8-10 hours (Adjustable)'
       
     },
@@ -83,7 +92,7 @@ const DayTours = () => {
         'Cafe & mountain view photos'
       ],
       description: 'Ella is famous for tea plantations, waterfalls and scenic hikes.',
-      image: 'https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: ellaImg,
       duration: '8-10 hours (Adjustable)'
       
     },
@@ -99,7 +108,7 @@ const DayTours = () => {
         'Jet ski / banana boat / water sports in Bentota'
       ],
       description: 'Most demanded day tour by tourists - adventure and nature combined.',
-      image: 'https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: bentotaImg,
       duration: '7-9 hours (Adjustable)'
       
     },
@@ -115,7 +124,7 @@ const DayTours = () => {
         'Optional snorkeling or swimming'
       ],
       description: 'One of the best whale watching locations in the world (November – April season).',
-      image: 'https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: mirissaImg,
       duration: '8-10 hours (Adjustable)'
       
     },
@@ -148,7 +157,7 @@ const DayTours = () => {
         'Colombo street food tasting'
       ],
       description: 'Great for tourists who want to see culture, shopping, and city life in one day.',
-      image: 'https://images.pexels.com/photos/460537/pexels-photo-460537.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: colomboImg,
       duration: '6-8 hours (Adjustable)'
       
     },
@@ -164,7 +173,7 @@ const DayTours = () => {
         'Wildlife photography'
       ],
       description: 'This park is one of the best places in Sri Lanka to see wild elephants closely.',
-      image: 'https://images.pexels.com/photos/17314505/pexels-photo-17314505.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      image: safari2Img,
       duration: '8-10 hours (Adjustable)'
       
     }
