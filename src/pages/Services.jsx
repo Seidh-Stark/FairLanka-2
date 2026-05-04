@@ -6,7 +6,7 @@ import tourPackageImg from '../assets/service-images/tour-package.jpg'
 import dayTourImg from '../assets/service-images/day-tour.png'
 import intercityTransfersImg from '../assets/service-images/intercity-transfers.JPG'
 import safarisImg from '../assets/service-images/safaris.jpg'
-import hotelBookingImg from '../assets/service-images/hotel-booking-icon.jpg'
+import hotelBookingImg from '../assets/service-images/Hotel-booking-icon.jpg'
 import flightBookingImg from '../assets/service-images/flight-booking-icon.jpg'
 
 const Services = () => {
