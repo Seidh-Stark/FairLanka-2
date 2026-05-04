@@ -36,19 +36,22 @@ const Contact = () => {
       const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
       const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
 
-      const templateParams = {
-        from_name: formData.name || 'Website User',
-        from_email: formData.email || 'no-reply@example.com',
-        phone: formData.phone || '',
-        country: formData.country || '',
-        message: formData.message || ''
+      if (!SERVICE_ID || SERVICE_ID === 'YOUR_SERVICE_ID' || !TEMPLATE_ID || TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || !PUBLIC_KEY || PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+        throw new Error('EmailJS is not configured. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY.')
       }
 
-      try {
-        await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
-      } catch (emailErr) {
-        console.error('EmailJS send error:', emailErr)
+      const templateParams = {
+        to_email: 'mbyoonusahamed@gmail.com',
+        from_name: formData.name || 'Website User',
+        from_email: formData.email || 'no-reply@example.com',
+        reply_to: formData.email || 'no-reply@example.com',
+        phone: formData.phone || '',
+        country: formData.country || '',
+        message: formData.message || '',
+        subject: 'New website contact submission'
       }
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
       setSubmitted(true)
       setFormData({
         name: '',
