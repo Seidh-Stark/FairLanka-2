@@ -42,11 +42,9 @@ const TravelGuide = () => {
               February.
             </p>
 
-            <h2>Getting Around</h2>
+            <h2>Getting Around in Sri Lanka</h2>
             <p>
-              Tuk-tuks are the most common form of local transport. Trains offer scenic
-              journeys, especially through the hill country. Private cars with drivers are
-              available and recommended for tourists. Domestic flights connect major cities.
+              The best and most comfortable way to travel around Sri Lanka is by using a private vehicle. We recommend clean, well-maintained and comfortable cars with professional English-speaking drivers who have many years of field experience with international travelers. This allows you to travel safely, enjoy flexible schedules, and explore the country at your own pace while receiving local knowledge and assistance throughout your journey.
             </p>
 
             <h2>Health & Safety</h2>
