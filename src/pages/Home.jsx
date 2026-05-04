@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Hero from '../components/sections/Hero'
 import DestinationCard from '../components/common/DestinationCard'
 import PackageCard from '../components/common/PackageCard'
-import ActivityCard from '../components/common/ActivityCard'
 import TestimonialCard from '../components/common/TestimonialCard'
 import TravelInfoCard from '../components/common/TravelInfoCard'
 import ServiceCard from '../components/common/ServiceCard'
@@ -59,39 +58,6 @@ const Home = () => {
 
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
-
-  const activities = [
-    {
-      title: 'Wildlife Safaris',
-      description: 'Experience thrilling encounters with elephants, leopards, and exotic birds',
-      image: 'https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      title: 'Beach Holidays',
-      description: 'Relax on pristine beaches with crystal clear waters and golden sands',
-      image: 'https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      title: 'Cultural Tours',
-      description: 'Explore ancient temples, UNESCO sites, and rich Sri Lankan heritage',
-      image: 'https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      title: 'Adventure Sports',
-      description: 'Trek mountains, surf waves, and discover thrilling outdoor activities',
-      image: 'https://images.pexels.com/photos/163185/old-plane-aircraft-airplane-biplane-163185.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      title: 'Wellness Retreats',
-      description: 'Rejuvenate with Ayurveda treatments and yoga in peaceful settings',
-      image: 'https://images.pexels.com/photos/3822621/pexels-photo-3822621.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      title: 'Surfing',
-      description: 'Ride world-class waves at famous surf spots along the coast',
-      image: 'https://images.pexels.com/photos/390051/surfer-wave-sunset-the-indian-ocean-390051.jpeg?auto=compress&cs=tinysrgb&w=800'
-    }
-  ]
 
   const handleWhatsApp = (serviceTitle, message) => {
     const fullMessage = `${message}`
@@ -320,28 +286,6 @@ const Home = () => {
           </div>
         </section>
       )}
-
-      <section className="section section-alt">
-        <div className="container">
-          <TextReveal>
-            <h2 className="section-title">Popular Activities</h2>
-            <p className="section-subtitle">
-              Discover exciting adventures and experiences waiting for you
-            </p>
-          </TextReveal>
-          <StaggerReveal>
-            <div className="grid grid-3">
-              {activities.map((activity, index) => (
-                <div key={index} data-stagger>
-                  <HoverLift>
-                    <ActivityCard activity={activity} />
-                  </HoverLift>
-                </div>
-              ))}
-            </div>
-          </StaggerReveal>
-        </div>
-      </section>
 
       {packages.length > 0 && (
         <section className="section">
