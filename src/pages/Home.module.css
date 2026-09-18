@@ -2,6 +2,175 @@
   width: 100%;
 }
 
+.reviewCarousel {
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+  padding: 12px 0;
+}
+
+.carouselInner {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 52px;
+  align-items: center;
+  gap: 18px;
+}
+
+.reviewStage {
+  position: relative;
+  min-height: 330px;
+  perspective: 1600px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.reviewStage::before {
+  content: '';
+  position: absolute;
+  inset: 8% 10% 4%;
+  border-radius: 32px;
+  background: radial-gradient(circle at center, rgba(141, 198, 63, 0.18), rgba(27, 107, 79, 0.07) 35%, transparent 72%);
+  transform: translate3d(0, 0, -80px);
+  opacity: 0.9;
+  filter: blur(16px);
+  transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1), opacity 850ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reviewLayer {
+  position: absolute;
+  width: min(100%, 820px);
+  left: 50%;
+  top: 0;
+  transform-style: preserve-3d;
+  opacity: 0;
+  transition:
+    transform 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 850ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+  pointer-events: none;
+  transform: translateX(-50%) translate3d(0, 0, -120px) scale(0.92) rotateY(0deg);
+  filter: saturate(0.8) blur(0.3px);
+}
+
+.reviewLayer.isActive {
+  opacity: 1;
+  transform: translateX(-50%) translate3d(0, 0, 90px) scale(1) rotateY(0deg);
+  filter: none;
+  z-index: 3;
+  pointer-events: auto;
+  box-shadow: 0 22px 48px rgba(27, 107, 79, 0.14);
+}
+
+.reviewLayer.isPrev,
+.reviewLayer.isNext {
+  width: min(78%, 660px);
+}
+
+.reviewLayer.isPrev {
+  opacity: 0.35;
+  transform: translateX(-92%) translate3d(-8px, 18px, -140px) scale(0.96) rotateY(4deg);
+  filter: saturate(0.82);
+  z-index: 2;
+}
+
+.reviewLayer.isNext {
+  opacity: 0.35;
+  transform: translateX(8%) translate3d(8px, 18px, -140px) scale(0.96) rotateY(-4deg);
+  filter: saturate(0.82);
+  z-index: 2;
+}
+
+.reviewStage[data-direction='-1'] .reviewLayer.isPrev,
+.reviewStage[data-direction='1'] .reviewLayer.isNext {
+  transform: translateX(-50%) translate3d(0, 0, 35px) scale(0.98) rotateY(2deg);
+}
+
+.navButton {
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b6b4f 0%, #8dc63f 100%);
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  box-shadow: 0 12px 24px rgba(27, 107, 79, 0.18);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 18px 30px rgba(27, 107, 79, 0.24), 0 0 16px rgba(141, 198, 63, 0.2);
+  filter: brightness(1.03);
+}
+
+.carouselControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.dot,
+.dotActive {
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(27, 107, 79, 0.25);
+}
+
+.dotActive {
+  width: 32px;
+  height: 12px;
+  border-radius: 999px;
+  background: #1b6b4f;
+  box-shadow: 0 0 0 6px rgba(27, 107, 79, 0.12);
+}
+
+.tripadvisorLinkWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+@media (max-width: 768px) {
+  .reviewStage {
+    min-height: 360px;
+  }
+
+  .carouselInner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .navButton {
+    display: none;
+  }
+
+  .reviewLayer.isPrev,
+  .reviewLayer.isNext {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .reviewLayer.isActive {
+    transform: translateX(-50%) translate3d(0, 0, 30px) scale(1);
+  }
+}
+
 .viewAll {
   display: flex;
   justify-content: center;

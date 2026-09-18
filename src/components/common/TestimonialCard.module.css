@@ -1,20 +1,85 @@
 .card {
-  background: #ffffff;
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 240, 232, 0.96) 100%);
+  border-radius: 26px;
   padding: 32px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 45px rgba(27, 107, 79, 0.08);
   transition: all 0.3s ease;
+  border: 1px solid rgba(27, 107, 79, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(141, 198, 63, 0.18), transparent 35%);
+  pointer-events: none;
+}
+
+.featured {
+  padding: 36px 42px;
+  box-shadow: 0 24px 60px rgba(27, 107, 79, 0.12);
+  border: 1px solid rgba(141, 198, 63, 0.2);
 }
 
 .card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.source {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1b6b4f;
+  font-weight: 700;
+}
+
+.tripBadge {
+  background: rgba(27, 107, 79, 0.08);
+  border: 1px solid rgba(27, 107, 79, 0.12);
+  color: #1b6b4f;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.ratingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
 .rating {
   color: #d4af37;
   font-size: 1.5rem;
-  margin-bottom: 16px;
   letter-spacing: 2px;
+}
+
+.verified {
+  font-size: 0.72rem;
+  color: #1b6b4f;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(27, 107, 79, 0.06);
+  border: 1px solid rgba(27, 107, 79, 0.08);
+  border-radius: 999px;
+  padding: 6px 10px;
 }
 
 .review {
@@ -23,6 +88,7 @@
   line-height: 1.8;
   margin-bottom: 24px;
   font-style: italic;
+  flex: 1;
 }
 
 .customer {
@@ -59,6 +125,16 @@
 @media (max-width: 768px) {
   .card {
     padding: 24px;
+    min-height: 220px;
+  }
+
+  .featured {
+    padding: 26px 24px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .rating {

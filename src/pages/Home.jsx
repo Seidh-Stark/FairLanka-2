@@ -23,6 +23,9 @@ const Home = () => {
   const [topDestinations, setTopDestinations] = useState([])
   const [packages, setPackages] = useState([])
   const [testimonials, setTestimonials] = useState([])
+  const [activeReview, setActiveReview] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const [direction, setDirection] = useState(1)
   const [loading, setLoading] = useState(true)
   const [isMobile, setIsMobile] = useState(false)
   const whatsappNumber = '94764374114'
@@ -58,6 +61,35 @@ const Home = () => {
 
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
+
+  useEffect(() => {
+    if (testimonials.length <= 1 || isPaused) return
+
+    const timeout = setTimeout(() => {
+      setDirection(1)
+      setActiveReview((prev) => (prev + 1) % testimonials.length)
+    }, 5500)
+
+    return () => clearTimeout(timeout)
+  }, [activeReview, testimonials.length, isPaused])
+
+  const goToReview = (index) => {
+    if (index === activeReview || testimonials.length <= 1) return
+    setDirection(index > activeReview ? 1 : -1)
+    setActiveReview(index)
+  }
+
+  const showNextReview = () => {
+    if (testimonials.length <= 1) return
+    setDirection(1)
+    setActiveReview((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const showPrevReview = () => {
+    if (testimonials.length <= 1) return
+    setDirection(-1)
+    setActiveReview((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
 
   const handleWhatsApp = (serviceTitle, message) => {
     const fullMessage = `${message}`
@@ -338,16 +370,85 @@ const Home = () => {
       </section>
 
       {testimonials.length > 0 && (
-        <section className="section">
+        <section className="section section-alt">
           <div className="container">
-            <h2 className="section-title">What Our Travelers Say</h2>
+            <h2 className="section-title">TripAdvisor Reviews</h2>
             <p className="section-subtitle">
-              Real experiences from people who explored Sri Lanka with us
+              Real experiences from travelers who explored Sri Lanka with us
             </p>
-            <div className="grid grid-3">
-              {testimonials.slice(0, 3).map((testimonial) => (
-                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-              ))}
+
+            <div
+              className={styles.reviewCarousel}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
+              <div className={styles.carouselInner}>
+                {testimonials.length > 1 && (
+                  <button
+                    type="button"
+                    className={styles.navButton}
+                    onClick={showPrevReview}
+                    aria-label="Previous review"
+                  >
+                    ‹
+                  </button>
+                )}
+
+                <div className={styles.reviewStage} data-direction={direction}>
+                  {testimonials.map((testimonial, index) => {
+                    const isActive = index === activeReview
+                    const isPrev = index === (activeReview - 1 + testimonials.length) % testimonials.length
+                    const isNext = index === (activeReview + 1) % testimonials.length
+
+                    if (!isActive && !isPrev && !isNext) return null
+
+                    return (
+                      <div
+                        key={testimonial.id || `${testimonial.customer_name}-${index}`}
+                        className={`${styles.reviewLayer} ${isActive ? styles.isActive : ''} ${isPrev ? styles.isPrev : ''} ${isNext ? styles.isNext : ''}`}
+                      >
+                        <TestimonialCard testimonial={testimonial} featured />
+                      </div>
+                    )
+                  })}
+                </div>
+
+                {testimonials.length > 1 && (
+                  <button
+                    type="button"
+                    className={styles.navButton}
+                    onClick={showNextReview}
+                    aria-label="Next review"
+                  >
+                    ›
+                  </button>
+                )}
+              </div>
+
+              {testimonials.length > 1 && (
+                <div className={styles.carouselControls}>
+                  {testimonials.map((testimonial, index) => (
+                    <button
+                      key={testimonial.id || `${testimonial.customer_name}-${index}`}
+                      type="button"
+                      className={index === activeReview ? styles.dotActive : styles.dot}
+                      onClick={() => goToReview(index)}
+                      aria-label={`Show review ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className={styles.tripadvisorLinkWrap}>
+              <a
+                href="https://www.tripadvisor.com/Attraction_Review-g612380-d33497525-Reviews-Fair_Lanka_Travels-Weligama_Matara_Southern_Province.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+              >
+                View All TripAdvisor Reviews
+              </a>
             </div>
           </div>
         </section>
