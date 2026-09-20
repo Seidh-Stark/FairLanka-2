@@ -3,6 +3,12 @@ import { inquiryService } from '../services/inquiryService'
 import emailjs from '@emailjs/browser'
 import styles from './Contact.module.css'
 
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+if (PUBLIC_KEY) {
+  emailjs.init({ publicKey: PUBLIC_KEY })
+}
+
 const Contact = () => {
   const initialFormData = {
     name: '',
@@ -42,14 +48,20 @@ const Contact = () => {
 
       const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
       const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      const currentPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      if (!SERVICE_ID || !TEMPLATE_ID || !currentPublicKey) {
         throw new Error('EmailJS environment variables are missing.')
       }
 
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, {
-        publicKey: PUBLIC_KEY
+      const form = document.getElementById('contact-form') || e.currentTarget
+
+      if (!(form instanceof HTMLFormElement)) {
+        throw new Error('Form reference missing for EmailJS submission.')
+      }
+
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, {
+        publicKey: currentPublicKey
       })
 
       setSubmitted(true)
@@ -142,7 +154,7 @@ const Contact = () => {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className={styles.form}>
+                <form id="contact-form" onSubmit={handleSubmit} className={styles.form}>
                   <h2>Send us a Message</h2>
 
                   {error && <div className={styles.error}>{error}</div>}
