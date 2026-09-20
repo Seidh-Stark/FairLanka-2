@@ -6,7 +6,7 @@ import styles from './Contact.module.css'
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 if (PUBLIC_KEY) {
-  emailjs.init({ publicKey: PUBLIC_KEY })
+  emailjs.init(PUBLIC_KEY)
 }
 
 const Contact = () => {
@@ -60,16 +60,14 @@ const Contact = () => {
         throw new Error('Form reference missing for EmailJS submission.')
       }
 
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, {
-        publicKey: currentPublicKey
-      })
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, currentPublicKey)
 
       setSubmitted(true)
       setFormData(initialFormData)
       setError(null)
     } catch (err) {
       console.error('Error submitting inquiry:', err)
-      setError('Failed to send your message. Please try again.')
+      setError(err?.text || 'Failed to send your message. Please try again.')
       setSubmitted(false)
     } finally {
       setSubmitting(false)
