@@ -54,13 +54,21 @@ const Contact = () => {
         throw new Error('EmailJS environment variables are missing.')
       }
 
-      const form = document.getElementById('contact-form') || e.currentTarget
-
-      if (!(form instanceof HTMLFormElement)) {
-        throw new Error('Form reference missing for EmailJS submission.')
-      }
-
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, currentPublicKey)
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          message: formData.message,
+          to_email: 'fairlanka.info@gmail.com'
+        },
+        currentPublicKey
+      )
 
       setSubmitted(true)
       setFormData(initialFormData)
