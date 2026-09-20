@@ -4,13 +4,15 @@ import emailjs from '@emailjs/browser'
 import styles from './Contact.module.css'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: '',
     email: '',
     phone: '',
     country: '',
     message: ''
-  })
+  }
+
+  const [formData, setFormData] = useState(initialFormData)
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(null)
@@ -24,45 +26,33 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    if (submitting) return
+
     setSubmitting(true)
     setError(null)
+    setSubmitted(false)
 
     try {
-      // Save inquiry to Supabase
-      await inquiryService.create(formData)
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-      // Send email via EmailJS (configure the Vite env vars or replace the placeholders below)
-      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
-      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
-      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
-
-      if (!SERVICE_ID || SERVICE_ID === 'YOUR_SERVICE_ID' || !TEMPLATE_ID || TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || !PUBLIC_KEY || PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
-        throw new Error('EmailJS is not configured. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY.')
+      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        throw new Error('EmailJS environment variables are missing.')
       }
 
-      const templateParams = {
-        to_email: 'mbyoonusahamed@gmail.com',
-        from_name: formData.name || 'Website User',
-        from_email: formData.email || 'no-reply@example.com',
-        reply_to: formData.email || 'no-reply@example.com',
-        phone: formData.phone || '',
-        country: formData.country || '',
-        message: formData.message || '',
-        subject: 'New website contact submission'
-      }
-
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
-      setSubmitted(true)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        country: '',
-        message: ''
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, {
+        publicKey: PUBLIC_KEY
       })
+
+      setSubmitted(true)
+      setFormData(initialFormData)
+      setError(null)
     } catch (err) {
-      setError('Failed to submit inquiry. Please try again.')
       console.error('Error submitting inquiry:', err)
+      setError('Failed to send your message. Please try again.')
+      setSubmitted(false)
     } finally {
       setSubmitting(false)
     }
@@ -140,9 +130,9 @@ const Contact = () => {
             <div className={styles.formWrapper}>
               {submitted ? (
                 <div className={styles.successMessage}>
-                  <h3>Thank You!</h3>
+                  <h3>Success!</h3>
                   <p>
-                    We've received your inquiry and will get back to you within 24 hours.
+                    Your message has been sent successfully!
                   </p>
                 </div>
               ) : (
