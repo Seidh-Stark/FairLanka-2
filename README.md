@@ -72,9 +72,24 @@ npm run build
 
 ## Environment Variables
 
-The following environment variables are pre-configured in `.env`:
+For local development, copy `.env.example` to `.env` and add your values. The following variables are used:
+- `VITE_EMAILJS_SERVICE_ID`: EmailJS service ID
+- `VITE_EMAILJS_TEMPLATE_ID`: EmailJS template ID
+- `VITE_EMAILJS_PUBLIC_KEY`: EmailJS public key
 - `VITE_SUPABASE_URL`: Supabase project URL
 - `VITE_SUPABASE_ANON_KEY` (or `VITE_SUPABASE_SUPABASE_ANON_KEY`): Supabase anonymous key
+
+### Netlify Deployment
+
+Netlify does not read the local `.env` file from your computer. Add these variables in **Site configuration > Environment variables**:
+
+```text
+VITE_EMAILJS_SERVICE_ID=service_ylakcgn
+VITE_EMAILJS_TEMPLATE_ID=template_bfxo75n
+VITE_EMAILJS_PUBLIC_KEY=upIa_rReSdr5bQN-6
+```
+
+Use `npm run build` as the build command and `dist` as the publish directory. After saving the variables, trigger **Deploys > Trigger deploy > Deploy site**. Vite embeds `VITE_` variables during the build, so a redeploy is required after changing them.
 
 ## Color Scheme
 
