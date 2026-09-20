@@ -34,6 +34,12 @@ const Contact = () => {
     setSubmitted(false)
 
     try {
+      try {
+        await inquiryService.create(formData)
+      } catch (inquiryError) {
+        console.warn('Inquiry storage unavailable, continuing with email send:', inquiryError)
+      }
+
       const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
       const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
       const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
